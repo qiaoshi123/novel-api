@@ -1,12 +1,12 @@
 {
-    "name": "novel-api", 
-    "script": "./bin/www", 
-    "cwd": "./", 
-    "watch": [ 
+    "name": "novel-api",
+    "script": "./bin/www",
+    "cwd": "./",
+    "watch": [
         "bin",
         "routers"
     ],
-    "ignore_watch": [ 
+    "ignore_watch": [
         "node_modules",
         "logs",
         "public",
@@ -16,10 +16,10 @@
         "followSymlinks": false
     },
     "max_memory_restart": "1G",
-    "error_file": "./logs/novel-apierr.log", 
+    "error_file": "./logs/novel-apierr.log",
     "out_file": "./logs/novel-api-out.log",
     "env": {
         "DEBUG": "novel-api",
-        "PORT": "8080"
+        "PORT": "443"
     }
 }
