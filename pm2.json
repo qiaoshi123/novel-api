@@ -20,6 +20,6 @@
     "out_file": "./logs/novel-api-out.log",
     "env": {
         "DEBUG": "novel-api",
-        "PORT": "80"
+        "PORT": "8080"
     }
 }
