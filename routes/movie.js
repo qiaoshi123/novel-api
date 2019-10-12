@@ -3,6 +3,7 @@ let common = require('../common/common.json'); // 引用公共文件
 let router = express.Router();
 let cheerio = require('cheerio');
 let superagent = require('superagent');
+let request = require('request');
 
 /**
  * 首页
@@ -130,6 +131,64 @@ router.get('/voddetail', function (req, res, next) {
             });
 
             res.success({detail});
+        });
+});
+
+
+/**
+ * 播放数据
+ * @type {Router}
+ * /movie/vodplay?path=/vodplay/38121-1-2/
+ */
+
+router.get('/vodplay', function (req, res, next) {
+    let path = req.query.path;
+    console.log(common.MOVIE+path);
+    superagent.get(common.MOVIE+path)
+        .end(function (err, sres) {
+            // 常规的错误处理
+            if (err) {
+                return next(err);
+            }
+            let result = {};
+            let $ = cheerio.load(sres.text);
+            // console.log(sres.text)
+            let str = $('.stui-player__video').children('script').eq(0).html();
+            let index = str.indexOf('=');
+            let videoInfo = str.slice(index+1);
+            videoInfo = JSON.parse(videoInfo);
+            console.log(videoInfo)
+            if(videoInfo.url.indexOf('.mp4')>-1){
+                let redirect = 'http://g.shumafen.cn/api/file/f714a0e9f4151b7e/'+videoInfo.url;
+                superagent.get(redirect)
+                    .end(function (err, sres) {
+                        // 常规的错误处理
+                        if (err) {
+                            return next(err);
+                        }
+                        let $ = cheerio.load(sres.text);
+                        let $script = $('body').find('script').eq($('body').find('script').length-1);
+                        let str = $script.html().trim();
+                        let reg1 = /var u="..\/..(\/.*)";/;
+
+                        let requestUrl = 'http://g.shumafen.cn/api'+reg1.exec(str)[1];
+                        request.get(requestUrl, function (err, response, body) {
+                            if (err) {
+                                res.send(JSON.stringify({ "flag": 0, "msg": "请求出错了..." }));
+                            }
+                            let $ = cheerio.load(body);
+                            eval($('script').html());
+                            var reg2 = /setAttribute\("src",(.*)\);/;
+                            result.url = decodeURIComponent(eval(reg2.exec(body.trim())[1]));
+                            res.success(result);
+                        });
+                    });
+
+            }else if(videoInfo.url.indexOf('.m3u8')>-1){
+                result.url = videoInfo.url;
+                res.success(result);
+
+            }
         });
 });
 

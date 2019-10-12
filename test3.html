@@ -1,0 +1,62 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1,target-densitydpi=device-dpi ">
+    <title>牛X云视频解析</title>
+    <!--<script src="../../../js/jquery-1.8.3.min.js"></script>-->
+    <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+
+</head>
+<body style="margin: 0">
+<div class="player" style="color:#fff;width: 100%;height: 100%;display: table;text-align: center;background: #000"><span
+        style="vertical-align: middle;display: table-cell;font-size: 18px;color:#fff">正在加载播放器。。。</span></div>
+<script>
+    var u = "../../file_u/lzlmlklJlUlklklIlzlwkCNNlklzloNzlJNmlINNlolzlmlzNwlkNmwFNmlNllNzNmlmlJNzlJlllolkNlNmloNzwENDkJlokClwlzlUlm";
+    $().ready(function () {
+        get_player();
+        var retry_num = 0;
+
+        function get_player() {
+            $.ajax({
+                url: u,
+                success: function (re) {
+                    //var re=$.parseJSON(re);
+                    if (re == 'error-1') {
+                        var txt = '';
+                        retry_num++;
+                        if (retry_num < 3) {
+
+                            txt = '加载失败，正在重试-' + retry_num.toString();
+                        } else
+                            txt = '加载失败，请稍后刷新！';
+                        $(".player span").text(txt);
+                        if (retry_num > 3)
+                            return;
+                        setTimeout(function () {
+                            get_player();
+                        }, 1000);
+                        return;
+                    }
+                    $(".player").css("display", "block");
+                    $(".player").html(re);
+                },
+                error: function () {
+                    var txt = '';
+                    if (retry_num < 3) {
+                        retry_num++;
+                        txt = '加载失败，正在重试-' + retry_num.toString();
+                    } else
+                        txt = '加载失败，请稍后刷新！';
+                    $(".player span").text(txt);
+                    setTimeout(function () {
+                        get_player();
+                    }, 1000);
+                }
+            });
+        }
+
+    });
+</script>
+</body>
+</html>
