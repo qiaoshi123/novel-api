@@ -152,7 +152,6 @@ router.get('/vodplay', function (req, res, next) {
             }
             let result = {};
             let $ = cheerio.load(sres.text);
-            // console.log(sres.text)
             let str = $('.stui-player__video').children('script').eq(0).html();
             let index = str.indexOf('=');
             let videoInfo = str.slice(index+1);
