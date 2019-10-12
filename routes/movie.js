@@ -1,10 +1,9 @@
 let express = require('express');
+let request = require('request');
 let common = require('../common/common.json'); // 引用公共文件
 let router = express.Router();
 let cheerio = require('cheerio');
 let superagent = require('superagent');
-let request = require('request');
-
 /**
  * 首页
  * /movie/index
@@ -26,6 +25,7 @@ router.get('/index', function (req, res, next) {
                     href: $element.attr('href')
                 });
             });
+
             //处理列表
             let list = [];
             $('.container .stui-pannel').each((idx, ele) => {

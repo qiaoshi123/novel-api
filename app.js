@@ -15,7 +15,7 @@ let chapterRouter = require('./routes/chapter');
 let articleRouter = require('./routes/article');
 let rankingRouter = require('./routes/ranking');
 let bookRouter = require('./routes/book');
-let movieRouter = require('./routes/movie');
+let movieRouter = require('./routes/movie.js');
 let app = express();
 let logDir = path.join(__dirname, 'log');
 
@@ -67,7 +67,7 @@ app.use('/ranking', rankingRouter);
 app.use('/book', bookRouter);
 
 //电影
-app.use('/movie',movieRouter)
+app.use('/movie',movieRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
