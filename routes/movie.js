@@ -118,6 +118,9 @@ router.get('/voddetail', function (req, res, next) {
             origins.each((idx,ele)=>{
                 let obj = {};
                 obj.name = $(ele).text();
+                if(obj.name == "速播云"){
+                    return;
+                }
                 obj.list = [];
                 let $content = $('#mytab').children('ul').eq(idx);
                 $content.children('li').each((i,v)=>{
@@ -126,7 +129,7 @@ router.get('/voddetail', function (req, res, next) {
                         name:$(v).children('a').text()
                     };
                   obj.list.push(item);
-                })
+                });
                 detail.playInfo.push(obj);
             });
 
