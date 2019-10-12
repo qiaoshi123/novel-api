@@ -3,6 +3,11 @@ let common = require('../common/common.json'); // 引用公共文件
 let router = express.Router();
 let cheerio = require('cheerio');
 let superagent = require('superagent');
+
+/**
+ * 首页
+ * /movie/index
+ */
 router.get('/index', function (req, res, next) {
     superagent.get(common.MOVIE)
         .end(function (err, sres) {
@@ -25,9 +30,6 @@ router.get('/index', function (req, res, next) {
             $('.container .stui-pannel').each((idx, ele) => {
                 let obj = {};
                 let $el = $(ele);
-                if ($el.find('.flickity-page').length > 0) {
-                    return;
-                }
                 if ($el.find('.col-lg-wide-75').length > 0) {
                     let $title = $el.find('.col-lg-wide-75').find('.stui-pannel_hd>.stui-pannel__head').find('.title');
                     obj.title = $title.children('a').text();
@@ -44,12 +46,92 @@ router.get('/index', function (req, res, next) {
                         item.pic_text = $v.find('.stui-vodlist__thumb').find('.pic-text').text();
                         item.text_muted = $v.find('.stui-vodlist__detail').find('.text-muted').text();
                         obj.vodlist.push(item)
-                    })
+                    });
+                    list.push(obj);
                 }
-                list.push(obj);
             });
             res.success({cate_list,list});
         });
 });
+
+
+/**
+ * 详情
+ * /movie/voddetail?path=/voddetail/38201/
+ */
+router.get('/voddetail', function (req, res, next) {
+    let path = req.query.path;
+    console.log(common.MOVIE+path);
+    superagent.get(common.MOVIE+path)
+        .end(function (err, sres) {
+            // 常规的错误处理
+            if (err) {
+                return next(err);
+            }
+            var $ = cheerio.load(sres.text);
+            console.log(sres.text);
+            //详情
+            let detail = {};
+            detail.title = $('.stui-content__thumb').find('.stui-vodlist__thumb').attr('title');
+            detail.img_src =$('.stui-content__thumb').find('.stui-vodlist__thumb').children('img').attr('data-original');
+            detail.pic_text = $('.stui-content__thumb').find('.pic-text').text();
+            detail.persons= {};
+            detail.main_person = {};
+            detail.update_time = {};
+            $('.stui-content__detail').children('p').each((idx,ele)=>{
+                //主演
+                if(idx == 1){
+                    detail.persons.title = $(ele).children('.text-muted').text().trim() ;
+                    detail.persons.names =[];
+                    $(ele).children('a').each((i,v)=>{
+                        if($(v).text()){
+                            detail.persons.names.push($(v).text().trim() );
+                        }
+                    })
+                }
+                //导演
+                if(idx == 2){
+                    detail.main_person.title = $(ele).children('.text-muted').text().trim() ;
+                    detail.main_person.names =[];
+                    $(ele).children('a').each((i,v)=>{
+                        if($(v).text()){
+                            detail.main_person.names.push($(v).text().trim() );
+                        }
+                    })
+                }
+                //更新时间
+                if(idx == 3){
+                    let strAry = $(ele).text().split('：');
+                    detail.update_time.title = strAry[0].trim() ;
+                    detail.update_time.time =strAry[1].trim()
+                }
+            });
+            detail.desc = {
+                title:'剧情简介',
+                text:$("#desc").find('.col-pd').text().trim()
+            };
+
+            detail.playInfo = [];
+            let origins = $('#mytabs').children();
+
+            origins.each((idx,ele)=>{
+                let obj = {};
+                obj.name = $(ele).text();
+                obj.list = [];
+                let $content = $('#mytab').children('ul').eq(idx);
+                $content.children('li').each((i,v)=>{
+                    let item = {
+                        href : $(v).children('a').attr('href'),
+                        name:$(v).children('a').text()
+                    };
+                  obj.list.push(item);
+                })
+                detail.playInfo.push(obj);
+            });
+
+            res.success({detail});
+        });
+});
+
 
 module.exports = router;
