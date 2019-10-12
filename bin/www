@@ -7,25 +7,26 @@
 var app = require('../app');
 var debug = require('debug')('novel-api:server');
 let fs = require('fs');
-// let http = require("http");
-let https = require("https"); // https模块
-
-const httpsOption = {
-  key : fs.readFileSync(__dirname + "/2_www.zhuishudaren.com.key"),  // 后面的半段改为自己的证书位置
-  cert: fs.readFileSync(__dirname + "/1_www.zhuishudaren.com_bundle.crt")
-};
+let http = require("http");
+// let https = require("https"); // https模块
+//
+// const httpsOption = {
+//   key : fs.readFileSync(__dirname + "/2_www.zhuishudaren.com.key"),  // 后面的半段改为自己的证书位置
+//   cert: fs.readFileSync(__dirname + "/1_www.zhuishudaren.com_bundle.crt")
+// };
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '6060');
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
-
-var server = https.createServer(httpsOption,app);
+//
+// var server = https.createServer(httpsOption,app);
+var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -60,6 +61,7 @@ function normalizePort(val) {
  */
 
 function onError(error) {
+  console.log(error)
   if (error.syscall !== 'listen') {
     throw error;
   }
@@ -88,9 +90,10 @@ function onError(error) {
  */
 
 function onListening() {
+
   var addr = server.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  console.log('Listening on ' + bind);
 }
