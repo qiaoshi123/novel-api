@@ -152,30 +152,33 @@ router.get('/vodplay', function (req, res, next) {
             }
             let result = {};
             let $ = cheerio.load(sres.text);
+            //拿到视频信息
             let str = $('.stui-player__video').children('script').eq(0).html();
             let index = str.indexOf('=');
             let videoInfo = str.slice(index+1);
             videoInfo = JSON.parse(videoInfo);
-            console.log(videoInfo)
+
             if(videoInfo.url.indexOf('.mp4')>-1){
+                //mp4 爬取mp4播放页面信息
                 let redirect = 'http://g.shumafen.cn/api/file/f714a0e9f4151b7e/'+videoInfo.url;
                 superagent.get(redirect)
                     .end(function (err, sres) {
-                        // 常规的错误处理
                         if (err) {
                             return next(err);
                         }
                         let $ = cheerio.load(sres.text);
+                        //分析代码，发现有ajax请求，抓出请求地址 模拟请求
                         let $script = $('body').find('script').eq($('body').find('script').length-1);
                         let str = $script.html().trim();
                         let reg1 = /var u="..\/..(\/.*)";/;
-
                         let requestUrl = 'http://g.shumafen.cn/api'+reg1.exec(str)[1];
                         request.get(requestUrl, function (err, response, body) {
                             if (err) {
-                                res.send(JSON.stringify({ "flag": 0, "msg": "请求出错了..." }));
+                                res.fail({})
                             }
                             let $ = cheerio.load(body);
+                            //请求结果是 js代码，找到视频编码，通过eval声明；
+                            //匹配出表示视频地址的变量；
                             eval($('script').html());
                             var reg2 = /setAttribute\("src",(.*)\);/;
                             result.url = decodeURIComponent(eval(reg2.exec(body.trim())[1]));

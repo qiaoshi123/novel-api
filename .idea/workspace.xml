@@ -92,8 +92,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/movie.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="187" column="36" lean-forward="true" selection-start-line="187" selection-start-column="36" selection-end-line="187" selection-end-column="36" />
+            <state relative-caret-position="675">
+              <caret line="180" column="43" selection-start-line="180" selection-start-column="43" selection-end-line="180" selection-end-column="43" />
               <folding>
                 <element signature="e#2398#5203#0" />
               </folding>
@@ -288,12 +288,12 @@
       <updated>1570763503563</updated>
       <workItem from="1570763504834" duration="12078000" />
       <workItem from="1570849645994" duration="23639000" />
-      <workItem from="1570877478878" duration="3306000" />
+      <workItem from="1570877478878" duration="3643000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39023000" />
+    <option name="totallyTimeSpent" value="39360000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -322,7 +322,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.41554403" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.059067357" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -503,8 +503,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/movie.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="187" column="36" lean-forward="true" selection-start-line="187" selection-start-column="36" selection-end-line="187" selection-end-column="36" />
+        <state relative-caret-position="675">
+          <caret line="180" column="43" selection-start-line="180" selection-start-column="43" selection-end-line="180" selection-end-column="43" />
           <folding>
             <element signature="e#2398#5203#0" />
           </folding>
