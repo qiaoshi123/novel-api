@@ -146,6 +146,8 @@ router.get('/voddetail', function (req, res, next) {
 
 router.get('/vodplay', function (req, res, next) {
     let path = req.query.path;
+    let reg = /\/vodplay\/(.*)\//;
+    let detailRequsetUrl = common.LOCAL+"/movie/voddetail?path=/voddetail/"+reg.exec(path)[1].split('-')[0]+"/";
     console.log(common.MOVIE+path);
     superagent.get(common.MOVIE+path)
         .end(function (err, sres) {
@@ -175,7 +177,7 @@ router.get('/vodplay', function (req, res, next) {
                         let str = $script.html().trim();
                         let reg1 = /var u="..\/..(\/.*)";/;
                         let requestUrl = 'http://g.shumafen.cn/api'+reg1.exec(str)[1];
-                        request.get(requestUrl, function (err, response, body) {
+                        request.get(requestUrl,  (err, response, body)=> {
                             if (err) {
                                 res.fail({})
                             }
@@ -185,14 +187,21 @@ router.get('/vodplay', function (req, res, next) {
                             eval($('script').html());
                             var reg2 = /setAttribute\("src",(.*)\);/;
                             result.url = decodeURIComponent(eval(reg2.exec(body.trim())[1]));
-                            res.success(result);
+                            request.get(detailRequsetUrl, (err,response,body)=> {
+                                let bodyObj = JSON.parse(body);
+                                Object.assign(result,bodyObj.data)
+                                res.success(result);
+                            })
                         });
                     });
 
             }else if(videoInfo.url.indexOf('.m3u8')>-1){
                 result.url = videoInfo.url;
-                res.success(result);
-
+                request.get(detailRequsetUrl, (err,response,body)=> {
+                    let bodyObj = JSON.parse(body);
+                    Object.assign(result,bodyObj.data)
+                    res.success(result);
+                })
             }
         });
 });
