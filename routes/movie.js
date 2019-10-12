@@ -1,32 +1,58 @@
 let express = require('express');
-let request = require('request');
 let common = require('../common/common.json'); // 引用公共文件
 let router = express.Router();
 let cheerio = require('cheerio');
 let superagent = require('superagent');
 router.get('/index', function (req, res, next) {
-  // 用 superagent 去抓取 https://cnodejs.org/ 的内容
-  superagent.get('http://m.7u9kc.cn/index')
+  superagent.get(common.MOVIE)
       .end(function (err, sres) {
         // 常规的错误处理
         if (err) {
           return next(err);
         }
-        // sres.text 里面存储着网页的 html 内容，将它传给 cheerio.load 之后
-        // 就可以得到一个实现了 jquery 接口的变量，我们习惯性地将它命名为 `$`
-        // 剩下就都是 jquery 的内容了
         var $ = cheerio.load(sres.text);
-        var items = [];
-        console.log($('#topic_list .topic_title').length)
+        var cate_items = [];
+        console.log(sres.text);
+        //处理类目
         $('.stui-header__menu').find('a').each(function (idx, element) {
           var $element = $(element);
-          console.log($element)
-          items.push({
+            cate_items.push({
             title: $element.text(),
             href: $element.attr('href')
           });
         });
-        res.send(items);
+        //处理列表
+          let list = [];
+        $('.container .stui-pannel').each((idx,ele)=>{
+          let obj = {};
+          let $el = $(ele);
+          if($el.find('.flickity-page').length > 0 ){
+            return;
+          }
+          if($el.find('.col-lg-wide-75').length > 0){
+              let $title = $el.find('.col-lg-wide-75').find('.title');
+              obj.title = $title.children('a').text();
+              obj.href = $title.children('a').attr('href');
+              obj.icon = common.MOVIE+$title.children('img').attr('src');
+              obj.vodlist = [];
+
+
+              let $videos = $el.find('.col-lg-wide-75').find('.stui-vodlist__box');
+              $videos.each((idx,v)=>{
+                  let item = {};
+                  let $v = $(v);
+                  item.name = $v.find('.stui-vodlist__thumb').attr('title');
+                  item.href = $v.find('.stui-vodlist__thumb').attr('href');
+                  item.img = $v.find('.stui-vodlist__thumb').attr('data-original');
+                  item.pic_text = $v.find('.stui-vodlist__thumb').find('.pic-text').text();
+                  item.text_muted = $v.find('.stui-vodlist__detail').find('.text-muted').text();
+                  obj.vodlist.push(item)
+              })
+          }
+          list.push(obj);
+        });
+
+        res.send({cate_items,list});
       });
 });
 
