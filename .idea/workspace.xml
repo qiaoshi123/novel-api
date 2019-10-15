@@ -45,10 +45,9 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/movie.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="223" column="26" selection-start-line="223" selection-start-column="26" selection-end-line="223" selection-end-column="26" />
+            <state relative-caret-position="143">
+              <caret line="224" column="38" selection-start-line="224" selection-start-column="38" selection-end-line="224" selection-end-column="38" />
               <folding>
-                <element signature="e#307#2319#0" />
                 <element signature="e#2432#5323#0" />
                 <element signature="e#5455#8329#0" />
               </folding>
@@ -229,12 +228,12 @@
       <workItem from="1570877478878" duration="4937000" />
       <workItem from="1570885705603" duration="1477000" />
       <workItem from="1571113624753" duration="2291000" />
-      <workItem from="1571119265591" duration="4107000" />
+      <workItem from="1571119265591" duration="4803000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48529000" />
+    <option name="totallyTimeSpent" value="49225000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -471,10 +470,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/movie.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="223" column="26" selection-start-line="223" selection-start-column="26" selection-end-line="223" selection-end-column="26" />
+        <state relative-caret-position="143">
+          <caret line="224" column="38" selection-start-line="224" selection-start-column="38" selection-end-line="224" selection-end-column="38" />
           <folding>
-            <element signature="e#307#2319#0" />
             <element signature="e#2432#5323#0" />
             <element signature="e#5455#8329#0" />
           </folding>

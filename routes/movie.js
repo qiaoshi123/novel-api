@@ -222,7 +222,7 @@ router.get('/vodplay', function (req, res, next) {
 router.get('/vodsearch', function (req, res, next) {
     let path = req.query.path;
     let word = req.query.word;
-    let url = `${common.MOVIE}${path}=${encodeURIComponent(word)}`;
+    let url = `${common.MOVIE}${path}${encodeURIComponent(word)}`;
     console.log(url)
     superagent.get(url)
         .end(function (err, sres) {
