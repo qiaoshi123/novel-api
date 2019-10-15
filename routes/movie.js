@@ -271,4 +271,81 @@ router.get('/vodsearch', function (req, res, next) {
 });
 
 
+/**
+ * 首页-初次进入对应类目时,获取筛选条件的api
+ * @type {Router}
+ * /movie/vodtype?path=/vodtype/2/
+ */
+router.get('/vodtype', function (req, res, next) {
+    let path = req.query.path;
+    console.log(common.MOVIE+path);
+    superagent.get(common.MOVIE+path)
+        .end(function (err, sres) {
+            // 常规的错误处理
+            if (err) {
+                return next(err);
+            }
+            var $ = cheerio.load(sres.text);
+
+            //获取排序条件
+            let rank_list = [];
+            $('.nav.nav-head').children('li').each((i,v)=>{
+                let $1= $(v).children('a');
+                rank_list.push({
+                    name:$1.text(),
+                    href:$1.attr('href')
+                })
+            });
+            res.success({rank_list});
+        });
+});
+
+/**
+ * 首页-进入类目后，进行筛选或者排序,获取数据api
+ * @type {Router}
+ * /movie/vodshow?path=/vodshow/2--hits---------/
+ */
+router.get('/vodshow', function (req, res, next) {
+    let path = req.query.path;
+    console.log(common.MOVIE+path);
+    superagent.get(common.MOVIE+path)
+        .end(function (err, sres) {
+            // 常规的错误处理
+            if (err) {
+                return next(err);
+            }
+            var $ = cheerio.load(sres.text);
+            console.log(sres.text);
+            //获取下一页请求地址
+            let next_page_path = "";
+            if($(".stui-page").length>0){
+                $(".stui-page").find('a').each((i,v)=>{
+                    if($(v).text()=="下一页"){
+                        next_page_path = $(v).attr('href')
+                    }
+                })
+            }else{
+                next_page_path = "";
+            }
+            //列表
+            let list = [];
+            $(".stui-vodlist.clearfix").children('li').each((i,v)=>{
+
+                let $1 = $(v).find('.stui-vodlist__box').children('a');
+                let $2 = $(v).find('.stui-vodlist__detail').find('p');
+                let obj = {
+                    href: $1.attr('href'),
+                    img: $1.attr('data-original'),
+                    name: $1.attr('title'),
+                    pic_text: $1.find('.pic-text').text(),
+                    text_muted: $2.text()
+                };
+                list.push(obj)
+            });
+            res.success({next_page_path,list});
+        });
+});
+
+
+
 module.exports = router;
