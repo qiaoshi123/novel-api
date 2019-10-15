@@ -51,7 +51,12 @@ router.get('/index', function (req, res, next) {
                     list.push(obj);
                 }
             });
-            res.success({cate_list,list});
+            //搜索path
+            let search_path = $("#search").attr("action")+'?wd=';
+            let paths = {
+                search_path
+            };
+            res.success({cate_list,list,paths});
         });
 });
 
@@ -205,6 +210,52 @@ router.get('/vodplay', function (req, res, next) {
                     res.success(result);
                 })
             }
+        });
+});
+
+
+/**
+ * 搜索
+ * /movie/vodsearch?path=/vodsearch/-------------/?wd&word=卧虎藏龙
+ * @type {Router}
+ */
+router.get('/vodsearch', function (req, res, next) {
+    let path = req.query.path;
+    let word = req.query.word;
+    let url = `${common.MOVIE}${path}=${encodeURIComponent(word)}`;
+    console.log(url)
+    superagent.get(url)
+        .end(function (err, sres) {
+            // 常规的错误处理
+            if (err) {
+                return next(err);
+            }
+            var $ = cheerio.load(sres.text);
+            console.log(sres.text);
+            //获取下一页请求地址
+            let next_page_path = "";
+            if($(".stui-page").length>0){
+                $(".stui-page").find('a').each((i,v)=>{
+                      if($(v).text()=="下一页"){
+                          next_page_path = $(v).attr('href')
+                      }
+                })
+            }else{
+                next_page_path = "";
+            }
+            //列表信息
+            let list = [];
+            $('.stui-vodlist__media').children('li').each((i,v)=>{
+                let obj = {};
+                let $1 = $(v).children('.thumb').children('a');
+                let $2 = $(v).children('.thumb').children('a').children('.pic-text');
+                obj.href = $1.attr('href');
+                obj.name = $1.attr('title');
+                obj.img = $1.attr('data-original');
+                obj.pic_text = $2.text();
+                list.push(obj);
+            });
+            res.success({next_page_path,list});
         });
 });
 
