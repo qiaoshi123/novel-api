@@ -20,6 +20,9 @@ router.get('/index', function (req, res, next) {
             //处理类目
             $('.stui-header__menu').find('a').each(function (idx, element) {
                 var $element = $(element);
+                if($element.text() =="视频" || $element.text() =="专题" || $element.text() =="音乐" || $element.text() =="直播"){
+                    return;
+                }
                 cate_list.push({
                     title: $element.text(),
                     href: $element.attr('href')
