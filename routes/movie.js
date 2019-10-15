@@ -222,8 +222,16 @@ router.get('/vodplay', function (req, res, next) {
 router.get('/vodsearch', function (req, res, next) {
     let path = req.query.path;
     let word = req.query.word;
-    let url = `${common.MOVIE}${path}${encodeURIComponent(word)}`;
-    console.log(url)
+    let url;
+    if(word){
+        //第一页
+        url = `${common.MOVIE}${path}${encodeURIComponent(word)}`;
+    }else{
+        //第二页
+        url = `${common.MOVIE}${path}`;
+    }
+
+    console.log(url);
     superagent.get(url)
         .end(function (err, sres) {
             // 常规的错误处理
