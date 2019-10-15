@@ -187,6 +187,7 @@ router.get('/vodplay', function (req, res, next) {
                             eval($('script').html());
                             var reg2 = /setAttribute\("src",(.*)\);/;
                             result.url = decodeURIComponent(eval(reg2.exec(body.trim())[1]));
+                            console.log(detailRequsetUrl)
                             request.get(detailRequsetUrl, (err,response,body)=> {
                                 let bodyObj = JSON.parse(body);
                                 Object.assign(result,bodyObj.data)
@@ -197,6 +198,7 @@ router.get('/vodplay', function (req, res, next) {
 
             }else if(videoInfo.url.indexOf('.m3u8')>-1){
                 result.url = videoInfo.url;
+                console.log(detailRequsetUrl)
                 request.get(detailRequsetUrl, (err,response,body)=> {
                     let bodyObj = JSON.parse(body);
                     Object.assign(result,bodyObj.data)
