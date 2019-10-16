@@ -104,14 +104,16 @@ router.post('/shareText', function (req, res, next) {
  */
 router.post('/search', function (req, res, next) {
     let url = `${common.MIRITAO}${goodsApi.search}`;
-    if(req.body.keyWord && miniProgramConfig.MOVIEKEYWORDS.indexOf(req.body.keyWord)>-1){
-        res.success({
-            type: 'movie',
-            data:{
-                path:miniProgramConfig.MOVIEPATH
-            }
-        });
-        return;
+    if (req.body.version != miniProgramConfig.VERIFYVERSION) {
+        if(req.body.keyWord && miniProgramConfig.MOVIEKEYWORDS.indexOf(req.body.keyWord)>-1){
+            res.success({
+                type: 'movie',
+                data:{
+                    path:miniProgramConfig.MOVIEPATH
+                }
+            });
+            return;
+        }
     }
     //form 默认按照 "综合" tab展示
     let form = {
