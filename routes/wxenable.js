@@ -7,6 +7,10 @@ let router = express.Router();
 const moment = require('moment');
 
 //小程序初始化请求
+/**
+ * 小程序初始化请求
+ * /wxenable/landing?v=1.0.1
+ */
 router.get('/landing', function (req, res, next) {
         let v = req.query.v;
         let path;
@@ -26,7 +30,10 @@ router.get('/landing', function (req, res, next) {
         }
         res.success({path,hit})
 });
-//修改配置
+/**
+ * 修改配置
+ * /wxenable/config?VERIFYVERSION=1.0.0
+ */
 router.get('/config',function (req, res, next) {
     Object.assign(miniProgramConfig,req.query);
     fs.writeFile(path.join(__dirname,'../common/miniProgramConfig.json'), JSON.stringify(miniProgramConfig),'utf8',function(error){
