@@ -5,9 +5,9 @@ let miniProgramConfig = require('../common/miniProgramConfig.json');
 let router = express.Router();
 //api
 const goodsApi = {
-    detail:'/api/product/detail',
-    shareText:'/api/product/shareText',
-    search:'/api/product/wholesearch'
+    detail: '/api/product/detail',
+    shareText: '/api/product/shareText',
+    search: '/api/product/wholesearch'
 };
 /**
  * 商品详情
@@ -26,16 +26,16 @@ router.post('/detail', function (req, res, next) {
     let url = `${common.MIRITAO}${goodsApi.detail}`;
     let form = {
         ...req.body,
-        token:miniProgramConfig.USERTOKEN
+        token: miniProgramConfig.USERTOKEN
     };
-    request.post({url,form}, function optionalCallback(err, httpResponse, body) {
+    request.post({url, form}, function optionalCallback(err, httpResponse, body) {
         if (err) {
             return console.error('upload failed:', err);
         }
         body = JSON.parse(body);
-        let detail = {} ;
-        if(body.status == 0){
-              detail = body.data;
+        let detail = {};
+        if (body.status == 0) {
+            detail = body.data;
         }
         res.success({...detail})
     });
@@ -56,16 +56,16 @@ router.post('/shareText', function (req, res, next) {
     let url = `${common.MIRITAO}${goodsApi.shareText}`;
     let form = {
         ...req.body,
-        token:miniProgramConfig.USERTOKEN
+        token: miniProgramConfig.USERTOKEN
     };
-    request.post({url,form}, function optionalCallback(err, httpResponse, body) {
+    request.post({url, form}, function optionalCallback(err, httpResponse, body) {
         if (err) {
             return console.error('upload failed:', err);
         }
         body = JSON.parse(body);
-        let result = {} ;
+        let result = {};
         console.log(body)
-        if(body.status == 0){
+        if (body.status == 0) {
             result = body.data;
         }
         res.success({...result})
@@ -89,27 +89,37 @@ router.post('/shareText', function (req, res, next) {
  */
 router.post('/search', function (req, res, next) {
     let url = `${common.MIRITAO}${goodsApi.search}`;
+    if(req.body.keyWord && miniProgramConfig.MOVIEKEYWORDS.indexOf(req.body.keyWord)>-1){
+        res.success({
+            type: 'movie',
+            data:{
+                path:miniProgramConfig.MOVIEPATH
+            }
+        });
+        return;
+    }
     //form 默认按照 "综合" tab展示
     let form = {
-        platform:1,
-        pageSize:10,
-        hasCoupon:0,
-        orderBy:"view",
-        sort:"",
-        token:miniProgramConfig.USERTOKEN
+        platform: 1,
+        pageIndex: 1,
+        pageSize: 10,
+        keyWord: "",
+        hasCoupon: 0,
+        orderBy: "view",
+        sort: "",
+        token: miniProgramConfig.USERTOKEN
     };
-    Object.assign(form,req.body);
-    request.post({url,form}, function optionalCallback(err, httpResponse, body) {
+    Object.assign(form, req.body);
+    request.post({url, form}, function optionalCallback(err, httpResponse, body) {
         if (err) {
             return console.error('upload failed:', err);
         }
         body = JSON.parse(body);
-        let result = {} ;
-        console.log(body)
-        if(body.status == 0){
-            result = body.data;
+        let data = {};
+        if (body.status == 0) {
+            data = body.data;
         }
-        res.success({...result})
+        res.success({type: 'goods', data})
     });
 
 });
