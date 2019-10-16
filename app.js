@@ -16,6 +16,7 @@ let articleRouter = require('./routes/article');
 let rankingRouter = require('./routes/ranking');
 let bookRouter = require('./routes/book');
 let movieRouter = require('./routes/movie.js');
+let wxenableRouter = require('./routes/wxenable.js');
 let app = express();
 let logDir = path.join(__dirname, 'log');
 
@@ -47,7 +48,7 @@ app.all('*', function (req, res, next) {
     next()
 });
 
-app.use(times(22,5));
+// app.use(times(22,5));
 app.use(filter())
 
 // 路由中间件
@@ -66,8 +67,13 @@ app.use('/ranking', rankingRouter);
 // 小说信息
 app.use('/book', bookRouter);
 
-//电影
+//电影路由
 app.use('/movie',movieRouter);
+
+//小程序权限路由
+
+app.use('/wxenable',wxenableRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
