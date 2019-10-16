@@ -53,24 +53,39 @@ router.post('/detail', function (req, res, next) {
  */
 
 router.post('/shareText', function (req, res, next) {
-    let url = `${common.MIRITAO}${goodsApi.shareText}`;
+    let shareUrl = `${common.MIRITAO}${goodsApi.shareText}`;
+    let detailUrl = `${common.MIRITAO}${goodsApi.detail}`;
     let form = {
         ...req.body,
         token: miniProgramConfig.USERTOKEN
     };
-    request.post({url, form}, function optionalCallback(err, httpResponse, body) {
+    request.post({url:detailUrl, form}, function optionalCallback(err, httpResponse, body) {
         if (err) {
             return console.error('upload failed:', err);
         }
         body = JSON.parse(body);
         let result = {};
-        console.log(body)
         if (body.status == 0) {
             result = body.data;
         }
-        res.success({...result})
+        let form = {
+            productId:req.body.productId,
+            platform:req.body.platform,
+            token: miniProgramConfig.USERTOKEN
+        };
+        request.post({url:shareUrl, form}, function optionalCallback(err, httpResponse, body) {
+            if (err) {
+                return console.error('upload failed:', err);
+            }
+            body = JSON.parse(body);
+            let result = {};
+            console.log(body)
+            if (body.status == 0) {
+                result = body.data;
+            }
+            res.success({...result})
+        });
     });
-
 });
 
 /**
