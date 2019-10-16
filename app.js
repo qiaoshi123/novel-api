@@ -17,6 +17,7 @@ let rankingRouter = require('./routes/ranking');
 let bookRouter = require('./routes/book');
 let movieRouter = require('./routes/movie.js');
 let wxenableRouter = require('./routes/wxenable.js');
+let goodsRouter = require('./routes/goods.js');
 let app = express();
 let logDir = path.join(__dirname, 'log');
 
@@ -74,6 +75,9 @@ app.use('/movie',movieRouter);
 
 app.use('/wxenable',wxenableRouter);
 
+
+//米日淘商品路由
+app.use('/goods',goodsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
