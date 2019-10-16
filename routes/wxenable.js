@@ -56,3 +56,16 @@ function canGoMovie(start,end) {
     }
 }
 module.exports = router;
+
+
+/**
+ * 小程序过审策略
+ *
+ * 小程序入口页面：
+ * 1.命中审核版本:直接跳转goods
+ * 2.未命中审核版本: 22:00-5:00 跳转至movie ，其他时间跳转至goods
+ *
+ * goods首页搜索：
+ * 1.命中审核版本，不管搜啥，都走goods
+ * 2.未命中审核版本，并且是指定关键字，走movie。 否则走goods
+ */
