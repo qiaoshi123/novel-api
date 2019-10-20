@@ -67,15 +67,12 @@ router.post('/listByType', function (req, res, next) {
 });
 
 /**
- *
- * @param url
- * @param form
- * @returns {Promise<any>}
+ *内部掉用 封装；
  */
 function requestCustom(data) {
     return new Promise((resolve, reject) => {
         request.post({
-            url: `http://localhost:6060/v2/movie/listByType`,
+            url: `${common.LOCAL}/v2/movie/listByType`,
             form: data
         }, function optionalCallback(err, httpResponse, body) {
             if (err) {
