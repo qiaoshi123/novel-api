@@ -35,7 +35,7 @@ router.get('/index', function (req, res, next) {
         result.forEach((v,i)=>{
             tabs[i].list = v || [];
         });
-        res.success({...tabs});
+        res.success({tabs});
     }).catch(e=>{
         console.log('error',e);
         res.success({tabs})
