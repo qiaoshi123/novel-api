@@ -38,7 +38,7 @@ router.get('/index', function (req, res, next) {
         res.success({...tabs});
     }).catch(e=>{
         console.log('error',e);
-        res.success({...tabs})
+        res.success({tabs})
     })
 });
 /**
