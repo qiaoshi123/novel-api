@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e7b0f3b2-1d76-417f-bef7-2bc7d368de17" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/common/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/common/common.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/movieV2.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/movieV2.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -43,12 +42,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/movieV2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="128" column="42" selection-start-line="128" selection-start-column="42" selection-end-line="128" selection-end-column="42" />
+            <state relative-caret-position="146">
+              <caret line="153" column="14" selection-start-line="153" selection-start-column="14" selection-end-line="153" selection-end-column="14" />
               <folding>
                 <element signature="e#614#645#0" />
                 <element signature="e#1075#1339#0" />
                 <element signature="e#2213#2221#0" />
+                <element signature="e#2850#3365#0" />
                 <element signature="n#!!block;n#requestCustom#0" />
               </folding>
             </state>
@@ -254,12 +254,12 @@
       <workItem from="1571119265591" duration="9585000" />
       <workItem from="1571198182835" duration="14084000" />
       <workItem from="1571385949958" duration="337000" />
-      <workItem from="1571395928034" duration="7082000" />
+      <workItem from="1571395928034" duration="7865000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75510000" />
+    <option name="totallyTimeSpent" value="76293000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -272,7 +272,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1460" y="46" width="1920" height="977" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2996314" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -288,7 +287,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2723164" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.38757062" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -565,12 +564,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/movieV2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="128" column="42" selection-start-line="128" selection-start-column="42" selection-end-line="128" selection-end-column="42" />
+        <state relative-caret-position="146">
+          <caret line="153" column="14" selection-start-line="153" selection-start-column="14" selection-end-line="153" selection-end-column="14" />
           <folding>
             <element signature="e#614#645#0" />
             <element signature="e#1075#1339#0" />
             <element signature="e#2213#2221#0" />
+            <element signature="e#2850#3365#0" />
             <element signature="n#!!block;n#requestCustom#0" />
           </folding>
         </state>

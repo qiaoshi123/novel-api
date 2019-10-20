@@ -147,6 +147,31 @@ router.get('/filter', (req, res, next) => {
 });
 
 
+/**
+ * 获取详情
+ * /v2/movie/detail
+ * {
+ *     id:1121
+ * }
+ */
+router.post('/detail',(req,res,next)=>{
+
+    let url = `${common.MOVIEV2}/api/mv/detail`;
+    let form = {
+        id: req.body.id,
+    };
+    request.post({url, form}, function optionalCallback(err, httpResponse, body) {
+        if (err) {
+            return console.error('upload failed:', err);
+        }
+        body = JSON.parse(body);
+        let detail = [];
+        if (body.code == 200) {
+            detail = body.data;
+        }
+        res.success({detail})
+    });
+});
 
 /**
  *内部掉用 封装；
