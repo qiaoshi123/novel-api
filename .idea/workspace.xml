@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e7b0f3b2-1d76-417f-bef7-2bc7d368de17" name="Default Changelist" comment="" />
+    <list default="true" id="e7b0f3b2-1d76-417f-bef7-2bc7d368de17" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/movieV2.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/movieV2.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -25,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/goods.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2223">
-              <caret line="117" column="4" selection-start-line="117" selection-start-column="4" selection-end-line="139" selection-end-column="7" />
+            <state relative-caret-position="225">
+              <caret line="101" column="4" lean-forward="true" selection-start-line="101" selection-start-column="4" selection-end-line="101" selection-end-column="4" />
               <folding>
                 <element signature="e#3386#3650#0" />
               </folding>
@@ -37,11 +40,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/movieV2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="18" />
+            <state relative-caret-position="285">
+              <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
               <folding>
                 <element signature="e#589#1075#0" />
-                <element signature="e#2973#3587#0" />
                 <element signature="e#3691#4132#0" />
                 <element signature="n#!!block;n#requestCustom#0" />
               </folding>
@@ -145,8 +147,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1421" />
-    <option name="y" value="38" />
+    <option name="x" value="1551" />
+    <option name="y" value="29" />
     <option name="width" value="1920" />
     <option name="height" value="977" />
   </component>
@@ -249,12 +251,12 @@
       <workItem from="1571198182835" duration="14084000" />
       <workItem from="1571385949958" duration="337000" />
       <workItem from="1571395928034" duration="8312000" />
-      <workItem from="1571565482441" duration="590000" />
+      <workItem from="1571565482441" duration="2854000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77330000" />
+    <option name="totallyTimeSpent" value="79594000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -266,10 +268,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1421" y="38" width="1920" height="977" extended-state="0" />
+    <frame x="1551" y="29" width="1920" height="977" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2996314" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2996314" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -283,7 +285,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.23954803" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.23954803" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -517,16 +519,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/goods.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2223">
-          <caret line="117" column="4" selection-start-line="117" selection-start-column="4" selection-end-line="139" selection-end-column="7" />
-          <folding>
-            <element signature="e#3386#3650#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/wxenable.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -546,13 +538,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/goods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="101" column="4" lean-forward="true" selection-start-line="101" selection-start-column="4" selection-end-line="101" selection-end-column="4" />
+          <folding>
+            <element signature="e#3386#3650#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/movieV2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="18" />
+        <state relative-caret-position="285">
+          <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
           <folding>
             <element signature="e#589#1075#0" />
-            <element signature="e#2973#3587#0" />
             <element signature="e#3691#4132#0" />
             <element signature="n#!!block;n#requestCustom#0" />
           </folding>

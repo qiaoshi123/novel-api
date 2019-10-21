@@ -7,11 +7,11 @@ let common = require('../common/common.json'); // 引用公共文件
 let router = express.Router();
 //首页tab
 let tabs = [
-    {name: "热门推荐", path: '/api/m/type-hot', list: [], page: 0, icon: 'http://d.bqnwg.cn/statics/icon/icon_12.png'},
-    {name: "电影", path: '/api/m/type-m', list: [], page: 0, icon: "http://m.7u9kc.cn/statics/icon/icon_1.png"},
-    {name: "电视剧", path: '/api/m/type-s', list: [], page: 0, icon: "http://m.7u9kc.cn/statics/icon/icon_2.png"},
-    {name: "动漫", path: '/api/m/type', list: [], page: 0, icon: "http://m.7u9kc.cn/statics/icon/icon_3.png"},
-    {name: "综艺", path: '/api/m/type', list: [], page: 0, icon: "http://m.7u9kc.cn/statics/icon/icon_3.png"}
+    {name: "热门推荐", path: '/api/m/type-hot', list: [], page: 0,hasNext:1, icon: 'http://d.bqnwg.cn/statics/icon/icon_12.png'},
+    {name: "电影", path: '/api/m/type-m', list: [], page: 0, hasNext:1, icon: "http://m.7u9kc.cn/statics/icon/icon_1.png"},
+    {name: "电视剧", path: '/api/m/type-s', list: [], page: 0,hasNext:1,  icon: "http://m.7u9kc.cn/statics/icon/icon_2.png"},
+    {name: "动漫", path: '/api/m/type', list: [], page: 0, hasNext:1, icon: "http://m.7u9kc.cn/statics/icon/icon_3.png"},
+    {name: "综艺", path: '/api/m/type', list: [], page: 0, hasNext:1, icon: "http://m.7u9kc.cn/statics/icon/icon_3.png"}
 ];
 /**
  * tabs
