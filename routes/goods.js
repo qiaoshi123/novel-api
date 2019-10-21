@@ -7,7 +7,8 @@ let router = express.Router();
 const goodsApi = {
     detail: '/api/product/detail',
     shareText: '/api/product/shareText',
-    search: '/api/product/wholesearch'
+    search: '/api/product/wholesearch',
+    transfer:'/api/product/transfer'
 };
 /**
  * 商品详情
@@ -43,7 +44,7 @@ router.post('/detail', function (req, res, next) {
 });
 
 /**
- * 获取分享内容
+ * 获取h5购买链接(获取分享内容)
  * post:{
  *     productId,
  *     platform,
@@ -87,6 +88,46 @@ router.post('/shareText', function (req, res, next) {
         });
     });
 });
+
+/**
+ * 获取转链后的链接（站内链接）
+ *
+ */
+router.post('/transfer', function (req, res, next) {
+    let transferUrl = `${common.MIRITAO}${goodsApi.transfer}`;
+    let detailUrl = `${common.MIRITAO}${goodsApi.detail}`;
+    let form = {
+        ...req.body,
+        token: miniProgramConfig.USERTOKEN
+    };
+    request.post({url:detailUrl, form}, function optionalCallback(err, httpResponse, body) {
+        if (err) {
+            return console.error('upload failed:', err);
+        }
+        body = JSON.parse(body);
+        let result = {};
+        if (body.status == 0) {
+            result = body.data;
+        }
+        let form = {
+            productId:req.body.productId,
+            platform:req.body.platform,
+            token: miniProgramConfig.USERTOKEN
+        };
+        request.post({url:transferUrl, form}, function optionalCallback(err, httpResponse, body) {
+            if (err) {
+                return console.error('upload failed:', err);
+            }
+            body = JSON.parse(body);
+            let result = {};
+            if (body.status == 0) {
+                result = body.data;
+            }
+            res.success({...result})
+        });
+    });
+});
+
 
 /**
  * 搜索
