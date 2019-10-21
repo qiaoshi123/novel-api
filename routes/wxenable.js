@@ -1,5 +1,4 @@
 let express = require('express');
-let request = require('request');
 let fs  = require('fs');
 let path = require('path');
 let miniProgramConfig = require('../common/miniProgramConfig.json');
@@ -17,14 +16,14 @@ router.get('/landing', function (req, res, next) {
         let hit;
         //如果版本是审核版本
         if (v && v == miniProgramConfig.VERIFYVERSION) {
-            path = miniProgramConfig.JDPATH;
+            path = miniProgramConfig.SHOPPATH;
             hit = 1;
         }else{
             let flag = canGoMovie(miniProgramConfig.MOVIEOPENTIME,miniProgramConfig.MOVIECLOSETIME);
             if(flag){
                 path = miniProgramConfig.MOVIEPATH;
             }else{
-                path = miniProgramConfig.JDPATH;
+                path = miniProgramConfig.SHOPPATH;
             }
             hit = 0;
         }
