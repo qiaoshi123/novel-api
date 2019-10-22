@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e7b0f3b2-1d76-417f-bef7-2bc7d368de17" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/common/wxb9473c91e3b00aa0.json" beforeDir="false" afterPath="$PROJECT_DIR$/common/wxb9473c91e3b00aa0.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/filter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/goods.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/goods.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/movie.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/movie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/movieV2.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/movieV2.js" afterDir="false" />
-    </list>
+    <list default="true" id="e7b0f3b2-1d76-417f-bef7-2bc7d368de17" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -28,7 +22,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/goods.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
@@ -50,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/common/wxb9473c91e3b00aa0.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="12" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="12" />
+            <state relative-caret-position="190">
+              <caret line="10" column="17" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -282,12 +276,12 @@
       <workItem from="1571565482441" duration="4961000" />
       <workItem from="1571652162155" duration="1554000" />
       <workItem from="1571660554251" duration="1839000" />
-      <workItem from="1571727111124" duration="6666000" />
+      <workItem from="1571727111124" duration="7364000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91760000" />
+    <option name="totallyTimeSpent" value="92458000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -300,8 +294,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="35" width="1920" height="977" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14060031" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14060031" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -315,7 +310,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.16045198" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.16045198" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -582,13 +577,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/wxb9473c91e3b00aa0.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="12" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/middleware/filter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="381">
@@ -604,6 +592,13 @@
             <element signature="e#1281#2397#0" />
             <element signature="e#2057#2385#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/wxb9473c91e3b00aa0.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="17" />
         </state>
       </provider>
     </entry>
