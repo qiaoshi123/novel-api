@@ -54,9 +54,9 @@ function getConfig(req) {
 
     //是否在当前小程序播放
     appInfo.is_other_app_player = config.OTHERAPPPLAYER == 1 ? 1 : 0;
-
-
+    req.token = config.USERTOKEN;
     return appInfo;
+
 }
 
 //校验当前是否处于某个 时间段;

@@ -155,7 +155,7 @@ router.get('/voddetail', function (req, res, next) {
 router.get('/vodplay', function (req, res, next) {
     let path = req.query.path;
     let reg = /\/vodplay\/(.*)\//;
-    let detailRequsetUrl = common.LOCAL+"/movie/voddetail?path=/voddetail/"+reg.exec(path)[1].split('-')[0]+"/";
+    let detailRequsetUrl = common.LOCAL+"/movie/voddetail?appId="+req.query.appId+"&version="+req.query.version+"&path=/voddetail/"+reg.exec(path)[1].split('-')[0]+"/";
     console.log(common.MOVIE+path);
     superagent.get(common.MOVIE+path)
         .end(function (err, sres) {

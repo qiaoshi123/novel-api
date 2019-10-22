@@ -25,7 +25,9 @@ router.get('/index', function (req, res, next) {
             type: v.name,
             page: v.page,
             num: 21,
-            path: v.path
+            path: v.path,
+            version:req.query.version,
+            appId:req.query.appId
         };
         let p = requestCustom(data);
         pAry.push(p)
@@ -55,7 +57,7 @@ router.post('/listByType', function (req, res, next) {
     let form = {
         type: req.body.type,
         page: req.body.page || 0,
-        num: req.body.num || 21
+        num: req.body.num || 21,
     };
     let url = `${common.MOVIEV2}${req.body.path}`;
     request.post({url, form}, function optionalCallback(err, httpResponse, body) {
@@ -136,7 +138,8 @@ router.get('/filter', (req, res, next) => {
         let filters = {
             ...body
         };
-        request.post({url: `${common.LOCAL}/v2/movie/search`, form: {name}}, (err, response, body) => {
+        let form = {name,appId:req.query.appId,version:req.query.version};
+        request.post({url: `${common.LOCAL}/v2/movie/search`, form }, (err, response, body) => {
             body = JSON.parse(body);
             let list = [];
             if (body.status == 1) {

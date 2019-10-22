@@ -1,7 +1,6 @@
 let express = require('express');
 let request = require('request');
 let common = require('../common/common.json');
-let miniProgramConfig = require('../common/miniProgramConfig.json');
 let router = express.Router();
 //api
 const goodsApi = {
@@ -27,7 +26,7 @@ router.post('/detail', function (req, res, next) {
     let url = `${common.MIRITAO}${goodsApi.detail}`;
     let form = {
         ...req.body,
-        token: miniProgramConfig.USERTOKEN
+        token: req.token
     };
     request.post({url, form}, function optionalCallback(err, httpResponse, body) {
         if (err) {
@@ -58,7 +57,7 @@ router.post('/shareText', function (req, res, next) {
     let detailUrl = `${common.MIRITAO}${goodsApi.detail}`;
     let form = {
         ...req.body,
-        token: miniProgramConfig.USERTOKEN
+        token: req.token
     };
     request.post({url:detailUrl, form}, function optionalCallback(err, httpResponse, body) {
         if (err) {
@@ -72,7 +71,7 @@ router.post('/shareText', function (req, res, next) {
         let form = {
             productId:req.body.productId,
             platform:req.body.platform,
-            token: miniProgramConfig.USERTOKEN
+            token: req.token
         };
         request.post({url:shareUrl, form}, function optionalCallback(err, httpResponse, body) {
             if (err) {
@@ -98,7 +97,7 @@ router.post('/transfer', function (req, res, next) {
     let detailUrl = `${common.MIRITAO}${goodsApi.detail}`;
     let form = {
         ...req.body,
-        token: miniProgramConfig.USERTOKEN
+        token: req.token
     };
     request.post({url:detailUrl, form}, function optionalCallback(err, httpResponse, body) {
         if (err) {
@@ -112,7 +111,7 @@ router.post('/transfer', function (req, res, next) {
         let form = {
             productId:req.body.productId,
             platform:req.body.platform,
-            token: miniProgramConfig.USERTOKEN
+            token: req.token
         };
         request.post({url:transferUrl, form}, function optionalCallback(err, httpResponse, body) {
             if (err) {
@@ -154,7 +153,7 @@ router.post('/search', function (req, res, next) {
         hasCoupon: 0,
         orderBy: "view",
         sort: "",
-        token: miniProgramConfig.USERTOKEN
+        token: req.token
     };
     Object.assign(form, req.body);
     request.post({url, form}, function optionalCallback(err, httpResponse, body) {
