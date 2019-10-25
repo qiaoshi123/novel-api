@@ -4,7 +4,6 @@ let path = require('path');
 let router = express.Router();
 let request = require('request');
 let common = require('../common/common.json');
-let qiaoExtWeixin = require('qiao.ext.weixin');
 /**
  * 小程序初始化请求
  * /wxenable/landing?v=1.0.1
@@ -57,13 +56,6 @@ router.post('/getCodeImg',(req,res,next)=>{
     let scene = req.body.scene || "";
     let config = require(`../common/${appId}.json`);
     let appSecret = config.APPSECRET;
-    // qiaoExtWeixin.accessToken(appId, appSecret).then(accessToken=>{
-    //     qiaoExtWeixin.mpCodeSrc(2, accessToken, {path:page,scene}, 'jpg').then(src=>{
-    //         console.log(src)
-    //         res.success({base64:src})
-    //     })
-    // });
-
 
     let getTokenUrl = `http://localhost:6060/wxenable/getToken?appId=${appId}&appSecret=${appSecret}`;
     request.get(getTokenUrl,(err, response, body)=>{
