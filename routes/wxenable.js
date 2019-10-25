@@ -1,11 +1,9 @@
 let express = require('express');
 let fs  = require('fs');
 let path = require('path');
-let miniProgramConfig = require('../common/miniProgramConfig.json');
 let router = express.Router();
-const moment = require('moment');
-
-//小程序初始化请求
+let request = require('request');
+let common = require('../common/common.json');
 /**
  * 小程序初始化请求
  * /wxenable/landing?v=1.0.1
@@ -31,6 +29,69 @@ router.get('/config',function (req, res, next) {
         res.success({result:config})
     })
 });
+
+/**
+ * 获取小程序全局唯一后台接口调用凭据
+ * @type {Router}
+ * https://api.weixin.qq.com/cgi-bin/token
+ */
+router.get('/getToken',function (req,res,next) {
+    let url = `https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${req.query.appId}&secret=${req.query.appSecret}`;
+    request.get(url,(err, response, body) => {
+        if (err) {
+            return console.error('upload failed:', err);
+        }
+        body = JSON.parse(body);
+        let {access_token="",expires_in=""} = body;
+        res.success({access_token,expires_in})
+    })
+});
+/**
+ * 获取小程序二维码
+ * @type {Router}
+ */
+router.post('/getCodeImg',(req,res,next)=>{
+    let appId = req.body.appId;
+    let page = req.body.page;
+    let scene = req.body.scene || "";
+    let config = require(`../common/${appId}.json`);
+    let appSecret = config.APPSECRET;
+    let getTokenUrl = `http://localhost:6060/wxenable/getToken?appId=${appId}&appSecret=${appSecret}`;
+    console.log(getTokenUrl)
+    request.get(getTokenUrl,(err, response, body)=>{
+        if (err) {
+            return console.error('upload failed:', err);
+        }
+        console.log(body)
+        body = JSON.parse(body);
+        let data = body.data;
+        let {access_token,expires_in} = data;
+        if(!access_token){
+            res.fail({})
+        }
+        getCode({access_token,page,scene},res)
+    });
+
+    function getCode(params,res) {
+        let getCodeUrl = `https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=${params.access_token}`;
+        console.log(getCodeUrl);
+        let form = {
+            page:params.page,
+            scene:params.scene
+        };
+        console.log(form)
+        // request.post({url:getCodeUrl,form:JSON.stringify(form)}).pipe(fs.createWriteStream('../public/images/index.png'))
+
+        request({
+            method: 'POST',
+            url: getCodeUrl,
+            body: JSON.stringify(form)
+        }).pipe(fs.createWriteStream('./public/images/index.png'));//路径自己定义吧
+
+    }
+});
+
+
 
 
 module.exports = router;
