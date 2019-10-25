@@ -4,6 +4,7 @@ let path = require('path');
 let router = express.Router();
 let request = require('request');
 let common = require('../common/common.json');
+let qiaoExtWeixin = require('qiao.ext.weixin');
 /**
  * 小程序初始化请求
  * /wxenable/landing?v=1.0.1
@@ -56,8 +57,15 @@ router.post('/getCodeImg',(req,res,next)=>{
     let scene = req.body.scene || "";
     let config = require(`../common/${appId}.json`);
     let appSecret = config.APPSECRET;
+    // qiaoExtWeixin.accessToken(appId, appSecret).then(accessToken=>{
+    //     qiaoExtWeixin.mpCodeSrc(2, accessToken, {path:page,scene}, 'jpg').then(src=>{
+    //         console.log(src)
+    //         res.success({base64:src})
+    //     })
+    // });
+
+
     let getTokenUrl = `http://localhost:6060/wxenable/getToken?appId=${appId}&appSecret=${appSecret}`;
-    console.log(getTokenUrl)
     request.get(getTokenUrl,(err, response, body)=>{
         if (err) {
             return console.error('upload failed:', err);
@@ -71,7 +79,6 @@ router.post('/getCodeImg',(req,res,next)=>{
         }
         getCode({access_token,page,scene},res)
     });
-
     function getCode(params,res) {
         let getCodeUrl = `https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=${params.access_token}`;
         console.log(getCodeUrl);
@@ -80,15 +87,18 @@ router.post('/getCodeImg',(req,res,next)=>{
             scene:params.scene
         };
         console.log(form)
-        // request.post({url:getCodeUrl,form:JSON.stringify(form)}).pipe(fs.createWriteStream('../public/images/index.png'))
 
         request({
             method: 'POST',
             url: getCodeUrl,
-            body: JSON.stringify(form)
-        }).pipe(fs.createWriteStream('./public/images/index.png'));//路径自己定义吧
-
+            body: JSON.stringify(form),
+            headers: {//设置请求头
+                "content-type": "application/json",
+            }
+        }).pipe(fs.createWriteStream('./public/images/4.png'));//
     }
+
+
 });
 
 
