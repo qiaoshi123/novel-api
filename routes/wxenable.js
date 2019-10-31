@@ -57,12 +57,11 @@ router.post('/getCodeImg',(req,res,next)=>{
     let config = require(`../common/${appId}.json`);
     let appSecret = config.APPSECRET;
 
-    let getTokenUrl = `http://localhost:6060/wxenable/getToken?appId=${appId}&appSecret=${appSecret}`;
+    let getTokenUrl = `${common.LOCAL}/wxenable/getToken?appId=${appId}&appSecret=${appSecret}`;
     request.get(getTokenUrl,(err, response, body)=>{
         if (err) {
             return console.error('upload failed:', err);
         }
-        console.log(body)
         body = JSON.parse(body);
         let data = body.data;
         let {access_token,expires_in} = data;
@@ -78,16 +77,20 @@ router.post('/getCodeImg',(req,res,next)=>{
             page:params.page,
             scene:params.scene
         };
-        console.log(form)
-
         request({
             method: 'POST',
             url: getCodeUrl,
             body: JSON.stringify(form),
             headers: {//设置请求头
                 "content-type": "application/json",
+            },
+            encoding: 'base64'
+        }, function(error, response, body) {
+            if(!error && response.statusCode == 200) {
+                res.success({base64:'data:image/png;base64,'+body})
             }
-        }).pipe(fs.createWriteStream('./public/images/4.png'));//
+        });
+
     }
 
 
