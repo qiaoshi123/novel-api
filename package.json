@@ -6,6 +6,7 @@
     "start": "node ./bin/www",
     "doc": "apidoc -i routes/ -o public/",
     "deploy": "pm2 start pm2.json",
+    "zhuishu": "pm2 start pm3.json",
     "dev": "node ./bin/local"
   },
   "dependencies": {
