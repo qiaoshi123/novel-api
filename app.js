@@ -19,6 +19,7 @@ let movieRouter = require('./routes/movie.js');
 let movieV2Router = require('./routes/movieV2.js');
 let wxenableRouter = require('./routes/wxenable.js');
 let goodsRouter = require('./routes/goods.js');
+let picProxy = require('./routes/picProxy.js');
 let app = express();
 let logDir = path.join(__dirname, 'log');
 
@@ -49,6 +50,8 @@ app.all('*', function (req, res, next) {
     res.header("Content-Type", "application/json;charset=utf-8");
     next()
 });
+
+app.use('/pic',picProxy);
 
 // app.use(times(22,5));
 app.use(filter())
