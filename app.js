@@ -51,7 +51,7 @@ app.all('*', function (req, res, next) {
     next()
 });
 
-app.use('/pic',picProxy);
+
 
 // app.use(times(22,5));
 app.use(filter())
@@ -85,6 +85,8 @@ app.use('/goods',goodsRouter);
 
 //电影v2
 app.use('/v2/movie/',movieV2Router);
+//图片
+app.use('/pic',picProxy);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
