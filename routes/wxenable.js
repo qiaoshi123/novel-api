@@ -75,7 +75,10 @@ router.post('/getCodeImg',(req,res,next)=>{
         console.log(getCodeUrl);
         let form = {
             page:params.page,
-            scene:params.scene
+            scene:params.scene,
+            // is_hyaline:true,
+            // auto_color:true,
+            // line_color:{"r":255,"g":46,"b":48}
         };
         request({
             method: 'POST',
