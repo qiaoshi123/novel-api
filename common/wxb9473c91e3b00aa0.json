@@ -1,13 +1,1 @@
-{
-  "APPNAME": "惠及众生",
-  "VERSION": "1.0.0",
-  "PATH": "/pages/shop/home/home",
-  "MOVIE": "/pages/movieV2/index/index",
-  "LIMIT": "0",
-  "STARTTIME": "22",
-  "ENDTIME": "5",
-  "USERTOKEN": "13a0f97525de5ed9f6b9f4ea47d49f31",
-  "SEARCHWORDS": "电影 电视剧 美剧",
-  "OTHERAPPPLAYER": "0",
-  "APPSECRET": "f42de38ca1e8cbb01c9e7dd770a8cfa4"
-}
+{"APPNAME":"惠及众生","VERSION":"1.0.1","PATH":"/pages/shop/home/home","MOVIE":"/pages/movieV2/index/index","LIMIT":"1","STARTTIME":"20","ENDTIME":"5","USERTOKEN":"13a0f97525de5ed9f6b9f4ea47d49f31","SEARCHWORDS":"电影 电视剧 美剧","OTHERAPPPLAYER":"0","APPSECRET":"f42de38ca1e8cbb01c9e7dd770a8cfa4"}
