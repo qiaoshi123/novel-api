@@ -2,6 +2,7 @@ let express = require('express');
 let request = require('request');
 let common = require('../common/common.json');
 let router = express.Router();
+const miniProgramCofig = require('../common/miniProgramConfig.json');
 //api
 const goodsApi = {
     detail: '/api/product/detail',
@@ -97,7 +98,7 @@ router.post('/transfer', function (req, res, next) {
     let detailUrl = `${common.MIRITAO}${goodsApi.detail}`;
     let form = {
         ...req.body,
-        token: req.token
+        token: miniProgramCofig.USERTOKEN
     };
     request.post({url:detailUrl, form}, function optionalCallback(err, httpResponse, body) {
         if (err) {
@@ -111,7 +112,7 @@ router.post('/transfer', function (req, res, next) {
         let form = {
             productId:req.body.productId,
             platform:req.body.platform,
-            token: req.token
+            token: miniProgramCofig.USERTOKEN
         };
         request.post({url:transferUrl, form}, function optionalCallback(err, httpResponse, body) {
             if (err) {
