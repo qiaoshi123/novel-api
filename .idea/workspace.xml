@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e7b0f3b2-1d76-417f-bef7-2bc7d368de17" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/routes/quce.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/goods.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/goods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,69 +17,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/miniProgramConfig.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/routes/goods.js">
+        <entry file="file://$PROJECT_DIR$/routes/quce.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="115" column="45" selection-start-line="115" selection-start-column="45" selection-end-line="115" selection-end-column="45" />
+            <state relative-caret-position="294">
+              <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/movie.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="226">
+              <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="42" />
               <folding>
-                <element signature="e#556#1025#0" />
-                <element signature="e#1194#2274#0" />
+                <element signature="e#2762#5653#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/wx115f02bc0d3862ed.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="293" selection-start-column="293" selection-end-column="293" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/wx3043389d5754c7c4.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="293" selection-start-column="293" selection-end-column="293" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/common.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/wxb9473c91e3b00aa0.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="288" selection-start-column="288" selection-end-column="288" />
             </state>
           </provider>
         </entry>
@@ -86,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1786">
-              <caret line="94" column="14" selection-start-line="94" selection-start-column="14" selection-end-line="94" selection-end-column="14" />
+            <state relative-caret-position="259">
+              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
             </state>
           </provider>
         </entry>
@@ -95,23 +50,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/middleware/filter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+            <state relative-caret-position="114">
+              <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="10" selection-end-column="14" />
               <folding>
-                <element signature="n#!!block;n#getConfig#0" />
                 <element signature="n#!!block;n#checkTime#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/movieV2.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" column="18" lean-forward="true" selection-end-line="200" />
-              <folding>
-                <element signature="e#3366#4100#0" />
               </folding>
             </state>
           </provider>
@@ -129,7 +71,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>stui-vodlist</find>
       <find>flickity-page</find>
       <find>time</find>
       <find>最新视频</find>
@@ -159,6 +100,7 @@
       <find>LOCAL</find>
       <find>miniProgramConfig.USERTOKEN</find>
       <find>miniProgramConfig</find>
+      <find>getConfig</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/routes</dir>
@@ -198,16 +140,17 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/common/common.json" />
         <option value="$PROJECT_DIR$/bin/www" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/routes/picProxy.js" />
         <option value="$PROJECT_DIR$/routes/wxenable.js" />
         <option value="$PROJECT_DIR$/common/miniProgramConfig.json" />
         <option value="$PROJECT_DIR$/routes/goods.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/routes/quce.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1443" />
+    <option name="x" value="1440" />
     <option name="y" value="23" />
     <option name="width" value="1920" />
     <option name="height" value="942" />
@@ -217,7 +160,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -228,12 +170,18 @@
             <path>
               <item name="novel-api" type="b2602c69:ProjectViewProjectNode" />
               <item name="novel-api" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="middleware" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="novel-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="novel-api" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -250,6 +198,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -320,12 +269,13 @@
       <workItem from="1572593568943" duration="5927000" />
       <workItem from="1572773349248" duration="1199000" />
       <workItem from="1572861006245" duration="316000" />
-      <workItem from="1574755805248" duration="822000" />
+      <workItem from="1574755805248" duration="1041000" />
+      <workItem from="1576676460797" duration="2494000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114941000" />
+    <option name="totallyTimeSpent" value="117654000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -337,16 +287,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1443" y="23" width="1920" height="942" extended-state="0" />
+    <frame x="1440" y="23" width="1920" height="942" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2080042" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2080042" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3070588" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.47882354" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -354,7 +305,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3299435" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.1517647" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.31176472" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -364,23 +315,10 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/log/access-20191011.log" />
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/2_www.zhuishudaren.com.key">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/util.js" />
-    <entry file="file://$PROJECT_DIR$/routes/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-791" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/layer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -503,20 +441,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/movie.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="157" column="39" selection-start-line="157" selection-start-column="34" selection-end-line="157" selection-end-column="39" />
-          <folding>
-            <element signature="e#307#2649#0" />
-            <element signature="e#2762#5653#0" />
-            <element signature="e#8811#10276#0" />
-            <element signature="e#10418#11054#0" />
-            <element signature="e#11212#12554#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/api.gaoyongliang.com/IIS/keystorePass.txt" />
     <entry file="file://$PROJECT_DIR$/bin/2_api.gaoyongliang.com.key">
       <provider selected="true" editor-type-id="text-editor" />
@@ -550,13 +474,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/local.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/api" />
     <entry file="file://$PROJECT_DIR$/pm3.json" />
     <entry file="file://$PROJECT_DIR$/bin/api.js" />
@@ -571,13 +488,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
           <caret line="60" column="10" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/picProxy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -613,21 +523,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/common/common.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1786">
-          <caret line="94" column="14" selection-start-line="94" selection-start-column="14" selection-end-line="94" selection-end-column="14" />
+        <state relative-caret-position="190">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/middleware/filter.js">
+    <entry file="file://$PROJECT_DIR$/common/wxb9473c91e3b00aa0.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-          <folding>
-            <element signature="n#!!block;n#getConfig#0" />
-            <element signature="n#!!block;n#checkTime#0" />
-          </folding>
+        <state>
+          <caret column="288" selection-start-column="288" selection-end-column="288" />
         </state>
       </provider>
     </entry>
@@ -641,24 +547,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/wxb9473c91e3b00aa0.json">
+    <entry file="file://$PROJECT_DIR$/routes/goods.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="288" selection-start-column="288" selection-end-column="288" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/common.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        <state relative-caret-position="337">
+          <caret line="112" column="41" lean-forward="true" selection-start-line="112" selection-start-column="41" selection-end-line="112" selection-end-column="41" />
+          <folding>
+            <element signature="e#556#1025#0" />
+            <element signature="e#1194#2274#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -669,14 +565,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/goods.js">
+    <entry file="file://$PROJECT_DIR$/routes/search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="115" column="45" selection-start-line="115" selection-start-column="45" selection-end-line="115" selection-end-column="45" />
+        <state relative-caret-position="-245" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/picProxy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/node/globals.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="170" column="12" selection-start-line="170" selection-start-column="12" selection-end-line="170" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/local.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/middleware/filter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="10" selection-end-column="14" />
           <folding>
-            <element signature="e#556#1025#0" />
-            <element signature="e#1194#2274#0" />
+            <element signature="n#!!block;n#checkTime#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/movie.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="42" />
+          <folding>
+            <element signature="e#2762#5653#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/quce.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
         </state>
       </provider>
     </entry>

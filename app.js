@@ -20,6 +20,7 @@ let movieV2Router = require('./routes/movieV2.js');
 let wxenableRouter = require('./routes/wxenable.js');
 let goodsRouter = require('./routes/goods.js');
 let picProxy = require('./routes/picProxy.js');
+let quce = require('./routes/quce.js');
 let app = express();
 let logDir = path.join(__dirname, 'log');
 
@@ -51,10 +52,10 @@ app.all('*', function (req, res, next) {
     next()
 });
 
-
+app.use('/quce',quce);
 
 // app.use(times(22,5));
-app.use(filter())
+app.use(filter());
 
 // 路由中间件
 // 首页
