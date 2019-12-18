@@ -19,7 +19,17 @@ router.get('/cate', function (req, res, next) {
             var $ = cheerio.load(str);
             var reg = /var category_temp =([\s\S]*\}\]);/;
             var cate = JSON.parse(reg.exec(str)[1]);
-            res.send(cate);
+
+            let sort = [];
+            $('#down_content_14').children('span').each((index,item)=>{
+                var $element = $(item);
+               let obj = {
+                    target:$element.attr('data-target'),
+                    name:$element.attr('data-name'),
+               }
+                sort.push(obj)
+            });
+            res.send({cate,sort});
         });
 });
 /**
