@@ -27,7 +27,7 @@
     },
     {
       "name": "zhushudaren",
-      "script": "./bin/zhushudaren.js",
+      "script": "./bin/zhuishudaren.js",
       "cwd": "./",
       "watch": [
         "bin",
