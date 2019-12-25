@@ -47,7 +47,7 @@
       "out_file": "./logs/novel-api-out.log",
       "env": {
         "DEBUG": "novel-api",
-        "PORT": "443"
+        "PORT": "80"
       }
     }
   ]
