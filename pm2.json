@@ -1,25 +1,54 @@
 {
-    "name": "novel-api",
-    "script": "./bin/www",
-    "cwd": "./",
-    "watch": [
+  "apps": [
+    {
+      "name": "novel-api",
+      "script": "./bin/www",
+      "cwd": "./",
+      "watch": [
         "bin",
         "routers"
-    ],
-    "ignore_watch": [
+      ],
+      "ignore_watch": [
         "node_modules",
         "logs",
         "public",
         "log"
-    ],
-    "watch_options": {
+      ],
+      "watch_options": {
         "followSymlinks": false
-    },
-    "max_memory_restart": "1G",
-    "error_file": "./logs/novel-apierr.log",
-    "out_file": "./logs/novel-api-out.log",
-    "env": {
+      },
+      "max_memory_restart": "1G",
+      "error_file": "./logs/novel-apierr.log",
+      "out_file": "./logs/novel-api-out.log",
+      "env": {
         "DEBUG": "novel-api",
         "PORT": "443"
+      }
+    },
+    {
+      "name": "novel-api",
+      "script": "./bin/zhushudaren.js",
+      "cwd": "./",
+      "watch": [
+        "bin",
+        "routers"
+      ],
+      "ignore_watch": [
+        "node_modules",
+        "logs",
+        "public",
+        "log"
+      ],
+      "watch_options": {
+        "followSymlinks": false
+      },
+      "max_memory_restart": "1G",
+      "error_file": "./logs/novel-apierr.log",
+      "out_file": "./logs/novel-api-out.log",
+      "env": {
+        "DEBUG": "novel-api",
+        "PORT": "443"
+      }
     }
+  ]
 }
