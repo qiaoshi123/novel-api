@@ -1,5 +1,7 @@
 
 {
+  "apps": [
+    {
       "name": "gaoyongliang",
       "script": "./bin/www",
       "cwd": "./",
@@ -23,5 +25,32 @@
         "DEBUG": "novel-api",
         "PORT": "443"
       }
+    },
+    {
+      "name": "gaoyongliang",
+      "script": "./bin/www2.js",
+      "cwd": "./",
+      "watch": [
+        "bin",
+        "routers"
+      ],
+      "ignore_watch": [
+        "node_modules",
+        "logs",
+        "public",
+        "log"
+      ],
+      "watch_options": {
+        "followSymlinks": false
+      },
+      "max_memory_restart": "1G",
+      "error_file": "./logs/novel-apierr.log",
+      "out_file": "./logs/novel-api-out.log",
+      "env": {
+        "DEBUG": "novel-api",
+        "PORT": "80"
+      }
     }
+  ]
+}
 
