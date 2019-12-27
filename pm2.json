@@ -2,7 +2,7 @@
 {
   "apps": [
     {
-      "name": "gaoyongliang",
+      "name": "gaoyongliang2",
       "script": "./bin/www",
       "cwd": "./",
       "watch": [
