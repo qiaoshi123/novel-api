@@ -75,20 +75,36 @@ router.get('/banner',function (req, res, next) {
             }
             var str = sres.text;
             var $ = cheerio.load(str);
-            let list = [];
+            let banners = [];
             var reg = /\/entry.php\/url\/index\/inDrct\/id\/(\d+)\/src\/1/;
 
             $('#topic .swiper-slide').each((index,item)=>{
                 var $element = $(item);
-                let gid = reg.exec($element.attr('data-url'))[1];
+                let gid = reg.exec($element.attr('data-url'));
+                    gid = gid ? gid[1]: 0;
                 let obj = {
                     img_url: $element.children('img').attr('src'),
                     gid: gid,
                     detail_url:$element.attr('data-url')
                 };
-                list.push(obj)
+                banners.push(obj);
             });
-            res.send(list);
+            let recommends = [];
+            $('.grid-item').each((index,item)=>{
+                var $element = $(item);
+                let gid = reg.exec($element.attr('data-url'));
+                if(gid){
+                    gid = gid ? gid[1]: 0 ;
+                    let obj = {
+                        img_url: $element.children('img').eq(0).attr('src'),
+                        gid: gid,
+                        detail_url:$element.attr('data-url')
+                    };
+                    recommends.push(obj);
+                }
+
+            });
+            res.send({banners,recommends});
         });
 });
 
