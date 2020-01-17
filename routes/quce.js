@@ -85,7 +85,8 @@ router.get('/banner',function (req, res, next) {
                 let obj = {
                     img_url: $element.children('img').attr('src'),
                     gid: gid,
-                    detail_url:$element.attr('data-url')
+                    detail_url:$element.attr('data-url'),
+
                 };
                 banners.push(obj);
             });
@@ -98,7 +99,8 @@ router.get('/banner',function (req, res, next) {
                     let obj = {
                         img_url: $element.children('img').eq(0).attr('src'),
                         gid: gid,
-                        detail_url:$element.attr('data-url')
+                        detail_url:$element.attr('data-url'),
+                        short_title:$element.children('span').text()
                     };
                     recommends.push(obj);
                 }
