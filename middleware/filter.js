@@ -2,7 +2,12 @@ const moment = require('moment');
 
 function filter() {
     return function (req, res, next) {
-        let config = getConfig(req);
+        let config;
+        if(req.path =='/pic/get'){
+            config = {};
+        }else{
+            config = getConfig(req);
+        }
         res.success = (data) => {
             res.send({
                 status: 1,
