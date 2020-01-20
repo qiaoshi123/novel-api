@@ -110,4 +110,14 @@ router.get('/banner',function (req, res, next) {
         });
 });
 
+/**
+ * 图片转发
+ * @type {Router}
+ */
+router.get('/proxyImg',function (req, res, next) {
+    let url = decodeURIComponent(req.query.url);
+
+    res.redirect(url)
+});
+
 module.exports = router;
