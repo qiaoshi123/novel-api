@@ -109,15 +109,29 @@ router.get('/banner',function (req, res, next) {
             res.send({banners,recommends});
         });
 });
-
 /**
- * 图片转发
- * @type {Router}
+ * 图片
+ *https://api.gaoyongliang.com/quce/getBase
+ * {
+ *     url:xxxx
+ * }
  */
-router.get('/proxyImg',function (req, res, next) {
-    let url = decodeURIComponent(req.query.url);
-
-    res.redirect(url)
+router.post('/getBase', function (req, res, next) {
+    let url = req.body.url;
+    console.log(url);
+    request({
+        url: url,
+        method: "GET",
+        headers: {
+            "content-type": "application/json",
+        },
+        encoding: 'base64'
+    }, function(error, response, body) {
+        if(!error && response.statusCode == 200) {
+            res.success({base64:'data:image/png;base64,'+body})
+        }
+    });
 });
+
 
 module.exports = router;
