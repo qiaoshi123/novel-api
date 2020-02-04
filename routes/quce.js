@@ -111,4 +111,35 @@ router.get('/banner',function (req, res, next) {
 });
 
 
+/**
+ * 搜索
+ * @type {Router}
+ */
+router.get('/search',function (req,res,next) {
+    let originUrl = "https://qc-ssl.itwlw.com/index.php/wetest/index/search/q/"+encodeURIComponent(req.query.w);
+    console.log(originUrl)
+    superagent.get(originUrl)
+        .end(function (err, sres) {
+            // 常规的错误处理
+            if (err) {
+                return next(err);
+            }
+            var str = sres.text;
+            var $ = cheerio.load(str);
+            let title = $('.featured-box>.featured-title>span').text();
+            let list = [];
+            $('.featured-content>.list-item').each((index,item)=>{
+                let id = $(item).attr('data-cid');
+                let img =$(item).children('.list-item-img').attr('src')
+                let title = $(item).find('.list-item-name').children('span').eq(0).text();
+                let desc =$(item).find('.list-item-desc').text();
+                list.push({id,img,title,desc})
+            });
+            res.send({
+                title,
+                list
+            });
+        });
+})
+
 module.exports = router;
