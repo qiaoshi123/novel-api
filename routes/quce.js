@@ -133,7 +133,9 @@ router.get('/search',function (req,res,next) {
                 let img =$(item).children('.list-item-img').attr('src')
                 let title = $(item).find('.list-item-name').children('span').eq(0).text();
                 let desc =$(item).find('.list-item-desc').text();
-                list.push({id,img,title,desc})
+                let view = parseFloat($(item).find('.list-item-detail').children('.count').text());
+
+                list.push({id,img,title,desc,view})
             });
             res.send({
                 title,
