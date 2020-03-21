@@ -48,8 +48,11 @@ function getConfig(req) {
     } else {
         appInfo.path = config.PATH;
     }
-
-    appInfo.is_hit = config.VERSION == version ? 1 : 0;
+    if(config.VERSION instanceof Array){
+        appInfo.is_hit = config.VERSION.indexOf(version)>-1 ? 1 : 0;
+    }else{
+        appInfo.is_hit = config.VERSION == version ? 1 : 0;
+    }
     //是否显示播放入口
     if (appInfo.is_hit) {
         appInfo.is_show_player = 0;
