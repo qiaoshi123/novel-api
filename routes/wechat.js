@@ -5,7 +5,7 @@ let crypto =require('crypto');
 let router = express.Router();
 const TOKEN = 'wechat123';
 /**
- *微信公众号消息服务
+ *微信公众号消息服务器接入验证路由
  */
 router.get('/imService', function (req, res, next) {
     let signature = req.query.signature;
@@ -25,5 +25,14 @@ router.get('/imService', function (req, res, next) {
     }else{
         res.send("error");
     }
+});
+
+/**
+ * 微信公众号消息服务器-接受消息路由
+ * @type {Router}
+ */
+router.post('/imService',function (req,res,next) {
+    console.log(req.body);
+    res.send('success')
 });
 module.exports = router;
