@@ -80,8 +80,8 @@ router.post('/imService',function (req,res,next) {
 
 function createXml({tousername,fromusername,createtime,msgtype,content}){
     return `<xml>
-        <ToUserName><![CDATA[${fromusername}]]></ToUserName>'
-        <FromUserName><![CDATA[${tousername}]]></FromUserName>'
+        <ToUserName><![CDATA[${tousername}]]></ToUserName>'
+        <FromUserName><![CDATA[${fromusername}]]></FromUserName>'
         <CreateTime><![CDATA[${createtime}]]></CreateTime>'
         <MsgType><![CDATA[${msgtype}]]></MsgType>'
         <Content><![CDATA[${content}]]></Content>'
