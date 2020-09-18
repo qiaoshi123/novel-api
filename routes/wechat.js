@@ -33,19 +33,19 @@ router.get('/imService', function (req, res, next) {
  * @type {Router}
  */
 router.post('/imService', function (req, res, next) {
-    // let signature = req.query.signature;
-    // let timestamp = req.query.timestamp;
-    // let nonce = req.query.nonce;
-    // let echostr = req.query.echostr;
-    // //排序
-    // let array = new Array(TOKEN, timestamp, nonce);
-    // array.sort();
-    // let str = array.toString().replace(/,/g, "");
-    // //加密
-    // let sha1Code = crypto.createHash("sha1");
-    // let code = sha1Code.update(str, 'utf-8').digest("hex");
+    let signature = req.query.signature;
+    let timestamp = req.query.timestamp;
+    let nonce = req.query.nonce;
+    let echostr = req.query.echostr;
+    //排序
+    let array = new Array(TOKEN, timestamp, nonce);
+    array.sort();
+    let str = array.toString().replace(/,/g, "");
+    //加密
+    let sha1Code = crypto.createHash("sha1");
+    let code = sha1Code.update(str, 'utf-8').digest("hex");
     //比较
-    // if (code.trim() == signature.trim()) {
+    if (code.trim() == signature.trim()) {
 
         let xmlObj = req.body.xml || {};
         let {tousername, fromusername, createtime, msgtype, content} = xmlObj;
@@ -82,9 +82,9 @@ router.post('/imService', function (req, res, next) {
                 res.end(xml);
             });
 
-        // } else {
-        //     res.end('error')
-        // }
+        } else {
+            res.end('error')
+        }
 
     } else {
         res.end('签名失败')
