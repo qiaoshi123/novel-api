@@ -32,7 +32,18 @@ router.get('/imService', function (req, res, next) {
  * @type {Router}
  */
 router.post('/imService',function (req,res,next) {
-    console.log(req.body);
-    res.send('success')
+    let xmlObj = req.body.xml || {};
+    const { tousername, fromusername, createtime, msgtype, content } = xmlObj;
+    if(!xmlObj.msgtype){
+        res.send('error')
+    }
+    var xml = `<xml>
+        <ToUserName><![CDATA[${fromusername}]]></ToUserName>'
+        <FromUserName><![CDATA[${tousername}]]></FromUserName>'
+        <CreateTime><![CDATA[${createtime}]]></CreateTime>'
+        <MsgType><![CDATA[${msgtype}]]></MsgType>'
+        <Content><![CDATA[${content}]]></Content>'
+    </xml>`;
+    res.end(xml);
 });
 module.exports = router;

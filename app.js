@@ -1,6 +1,7 @@
 let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
+let xmlparser = require('express-xml-bodyparser');
 let logger = require('morgan');
 let fs = require('fs');
 let FileStreamRotator = require('file-stream-rotator'); // 日志按时间分割模块
@@ -41,6 +42,7 @@ app.use(logger('combined', { stream: accessLogStream }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(xmlparser())
 app.use(express.static(path.join(__dirname, 'public')));
 
 // cors跨域
