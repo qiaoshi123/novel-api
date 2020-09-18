@@ -58,12 +58,13 @@ router.post('/imService',function (req,res,next) {
             <Content><![CDATA[${content}]]></Content>'
             </xml>`;
 
+
+
+
         res.end(xml);
     }else{
         res.end('签名失败')
     }
 
 });
-
-da
 module.exports = router;
