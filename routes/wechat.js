@@ -58,7 +58,7 @@ router.post('/imService',function (req,res,next) {
                     fromusername:tousername,
                     createtime,
                     msgtype,
-                    content
+                    content:'123'
                 })
         }
         res.end(xml);
