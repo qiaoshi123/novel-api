@@ -46,7 +46,7 @@ router.post('/imService',function (req,res,next) {
     //比较
     if(code.trim()== signature.trim()){
         let xmlObj = req.body.xml || {};
-        const { tousername, fromusername, createtime, msgtype, content } = xmlObj;
+        let { tousername, fromusername, createtime, msgtype, content } = xmlObj;
         if(!msgtype){
             res.send('error')
         }
