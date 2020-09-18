@@ -53,16 +53,16 @@ router.post('/imService', function (req, res, next) {
             res.send('error')
         }
         if (msgtype[0] == 'text') {
-            let xml = `<xml>
-            <ToUserName><![CDATA[${fromusername}]]></ToUserName>'
-            <FromUserName><![CDATA[${tousername}]]></FromUserName>'
-            <CreateTime><![CDATA[${createtime}]]></CreateTime>'
-            <MsgType><![CDATA[${msgtype}]]></MsgType>'
-            <Content><![CDATA[${content}]]></Content>'
-            </xml>`;
-            res.end(xml);
+            // let xml = `<xml>
+            // <ToUserName><![CDATA[${fromusername}]]></ToUserName>'
+            // <FromUserName><![CDATA[${tousername}]]></FromUserName>'
+            // <CreateTime><![CDATA[${createtime}]]></CreateTime>'
+            // <MsgType><![CDATA[${msgtype}]]></MsgType>'
+            // <Content><![CDATA[${content}]]></Content>'
+            // </xml>`;
+            // res.end(xml);
 
-            let searchUrl = `http://10.2.8.171:6060${searchBaseUrl}/search?wd=${encodeURIComponent(content[0])}`;
+            let searchUrl = `${common.LOCAL}${searchBaseUrl}/search?wd=${encodeURIComponent(content[0])}`;
             request.get(searchUrl, (err, response, body) => {
                 if (err) {
                     return console.error('upload failed:', err);
