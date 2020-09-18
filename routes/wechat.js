@@ -50,7 +50,12 @@ router.post('/imService',function (req,res,next) {
         if(!msgtype){
             res.send('error')
         }
-        if(content == '我要下班回家'){
+        content = `123
+        231
+        31
+        31
+        123`;
+        if(msgtype == 'text'){
             let xml = `<xml>
             <ToUserName><![CDATA[${fromusername}]]></ToUserName>'
             <FromUserName><![CDATA[${tousername}]]></FromUserName>'
@@ -66,6 +71,9 @@ router.post('/imService',function (req,res,next) {
     }else{
         res.end('签名失败')
     }
-
 });
+
+
+
+
 module.exports = router;
