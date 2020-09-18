@@ -47,20 +47,17 @@ router.post('/imService',function (req,res,next) {
     if(code.trim()== signature.trim()){
         let xmlObj = req.body.xml || {};
         const { tousername, fromusername, createtime, msgtype, content } = xmlObj;
-        if(!xmlObj.msgtype){
+        if(!msgtype){
             res.send('error')
         }
-        let xml = '';
-        switch (msgtype) {
-            case 'text':
-                xml = createXml({
-                    tousername:fromusername,
-                    fromusername:tousername,
-                    createtime,
-                    msgtype,
-                    content:'123'
-                })
-        }
+        let xml = `<xml>
+            <ToUserName><![CDATA[${fromusername}]]></ToUserName>'
+            <FromUserName><![CDATA[${tousername}]]></FromUserName>'
+            <CreateTime><![CDATA[${createtime}]]></CreateTime>'
+            <MsgType><![CDATA[${msgtype}]]></MsgType>'
+            <Content><![CDATA[${content}]]></Content>'
+            </xml>`;
+
         res.end(xml);
     }else{
         res.end('签名失败')
@@ -68,24 +65,5 @@ router.post('/imService',function (req,res,next) {
 
 });
 
-/**
- * 创建文本消息
- * @param tousername
- * @param fromusername
- * @param createtime
- * @param msgtype
- * @param content
- * @returns {string}
- */
-
-function createXml({tousername,fromusername,createtime,msgtype,content}){
-    return `<xml>
-        <ToUserName><![CDATA[${tousername}]]></ToUserName>'
-        <FromUserName><![CDATA[${fromusername}]]></FromUserName>'
-        <CreateTime><![CDATA[${createtime}]]></CreateTime>'
-        <MsgType><![CDATA[${msgtype}]]></MsgType>'
-        <Content><![CDATA[${content}]]></Content>'
-    </xml>`;
-}
-
+da
 module.exports = router;
