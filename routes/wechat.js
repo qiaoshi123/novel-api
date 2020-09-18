@@ -50,18 +50,19 @@ router.post('/imService',function (req,res,next) {
         if(!msgtype){
             res.send('error')
         }
-        let xml = `<xml>
+        if(content == '我要下班回家'){
+            let xml = `<xml>
             <ToUserName><![CDATA[${fromusername}]]></ToUserName>'
             <FromUserName><![CDATA[${tousername}]]></FromUserName>'
             <CreateTime><![CDATA[${createtime}]]></CreateTime>'
             <MsgType><![CDATA[${msgtype}]]></MsgType>'
             <Content><![CDATA[${content}]]></Content>'
             </xml>`;
+            res.end(xml);
+        }else{
+            res.end('error')
+        }
 
-
-
-
-        res.end(xml);
     }else{
         res.end('签名失败')
     }
