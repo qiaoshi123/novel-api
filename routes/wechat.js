@@ -50,17 +50,42 @@ router.post('/imService',function (req,res,next) {
         if(!xmlObj.msgtype){
             res.send('error')
         }
-        var xml = `<xml>
-        <ToUserName><![CDATA[${fromusername}]]></ToUserName>'
-        <FromUserName><![CDATA[${tousername}]]></FromUserName>'
-        <CreateTime><![CDATA[${createtime}]]></CreateTime>'
-        <MsgType><![CDATA[${msgtype}]]></MsgType>'
-        <Content><![CDATA[${content}]]></Content>'
-    </xml>`;
+        let xml = '';
+        switch (msgtype) {
+            case 'text':
+                xml = createXml({
+                    tousername:fromusername,
+                    fromusername:tousername,
+                    createtime,
+                    msgtype,
+                    content
+                })
+        }
         res.end(xml);
     }else{
         res.end('签名失败')
     }
 
 });
+
+/**
+ * 创建文本消息
+ * @param tousername
+ * @param fromusername
+ * @param createtime
+ * @param msgtype
+ * @param content
+ * @returns {string}
+ */
+
+function createXml({tousername,fromusername,createtime,msgtype,content}){
+    return `<xml>
+        <ToUserName><![CDATA[${fromusername}]]></ToUserName>'
+        <FromUserName><![CDATA[${tousername}]]></FromUserName>'
+        <CreateTime><![CDATA[${createtime}]]></CreateTime>'
+        <MsgType><![CDATA[${msgtype}]]></MsgType>'
+        <Content><![CDATA[${content}]]></Content>'
+    </xml>`;
+}
+
 module.exports = router;
