@@ -74,7 +74,7 @@ router.get('/newItem',function (req, res, next) {
             var $ = cheerio.load(str);
             let list = [];
             var reg = /\/index.php\/wetest\/index\/search\/q\/([\s\S]*)/;
-            var reg = /\/index.php\/wetest\/entry\/index\/id\/(\d+)/
+            var reg = /\/index.php\/wetest\/entry\/index\/id\/(\d+)/;
 
             $('.alert-box .a-professional').each((index,item)=>{
                 var $element = $(item);

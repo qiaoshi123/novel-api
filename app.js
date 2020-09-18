@@ -23,6 +23,12 @@ let goodsRouter = require('./routes/goods.js');
 let picProxy = require('./routes/picProxy.js');
 let quce = require('./routes/quce.js');
 let wechat = require('./routes/wechat.js');
+let suixingTv = require('./routes/suixingTv.js');
+let tv1026 = require('./routes/1026Tv.js');
+let cunzhangbaTv = require('./routes/cunzhangbaTv.js');
+let liminTv = require('./routes/liminTv.js');
+let ssysvipTv = require('./routes/ssysvipTv.js');
+
 let app = express();
 let logDir = path.join(__dirname, 'log');
 
@@ -56,8 +62,19 @@ app.all('*', function (req, res, next) {
 });
 
 app.use('/quce',quce);
-
+//微信公众号消息服务器
 app.use('/wechat',wechat);
+//随行tv
+app.use('/suixing',suixingTv);
+//1026tv
+app.use('/tv1026',tv1026);
+//村长爸tv
+app.use('/cunzhangbaTv',cunzhangbaTv);
+//利民
+app.use('/liminTv',liminTv);
+//星欣tv
+app.use('/ssysvipTv',ssysvipTv);
+
 
 // app.use(times(22,5));
 app.use(filter());
