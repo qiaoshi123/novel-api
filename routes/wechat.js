@@ -72,7 +72,7 @@ router.post('/imService', function (req, res, next) {
                 let result = '皇上,您要的片子，奴才找不到了，请陛下开恩。';
                 if (list.length > 0) {
                     result = `皇上，您要的片子来了，点击下方链接：
-                    `;
+`;
                     list.forEach((item, index) => {
                         result += `${index + 1}. <a href="${item.h5_detail}">${item.name}|${item.update_info}</a>
 `;
