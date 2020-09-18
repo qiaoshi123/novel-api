@@ -6,5 +6,6 @@
     "MOVIEV2": "https://movie.redatao.com/program",
     "MOVIEVa":"https://movie.geniusbarst.cn",
     "MIRITAO": "https://xcxapi.miritao.com",
-    "LOCAL": "https://api.gaoyongliang.com"
+    "LOCAL": "https://api.gaoyongliang.com",
+    "host": "https://10.2.8.171"
 }
