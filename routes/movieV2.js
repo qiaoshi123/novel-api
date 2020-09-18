@@ -84,6 +84,7 @@ router.get('/banner', (req, res, next) => {
         if (err) {
             return console.error('upload failed:', err);
         }
+        console.log(body)
         body = JSON.parse(body);
         let list = body.circleList;
         res.success({list})
