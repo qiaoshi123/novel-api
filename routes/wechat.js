@@ -32,18 +32,35 @@ router.get('/imService', function (req, res, next) {
  * @type {Router}
  */
 router.post('/imService',function (req,res,next) {
-    let xmlObj = req.body.xml || {};
-    const { tousername, fromusername, createtime, msgtype, content } = xmlObj;
-    if(!xmlObj.msgtype){
-        res.send('error')
-    }
-    var xml = `<xml>
+    let signature = req.query.signature;
+    let timestamp = req.query.timestamp;
+    let nonce = req.query.nonce;
+    let echostr = req.query.echostr;
+    //排序
+    let array = new Array(TOKEN,timestamp,nonce);
+    array.sort();
+    let str = array.toString().replace(/,/g,"");
+    //加密
+    let sha1Code = crypto.createHash("sha1");
+    let code = sha1Code.update(str,'utf-8').digest("hex");
+    //比较
+    if(code.trim()== signature.trim()){
+        let xmlObj = req.body.xml || {};
+        const { tousername, fromusername, createtime, msgtype, content } = xmlObj;
+        if(!xmlObj.msgtype){
+            res.send('error')
+        }
+        var xml = `<xml>
         <ToUserName><![CDATA[${fromusername}]]></ToUserName>'
         <FromUserName><![CDATA[${tousername}]]></FromUserName>'
         <CreateTime><![CDATA[${createtime}]]></CreateTime>'
         <MsgType><![CDATA[${msgtype}]]></MsgType>'
         <Content><![CDATA[${content}]]></Content>'
     </xml>`;
-    res.end(xml);
+        res.end(xml);
+    }else{
+        res.end('签名失败')
+    }
+
 });
 module.exports = router;
