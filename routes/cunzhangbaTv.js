@@ -5,7 +5,7 @@ let common = require('../common/common.json'); // 引用公共文件
 let router = express.Router();
 let cheerio = require('cheerio');
 let superagent = require('superagent');
-const BASEURL = 'https://www.cunzhangba.com/';
+const BASEURL = 'https://www.cunzhangba.com';
 /**
  * 响应
  * {
@@ -31,22 +31,40 @@ router.get('/search', function (req, res, next) {
         })
     }
 
-    // let url = `${BASEURL}/so.html?wd=${encodeURIComponent(wd)}`;
-    // superagent.get(url).end(function (err, sres) {
-    //     console.log(sres)
-    //     res.send(url);
-    // })
+    let url = `${BASEURL}/vodsearch.html?wd=${encodeURIComponent(wd)}`;
+    console.log(url)
+    superagent.get(url).end(function (err, sres) {
 
-    //     .end(function (err, sres) {
-    //         console.log(sres.text);
-    //         // 常规的错误处理
-    //         if (err) {
-    //             return next(err);
-    //         }
-    //         var str = sres.text;
-    //         var $ = cheerio.load(str);
-    //         res.send(str);
-    //     });
+            // 常规的错误处理
+            if (err) {
+                return next(err);
+            }
+            var str = sres.text;
+            var $ = cheerio.load(str);
+
+            let $hd = $('.stui-pannel-box').find('.stui-pannel_hd');
+            let $list = $('.stui-pannel-box').find('.stui-pannel_bd').find('.stui-vodlist__media');
+            let text = $hd.find('.title').text();
+            let icon = $hd.find('.title').find('img').attr('src');
+            let list = [];
+            $list.find('li').each((i,v)=>{
+                let $v = $(v);
+                let obj = {};
+                let $thumb = $v.find('.thumb').find('.stui-vodlist__thumb');
+                let $detail = $v.find('.detail');
+                obj.movie_img = $thumb.attr('data-original');
+                obj.movie_h5_url = $thumb.attr('href');
+                obj.movie_title = $thumb.attr('title');
+                obj.movie_pic_text = $thumb.find('.pic-text').text();
+                obj.movie_man = $detail.find('p').eq(0).text();
+                obj.movie_actors = $detail.find('p').eq(1).text();
+                //todo 优化:分割线分割
+                obj.movie_type_area_year = +$detail.find('.hidden-mi').text();
+
+                list.push(obj)
+            });
+            res.send({code:1,data:{text,icon,list},msg:'success'});
+        });
 });
 
 /**
@@ -132,19 +150,8 @@ router.get('/home/homeIndex',(req,res)=>{
 
         console.log(pannels.length);
 
-
-
         res.send({code:1,data:{navs,list,cur_nav_index:0},msg:'success'})
     })
-});
-/**
- * 首页-tv导航页
- * @type {Router}
- */
-router.get('/home/tv',(req,res)=>{
-
-
-
 });
 /**
  * list查看更多
