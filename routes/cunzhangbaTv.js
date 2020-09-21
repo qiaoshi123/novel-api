@@ -214,19 +214,74 @@ router.get('/detail',(req,res)=>{
         }
         var str = sres.text;
         var $ = cheerio.load(str);
-        let $pannels = $('.container').eq(0).find('.row').children('div').eq(0).children('.stui-pannel');
-
+        //影片信息
+        let $div = $('body').children('.container').eq(0).find('.row').eq(0).children('div').eq(0);
+        let $pannels = $div.children('.stui-pannel');
         let $pannel0 = $pannels.eq(0);
         let $pannel0Box = $pannel0.find('.stui-pannel-box').children('div').eq(1);
-        let movie_img = $pannel0Box.find('.stui-content__thumb').find('img').attr('src');
-        let movie_pic_text =$pannel0Box.find('.stui-content__thumb').find('.pic-text').text();
-        let movie_title = $pannel0Box.find('.stui-content__thumb').find('a').attr('title');
-        let movie_score = $pannel0Box.find('.stui-content__detail').find('.score').text();
-        let movie_type_area_year = $pannel0Box.find('.stui-content__detail').children('p').eq(0).text();
-        let movie_actors = $pannel0Box.find('.stui-content__detail').children('p').eq(1).text();
-        let movie_man = $pannel0Box.find('.stui-content__detail').children('p').eq(2).text();
-        let movie_update_time = $pannel0Box.find('.stui-content__detail').children('p').eq(3).text();
-        let movie_desc = $pannel0Box.find('.stui-content__detail').children('.desc').text();
+        let $thumb = $pannel0Box.find('.stui-content__thumb');
+        let movie_img = $thumb.find('img').attr('src');
+        let movie_pic_text =$thumb.find('.pic-text').text();
+        let movie_title = $thumb.find('a').attr('title');
+        let $detail = $pannel0Box.find('.stui-content__detail');
+        let movie_score = $detail.find('.score').text();
+        let movie_type_area_year = $detail.children('p').eq(0).text();
+        let movie_actors = $detail.children('p').eq(1).text();
+        let movie_man = $detail.children('p').eq(2).text();
+        let movie_update_time = $detail.children('p').eq(3).text();
+        let movie_desc = $detail.children('.desc').text();
+        //播放信息
+        let movie_player = [];
+        let $playList = $div.find('.playlist');
+        $playList.each((i,v)=>{
+            let $v = $(v);
+            let obj = {
+                icon:$v.find('.stui-pannel_hd').find('.title').find('img').attr('src'),
+                line_name:$v.find('.stui-pannel_hd').find('.title').text().replace('村长爸','电影街'),
+                players:[]
+            };
+            $v.find('.stui-pannel_bd').find('li').each((n,li)=>{
+                let $li = $(li);
+                let item = {
+                    movie_player_url:$li.find('a').attr('href'),
+                    name:$li.text()
+                };
+                obj.players.push(item)
+            });
+            movie_player.push(obj);
+        });
+        //猜你喜欢
+        let you_like = {
+            name:'',
+            icon:'',
+            list:[]
+        };
+        if($("#desc").next().length >0){
+            let $youlike = $("#desc").next().children('.stui-pannel-box');
+            if($youlike.length>0){
+                let $hd = $youlike.children('.stui-pannel_hd');
+                you_like.name = $hd.find('.title').text(),
+                    you_like.icon = $hd.find('.title').find('img').attr('src');
+                let $list =  $youlike.children('.stui-pannel_bd').children('.stui-vodlist__bd').children('li');
+                $list.each((v,li)=>{
+                    let $li = $(li);
+                    let movie_h5_url = $li.find('.stui-vodlist__thumb').attr('href');
+                    let movie_img = $li.find('.stui-vodlist__thumb').attr('data-original');
+                    let movie_pic_text = $li.find('.stui-vodlist__thumb').find('.pic-text').text();
+                    let movie_title = $li.find('.stui-vodlist__thumb').attr('title');
+                    let movie_actors = $li.find('.stui-vodlist__detail').find('.text').text();
+                    let obj = {
+                        movie_h5_url,
+                        movie_img,
+                        movie_pic_text,
+                        movie_title,
+                        movie_actors
+                    };
+                    you_like.list.push(obj);
+                })
+            }
+        }
+
         let detail = {
             movie_img,
             movie_pic_text,
@@ -236,7 +291,9 @@ router.get('/detail',(req,res)=>{
             movie_actors,
             movie_man,
             movie_update_time,
-            movie_desc
+            movie_desc,
+            movie_player,
+            you_like
         };
         res.send({code:1,data:{detail},msg:'success'});
     });

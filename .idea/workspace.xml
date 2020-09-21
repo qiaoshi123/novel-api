@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e7b0f3b2-1d76-417f-bef7-2bc7d368de17" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/routes/cunzhangbaTv.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/cunzhangbaTv.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,14 +19,36 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/cunzhangbaTv.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="679">
-              <caret line="252" lean-forward="true" selection-start-line="252" selection-end-line="252" />
+            <state relative-caret-position="77">
+              <caret line="259" column="8" lean-forward="true" selection-start-line="259" selection-start-column="11" selection-end-line="280" selection-end-column="12" />
               <folding>
                 <element signature="e#464#546#0" />
                 <element signature="e#669#1994#0" />
-                <element signature="e#2074#5592#0" />
                 <element signature="e#5664#7150#0" />
-                <element signature="e#7222#8873#0" />
+                <element signature="e#9190#9214#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="71">
+              <caret line="28" column="25" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="25" />
+              <folding>
+                <element signature="e#26909#26915#1" expanded="true" />
+                <element signature="e#27058#27064#1" expanded="true" />
+                <element signature="e#27196#27202#1" expanded="true" />
+                <element signature="e#27337#27343#1" expanded="true" />
+                <element signature="e#27416#27422#1" expanded="true" />
+                <element signature="e#27500#27506#1" expanded="true" />
+                <element signature="e#27708#27714#1" expanded="true" />
+                <element signature="e#27883#27889#1" expanded="true" />
+                <element signature="e#27935#27941#1" expanded="true" />
+                <element signature="e#28077#28083#1" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -43,7 +66,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>JDPATH</find>
       <find>MOVIEPATH</find>
       <find>JDPA</find>
       <find>detailRequsetUrl</find>
@@ -73,6 +95,7 @@
       <find>eq</find>
       <find>type_area</find>
       <find>movie_type_area_year</find>
+      <find>container</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/routes</dir>
@@ -132,8 +155,8 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1440" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1429" />
     <option name="y" value="-157" />
     <option name="width" value="1920" />
     <option name="height" value="978" />
@@ -272,7 +295,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179463000" />
+    <option name="totallyTimeSpent" value="181659000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -284,7 +307,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="-157" width="1920" height="978" extended-state="0" />
+    <frame x="1440" y="-157" width="1920" height="1057" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15797788" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -300,7 +324,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3299435" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.24604966" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.38756478" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -625,22 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="1007" column="67" lean-forward="true" selection-start-line="1007" selection-start-column="67" selection-end-line="1007" selection-end-column="67" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#6;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/1026Tv.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
@@ -648,16 +656,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="25" />
+          <folding>
+            <element signature="e#26909#26915#1" expanded="true" />
+            <element signature="e#27058#27064#1" expanded="true" />
+            <element signature="e#27196#27202#1" expanded="true" />
+            <element signature="e#27337#27343#1" expanded="true" />
+            <element signature="e#27416#27422#1" expanded="true" />
+            <element signature="e#27500#27506#1" expanded="true" />
+            <element signature="e#27708#27714#1" expanded="true" />
+            <element signature="e#27883#27889#1" expanded="true" />
+            <element signature="e#27935#27941#1" expanded="true" />
+            <element signature="e#28077#28083#1" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/cunzhangbaTv.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="679">
-          <caret line="252" lean-forward="true" selection-start-line="252" selection-end-line="252" />
+        <state relative-caret-position="77">
+          <caret line="259" column="8" lean-forward="true" selection-start-line="259" selection-start-column="11" selection-end-line="280" selection-end-column="12" />
           <folding>
             <element signature="e#464#546#0" />
             <element signature="e#669#1994#0" />
-            <element signature="e#2074#5592#0" />
             <element signature="e#5664#7150#0" />
-            <element signature="e#7222#8873#0" />
+            <element signature="e#9190#9214#0" />
           </folding>
         </state>
       </provider>
