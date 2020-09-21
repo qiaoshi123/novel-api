@@ -32,7 +32,6 @@ router.get('/search', function (req, res, next) {
     }
 
     let url = `${BASEURL}/vodsearch.html?wd=${encodeURIComponent(wd)}`;
-    console.log(url)
     superagent.get(url).end(function (err, sres) {
 
             // 常规的错误处理
@@ -153,12 +152,7 @@ router.get('/home/homeIndex',(req,res)=>{
         res.send({code:1,data:{navs,list,cur_nav_index:0},msg:'success'})
     })
 });
-/**
- * list查看更多
- */
-router.get('/list',(req,res)=>{
 
-});
 /**
  * 排行榜rank
  * @type {Router}
@@ -205,7 +199,55 @@ router.get('/rank',(req,res)=>{
     })
 });
 
+/**
+ * detail
+ * @type {Router}
+ */
+router.get('/detail',(req,res)=>{
+   let url = req.query.url;
+    superagent.get(url).end(function (err, sres) {
 
+        // 常规的错误处理
+        if (err) {
+            return next(err);
+        }
+        var str = sres.text;
+        var $ = cheerio.load(str);
+        let $pannels = $('.container').eq(0).find('.row').children('div').eq(0).children('.stui-pannel');
+
+        let $pannel0 = $pannels.eq(0);
+        let $pannel0Box = $pannel0.find('.stui-pannel-box').children('div').eq(1);
+        let movie_img = $pannel0Box.find('.stui-content__thumb').find('img').attr('src');
+        let movie_pic_text =$pannel0Box.find('.stui-content__thumb').find('.pic-text').text();
+        let movie_title = $pannel0Box.find('.stui-content__thumb').find('a').attr('title');
+        let movie_score = $pannel0Box.find('.stui-content__detail').find('.score').text();
+        let movie_type_area_year = $pannel0Box.find('.stui-content__detail').children('p').eq(0).text();
+        let movie_actors = $pannel0Box.find('.stui-content__detail').children('p').eq(1).text();
+        let movie_man = $pannel0Box.find('.stui-content__detail').children('p').eq(2).text();
+        let movie_update_time = $pannel0Box.find('.stui-content__detail').children('p').eq(3).text();
+        let movie_desc = $pannel0Box.find('.stui-content__detail').children('.desc').text();
+        let detail = {
+            movie_img,
+            movie_pic_text,
+            movie_title,
+            movie_score,
+            movie_type_area_year,
+            movie_actors,
+            movie_man,
+            movie_update_time,
+            movie_desc
+        };
+        res.send({code:1,data:{detail},msg:'success'});
+    });
+
+
+});
+/**
+ * list查看更多
+ */
+router.get('/list',(req,res)=>{
+
+});
 
 
 
