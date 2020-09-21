@@ -205,6 +205,7 @@ router.get('/rank',(req,res)=>{
  */
 router.get('/detail',(req,res)=>{
    let url = req.query.url;
+   console.log(url)
     superagent.get(url).end(function (err, sres) {
 
         // 常规的错误处理
