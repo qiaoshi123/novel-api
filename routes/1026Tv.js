@@ -7,6 +7,7 @@ let common = require('../common/common.json'); // 引用公共文件
 let router = express.Router();
 let cheerio = require('cheerio');
 let superagent = require('superagent');
+const puppeteer = require('puppeteer');
 const TYPE = '1026tv';
 const BASEURL = 'https://www.1026tv.com';
 /**
@@ -104,10 +105,15 @@ router.get('/detail', function (req, res, next) {
                 let $ary = $('#s'+id).find('li');
                 $ary.each((index,player)=>{
                     let $player = $(player);
+                    let movie_player_url = $player.children('a').attr('href');
+                    let idStr = movie_player_url.split('/')[movie_player_url.split('/').length-1];
+                    let reg =  /([^\s]*)\.html/;
+                    // console.log(reg.exec(idStr))
                     let item = {
                         title:$player.children('a').attr('title'),
-                        movie_play_url:$player.children('a').attr('href')
-                    }
+                        movie_player_url,
+                        movie_player_id:reg.test(idStr)?reg.exec(idStr)[1]:''
+                    };
                     obj.player_list.push(item)
                 });
                 detail.movie_players.push(obj)
@@ -118,5 +124,63 @@ router.get('/detail', function (req, res, next) {
         })
     }
 });
+
+
+/**
+ * 获取播放url地址
+ * @type {Router}
+ */
+router.get('/getPlayerSource',function (req,res,next) {
+    let movie_player_id = req.query.movie_player_id;
+    console.log(movie_player_id)
+    if(TYPE == '1026tv') {
+        let url = `${BASEURL}/kan/${movie_player_id}.html`;
+
+        puppeteer.launch({
+            headless: false, //不使用无头模式使用本地可视化
+            executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", //因为是yarn add puppeteer --ignore-scripts没有安装chromium，需要制定本地chromium的chrome.exe路径所在,刚才下载后解压后的全路径
+            //设置超时时间
+            timeout: 15000,
+            //如果是访问https页面 此属性会忽略https错误
+            ignoreHTTPSErrors: true,
+            // 打开开发者工具, 当此值为true时, headless总为false
+            devtools: true,
+        }).then(async browser => {
+            const page = await browser.newPage();
+            await page.setViewport({width: 1920, height: 1080});
+            // await page.emulate(devices['iPhone X'])
+            await page.goto(url, { waitUntil: "networkidle2" });
+            await page.waitFor(200);
+            let movie_online_player_url = await page.$eval('#playleft > iframe',el=>el.src);
+            let player_info = {
+                movie_online_player_url,
+                source:movie_online_player_url.split("?")[1].split('=')[1]
+            };
+            //关闭浏览器
+            browser.close();
+            res.send({
+                code: 1, data: {player_info}, msg: ''
+            })
+        })
+        // superagent.get(url).end(function (err, sres) {
+        //     // 常规的错误处理
+        //     if (err) {
+        //         return next(err);
+        //     }
+        //     var str = sres.text;
+        //     var $ = cheerio.load(str);
+        //     console.log(str)
+        //     let $iframe = $('.MacPlayer').children('table').find('#playleft').children('iframe');
+        //     console.log($iframe.html())
+        //     let movie_online_player_url = $iframe.attr('src');
+        //     let player_info = {
+        //         movie_online_player_url
+        //     };
+        //     res.send({
+        //         code: 1, data: {player_info}, msg: ''
+        //     })
+        // })
+    }
+})
 
 module.exports = router;
