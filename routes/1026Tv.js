@@ -36,13 +36,14 @@ router.get('/search', function (req, res, next) {
             let h5Detail = $li.find('.link-hover').attr('href');
             let reg = /(\d+)\.html$/;
             let obj = {
-                h5_detail: h5Detail,//h5页面地址
-                id: reg.exec(h5Detail)[1],
-                img: $li.find('.lazy').attr('src'),//头图
-                name: $li.find('.lazy').attr('alt'),//标题
-                type: $li.find('.actor').eq(1).text(),//类型 综艺 ..
-                time: $li.find('.actor').eq(2).text(),// 2020/大陆
-                update_info: $li.find('.other').text()//HC  1集全/已完结
+                movie_h5_detail_url: h5Detail,//h5页面地址
+                movie_id: reg.exec(h5Detail)[1],
+                movie_img: $li.find('.lazy').attr('src'),//头图
+                movie_name: $li.find('.lazy').attr('alt'),//标题
+                movie_type: $li.find('.actor').eq(1).text(),//类型 综艺 ..
+                movie_time: $li.find('.actor').eq(2).text().split('/')[0],// 2020
+                movie_area:$li.find('.actor').eq(2).text().split('/')[1],//大陆
+                movie_pic_text: $li.find('.other').text()//HC  1集全/已完结
             };
             list.push(obj);
         });

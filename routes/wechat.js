@@ -65,7 +65,7 @@ router.post('/imService', function (req, res, next) {
                     result = `皇上，您要的片子来了，点击下方链接：
 `;
                     list.forEach((item, index) => {
-                        result += `${index + 1}. <a href="${item.h5_detail}">${item.name}|${item.update_info}</a>
+                        result += `${index + 1}. <a href="${item.movie_h5_detail_url}">${item.movie_name}|${item.movie_pic_text}</a>
 `;
                     })
                 }
