@@ -4,7 +4,6 @@ let common = require('../common/common.json'); // 引用公共文件
 let crypto = require('crypto');
 let router = express.Router();
 const TOKEN = 'wechat123';
-const searchBaseUrl = '/tv1026';
 /**
  *微信公众号消息服务器接入验证路由
  */
@@ -53,7 +52,7 @@ router.post('/imService', function (req, res, next) {
             res.send('error')
         }
         if (msgtype[0] == 'text') {
-            let searchUrl = `${common.LOCAL}${searchBaseUrl}/search?wd=${encodeURIComponent(content[0])}`;
+            let searchUrl = `${common.LOCAL}/tv1026/search?wd=${encodeURIComponent(content[0])}&type=1026tv`;
             request.get(searchUrl, (err, response, body) => {
                 if (err) {
                     return console.error('upload failed:', err);
