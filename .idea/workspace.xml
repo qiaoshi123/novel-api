@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e7b0f3b2-1d76-417f-bef7-2bc7d368de17" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/1026Tv.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/1026Tv.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/wechat.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -51,12 +51,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/1026Tv.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
+            <state relative-caret-position="191">
+              <caret line="90" column="52" selection-start-line="90" selection-start-column="52" selection-end-line="90" selection-end-column="52" />
               <folding>
                 <element signature="e#1238#1322#0" />
-                <element signature="e#1755#2879#0" />
-                <element signature="e#3307#4431#0" />
               </folding>
             </state>
           </provider>
@@ -311,7 +309,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184893000" />
+    <option name="totallyTimeSpent" value="187401000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -324,6 +322,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="814" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2114165" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -339,7 +338,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3299435" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.25623268" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.26731303" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -702,12 +701,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/1026Tv.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
+        <state relative-caret-position="191">
+          <caret line="90" column="52" selection-start-line="90" selection-start-column="52" selection-end-line="90" selection-end-column="52" />
           <folding>
             <element signature="e#1238#1322#0" />
-            <element signature="e#1755#2879#0" />
-            <element signature="e#3307#4431#0" />
           </folding>
         </state>
       </provider>
