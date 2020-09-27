@@ -140,11 +140,14 @@ router.get('/getPlayerSource', function (req, res, next) {
     }
     let config = require(`../common/${TYPE}.json`);
     if(config[movie_player_id]){
+        console.log(1)
         let player_info = config[movie_player_id];
+        console.log(player_info)
         res.send({
             code: 1, data: {player_info}, msg: ''
         });
     }else{
+        console.log(2)
         puppeteer.launch({
             args: ['--no-sandbox', '--disable-setuid-sandbox'],
             headless: true, //false 不使用无头模式使用本地可视化,//true使用无头模式，无界面模式；默认为有头
