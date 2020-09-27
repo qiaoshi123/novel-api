@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e7b0f3b2-1d76-417f-bef7-2bc7d368de17" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/1026Tv.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/1026Tv.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -50,12 +51,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/1026Tv.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="164" column="7" selection-start-line="164" selection-start-column="7" selection-end-line="181" selection-end-column="13" />
+            <state relative-caret-position="214">
+              <caret line="142" column="20" lean-forward="true" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
               <folding>
                 <element signature="e#1238#1322#0" />
                 <element signature="e#3307#4431#0" />
-                <element signature="e#5982#6433#0" />
                 <element signature="e#6854#6909#0" />
                 <element signature="e#5964#6013#0" />
               </folding>
@@ -84,10 +84,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>LOCAL</find>
-      <find>miniProgramConfig.USERTOKEN</find>
-      <find>miniProgramConfig</find>
-      <find>getConfig</find>
       <find>基于 apidoc</find>
       <find>picProxy</find>
       <find>movie</find>
@@ -114,10 +110,16 @@
       <find>player</find>
       <find>movie_player_url</find>
       <find>player_data</find>
+      <find>/puppeteer/.local-chromium</find>
+      <find>local-chromium</find>
+      <find>browser</find>
+      <find>browserConfig</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/routes</dir>
+      <dir>$PROJECT_DIR$/node_modules/puppeteer</dir>
       <dir>$PROJECT_DIR$</dir>
+      <dir>$PROJECT_DIR$/node_modules</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -177,7 +179,7 @@
     <option name="x" value="1440" />
     <option name="y" value="-157" />
     <option name="width" value="1920" />
-    <option name="height" value="978" />
+    <option name="height" value="994" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -190,6 +192,24 @@
             <path>
               <item name="novel-api" type="b2602c69:ProjectViewProjectNode" />
               <item name="novel-api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="novel-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="novel-api" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="novel-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="novel-api" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="puppeteer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="novel-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="novel-api" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="puppeteer" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -308,7 +328,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="197313000" />
+    <option name="totallyTimeSpent" value="200571000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -320,9 +340,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="-157" width="1920" height="978" extended-state="0" />
+    <frame x="1440" y="-157" width="1920" height="994" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11637704" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19799894" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -336,7 +357,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3299435" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.20428894" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.27383593" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -347,17 +368,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/images/4.png" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="266">
-            <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/api" />
     <entry file="file://$PROJECT_DIR$/pm3.json" />
     <entry file="file://$PROJECT_DIR$/bin/api.js" />
@@ -697,14 +707,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/puppeteer/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-106" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/puppeteer/lib/esm/puppeteer/node/BrowserFetcher.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1724">
+          <caret line="43" column="6" lean-forward="true" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/1026Tv.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="164" column="7" selection-start-line="164" selection-start-column="7" selection-end-line="181" selection-end-column="13" />
+        <state relative-caret-position="214">
+          <caret line="142" column="20" lean-forward="true" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
           <folding>
             <element signature="e#1238#1322#0" />
             <element signature="e#3307#4431#0" />
-            <element signature="e#5982#6433#0" />
             <element signature="e#6854#6909#0" />
             <element signature="e#5964#6013#0" />
           </folding>
