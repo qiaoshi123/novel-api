@@ -139,7 +139,8 @@ router.get('/getPlayerSource',function (req,res,next) {
     }
         puppeteer.launch({
             headless: false, //不使用无头模式使用本地可视化
-            executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", //因为是yarn add puppeteer --ignore-scripts没有安装chromium，需要制定本地chromium的chrome.exe路径所在,刚才下载后解压后的全路径
+            // executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", //因为是yarn add puppeteer --ignore-scripts没有安装chromium，需要制定本地chromium的chrome.exe路径所在,刚才下载后解压后的全路径
+            executablePath:"/usr/share/man/man1/google-chrome.1.gz",
             //设置超时时间
             timeout: 15000,
             //如果是访问https页面 此属性会忽略https错误
