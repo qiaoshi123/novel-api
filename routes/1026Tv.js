@@ -132,10 +132,11 @@ router.get('/detail', function (req, res, next) {
  */
 router.get('/getPlayerSource',function (req,res,next) {
     let movie_player_id = req.query.movie_player_id;
-    console.log(movie_player_id)
+    console.log(movie_player_id);
+    let url ;
     if(TYPE == '1026tv') {
-        let url = `${BASEURL}/kan/${movie_player_id}.html`;
-
+        url = `${BASEURL}/kan/${movie_player_id}.html`;
+    }
         puppeteer.launch({
             headless: false, //不使用无头模式使用本地可视化
             executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", //因为是yarn add puppeteer --ignore-scripts没有安装chromium，需要制定本地chromium的chrome.exe路径所在,刚才下载后解压后的全路径
@@ -148,7 +149,6 @@ router.get('/getPlayerSource',function (req,res,next) {
         }).then(async browser => {
             const page = await browser.newPage();
             await page.setViewport({width: 1920, height: 1080});
-            // await page.emulate(devices['iPhone X'])
             await page.goto(url, { waitUntil: "networkidle2" });
             await page.waitFor(200);
             let movie_online_player_url = await page.$eval('#playleft > iframe',el=>el.src);
@@ -180,7 +180,7 @@ router.get('/getPlayerSource',function (req,res,next) {
         //         code: 1, data: {player_info}, msg: ''
         //     })
         // })
-    }
+
 })
 
 module.exports = router;
