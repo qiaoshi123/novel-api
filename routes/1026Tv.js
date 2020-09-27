@@ -155,7 +155,7 @@ router.get('/getPlayerSource', function (req, res, next) {
             //如果是访问https页面 此属性会忽略https错误
             ignoreHTTPSErrors: true,
             // 打开开发者工具, 当此值为true时, headless总为false
-            devtools: true,
+            devtools: false,
         }).then(async browser => {
             const page = await browser.newPage();
             await page.setViewport({width: 1920, height: 1080});
