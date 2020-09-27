@@ -138,11 +138,7 @@ router.get('/getPlayerSource', function (req, res, next) {
     if (TYPE == '1026tv') {
         url = `${BASEURL}/kan/${movie_player_id}.html`;
     }
-    console.log(4)
     let config = require(`../common/${TYPE}.json`);
-    console.log(3)
-    console.log(url)
-    console.log(config)
     if(config[movie_player_id]){
         console.log(1)
         let player_info = config[movie_player_id];
