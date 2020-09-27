@@ -44,7 +44,7 @@ let accessLogStream = FileStreamRotator.getStream({
 });
 
 // 日志中间件
-app.use(logger('combined', { stream: accessLogStream }));
+// app.use(logger('combined', { stream: accessLogStream }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
