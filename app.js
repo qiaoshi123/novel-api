@@ -30,21 +30,21 @@ let liminTv = require('./routes/liminTv.js');
 let ssysvipTv = require('./routes/ssysvipTv.js');
 
 let app = express();
-let logDir = path.join(__dirname, 'log');
+// let logDir = path.join(__dirname, 'log');
 
 // 检查是否存在logDir这个目录没有则创建
-fs.existsSync(logDir) || fs.mkdirSync(logDir);
+// fs.existsSync(logDir) || fs.mkdirSync(logDir);
 
 // 日志按时间分割流
-let accessLogStream = FileStreamRotator.getStream({
-    date_format: 'YYYYMMDD',
-    filename: path.join(logDir, 'access-%DATE%.log'),
-    frequency: 'daily',
-    verbose: false
-});
+// let accessLogStream = FileStreamRotator.getStream({
+//     date_format: 'YYYYMMDD',
+//     filename: path.join(logDir, 'access-%DATE%.log'),
+//     frequency: 'daily',
+//     verbose: false
+// });
 
 // 日志中间件
-app.use(logger('combined', { stream: accessLogStream }));
+// app.use(logger('combined', { stream: accessLogStream }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

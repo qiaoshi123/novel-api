@@ -1,6 +1,8 @@
 /**
  * 电影 v2
  **/
+let fs = require('fs');
+let path =require('path');
 let express = require('express');
 let request = require('request');
 let common = require('../common/common.json'); // 引用公共文件
@@ -25,7 +27,7 @@ router.get('/search', function (req, res, next) {
             msg: '请输入关键词'
         })
     }
-    if(TYPE == '1026tv'){
+    if (TYPE == '1026tv') {
         let url = `${BASEURL}/chazhao.html?wd=${encodeURIComponent(wd)}`;
         superagent.get(url).end(function (err, sres) {
             // 常规的错误处理
@@ -46,7 +48,7 @@ router.get('/search', function (req, res, next) {
                     movie_name: $li.find('.lazy').attr('alt'),//标题
                     movie_type: $li.find('.actor').eq(1).text(),//类型 综艺 ..
                     movie_time: $li.find('.actor').eq(2).text().split('/')[0],// 2020
-                    movie_area:$li.find('.actor').eq(2).text().split('/')[1],//大陆
+                    movie_area: $li.find('.actor').eq(2).text().split('/')[1],//大陆
                     movie_pic_text: $li.find('.other').text()//HC  1集全/已完结
                 };
                 list.push(obj);
@@ -67,7 +69,7 @@ router.get('/search', function (req, res, next) {
  */
 router.get('/detail', function (req, res, next) {
     let id = req.query.id;
-    if(TYPE == '1026tv'){
+    if (TYPE == '1026tv') {
         let url = `${BASEURL}/tv/${id}.html`;
         superagent.get(url).end(function (err, sres) {
             // 常规的错误处理
@@ -83,36 +85,36 @@ router.get('/detail', function (req, res, next) {
                 movie_img: $movie.find('.lazy').attr('data-original'),//头图
                 movie_name: $movie.find('.lazy').attr('alt'),//标题
                 movie_type: $movie.find('dt').eq(2).find('a').text(),//类型 综艺 ..
-                movie_time:$movie.find('dd').eq(2).find('a').text(),// 2020
-                movie_area:$movie.find('dd').eq(1).find('a').text(),//大陆
+                movie_time: $movie.find('dd').eq(2).find('a').text(),// 2020
+                movie_area: $movie.find('dd').eq(1).find('a').text(),//大陆
                 movie_pic_text: $movie.find('dt').eq(0).find('.bc').text(),//HC  1集全/已完结
-                movie_actors:$movie.find('dt').eq(1).text().replace('主演：',''),
-                movie_main:$movie.find('dd').eq(0).find('a').text(),
-                movie_language:$movie.find('dd').eq(3).find('a').text(),
-                movie_desc:$("#stab2").text().trim(),
-                movie_players:[],
-                guess_you_like:[],
+                movie_actors: $movie.find('dt').eq(1).text().replace('主演：', ''),
+                movie_main: $movie.find('dd').eq(0).find('a').text(),
+                movie_language: $movie.find('dd').eq(3).find('a').text(),
+                movie_desc: $("#stab2").text().trim(),
+                movie_players: [],
+                guess_you_like: [],
             };
             let $lis = $('#stab1').children('.playfrom').find('li');
-            $lis.each((i,li)=>{
+            $lis.each((i, li) => {
                 let obj = {
-                  player_platform:'',
-                  player_list:[],
+                    player_platform: '',
+                    player_list: [],
                 };
                 let $li = $(li);
                 let id = $li.attr('id');
-                obj.player_platform = $li.text().replace('1026','暴走街');
-                let $ary = $('#s'+id).find('li');
-                $ary.each((index,player)=>{
+                obj.player_platform = $li.text().replace('1026', '暴走街');
+                let $ary = $('#s' + id).find('li');
+                $ary.each((index, player) => {
                     let $player = $(player);
                     let movie_player_url = $player.children('a').attr('href');
-                    let idStr = movie_player_url.split('/')[movie_player_url.split('/').length-1];
-                    let reg =  /([^\s]*)\.html/;
+                    let idStr = movie_player_url.split('/')[movie_player_url.split('/').length - 1];
+                    let reg = /([^\s]*)\.html/;
                     // console.log(reg.exec(idStr))
                     let item = {
-                        title:$player.children('a').attr('title'),
+                        title: $player.children('a').attr('title'),
                         movie_player_url,
-                        movie_player_id:reg.test(idStr)?reg.exec(idStr)[1]:''
+                        movie_player_id: reg.test(idStr) ? reg.exec(idStr)[1] : ''
                     };
                     obj.player_list.push(item)
                 });
@@ -129,17 +131,24 @@ router.get('/detail', function (req, res, next) {
  * 获取播放url地址
  * @type {Router}
  */
-router.get('/getPlayerSource',function (req,res,next) {
+router.get('/getPlayerSource', function (req, res, next) {
     let movie_player_id = req.query.movie_player_id;
     console.log(movie_player_id);
-    let url ;
-    if(TYPE == '1026tv') {
+    let url;
+    if (TYPE == '1026tv') {
         url = `${BASEURL}/kan/${movie_player_id}.html`;
     }
+    let config = require(`../common/${TYPE}.json`);
+    if(config[movie_player_id]){
+        let player_info = config[movie_player_id];
+        res.send({
+            code: 1, data: {player_info}, msg: ''
+        });
+    }else{
         puppeteer.launch({
-            args: ['--no-sandbox','--disable-setuid-sandbox'],
+            args: ['--no-sandbox', '--disable-setuid-sandbox'],
             headless: true, //false 不使用无头模式使用本地可视化,//true使用无头模式，无界面模式；默认为有头
-            // executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", //因为是yarn add puppeteer --ignore-scripts没有安装chromium，需要制定本地chromium的chrome.exe路径所在,刚才下载后解压后的全路径
+            executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", //因为是yarn add puppeteer --ignore-scripts没有安装chromium，需要制定本地chromium的chrome.exe路径所在,刚才下载后解压后的全路径
             // executablePath:"/usr/share/man/man1/google-chrome.1.gz",
             //设置超时时间
             timeout: 15000,
@@ -150,19 +159,24 @@ router.get('/getPlayerSource',function (req,res,next) {
         }).then(async browser => {
             const page = await browser.newPage();
             await page.setViewport({width: 1920, height: 1080});
-            await page.goto(url, { waitUntil: "networkidle2" });
+            await page.goto(url, {waitUntil: "networkidle2"});
             await page.waitFor(200);
-            let movie_online_player_url = await page.$eval('#playleft > iframe',el=>el.src);
+            let movie_online_player_url = await page.$eval('#playleft > iframe', el => el.src);
             let player_info = {
                 movie_online_player_url,
-                source:movie_online_player_url.split("?")[1].split('=')[1]
+                source: movie_online_player_url.split("?")[1].split('=')[1]
             };
             //关闭浏览器
             browser.close();
-            res.send({
-                code: 1, data: {player_info}, msg: ''
-            })
+            //做缓存
+            config[movie_player_id] = player_info;
+            fs.writeFile(path.join(__dirname,`../common/${TYPE}.json`), JSON.stringify(config),'utf8',function(error){
+                res.send({
+                    code: 1, data: {player_info}, msg: ''
+                });
+            });
         })
+    }
 });
 
 module.exports = router;
