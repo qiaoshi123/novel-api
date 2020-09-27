@@ -163,25 +163,6 @@ router.get('/getPlayerSource',function (req,res,next) {
                 code: 1, data: {player_info}, msg: ''
             })
         })
-        // superagent.get(url).end(function (err, sres) {
-        //     // 常规的错误处理
-        //     if (err) {
-        //         return next(err);
-        //     }
-        //     var str = sres.text;
-        //     var $ = cheerio.load(str);
-        //     console.log(str)
-        //     let $iframe = $('.MacPlayer').children('table').find('#playleft').children('iframe');
-        //     console.log($iframe.html())
-        //     let movie_online_player_url = $iframe.attr('src');
-        //     let player_info = {
-        //         movie_online_player_url
-        //     };
-        //     res.send({
-        //         code: 1, data: {player_info}, msg: ''
-        //     })
-        // })
-
-})
+});
 
 module.exports = router;
