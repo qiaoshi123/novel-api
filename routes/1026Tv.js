@@ -17,7 +17,7 @@ if(TYPE == '1026tv'){
     BASEURL = 'https://www.1026tv.com'
 }
 if(TYPE =='cunzhangbatv'){
-    BASEURL ='https://www.cunzhangba.com/'
+    BASEURL ='https://www.cunzhangba.com'
 }
 /**
  * 搜索
