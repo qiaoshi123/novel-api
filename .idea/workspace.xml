@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e7b0f3b2-1d76-417f-bef7-2bc7d368de17" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/routes/1026Tv.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/1026Tv.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,29 +16,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/cunzhangbaTv.js">
+        <entry file="file://$PROJECT_DIR$/common/1026tv.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="302" column="3" lean-forward="true" selection-start-line="302" selection-start-column="3" selection-end-line="302" selection-end-column="3" />
-              <folding>
-                <element signature="e#464#546#0" />
-                <element signature="e#669#1994#0" />
-                <element signature="e#5664#7150#0" />
-                <element signature="e#7321#11016#0" />
-              </folding>
+            <state>
+              <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/routes/1026Tv.js">
+        <entry file="file://$PROJECT_DIR$/common/cunzhangbatv.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="259" column="20" lean-forward="true" selection-start-line="259" selection-start-column="20" selection-end-line="259" selection-end-column="20" />
-              <folding>
-                <element signature="e#1238#1322#0" />
-                <element signature="e#3307#4431#0" />
-              </folding>
+            <state>
+              <caret column="2" selection-start-column="2" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -55,7 +45,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>is_show_player</find>
       <find>token</find>
       <find>post</find>
       <find>body-parser</find>
@@ -85,6 +74,7 @@
       <find>95309_1_2</find>
       <find>browser</find>
       <find>guess_you_like</find>
+      <find>url</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/routes</dir>
@@ -141,11 +131,11 @@
         <option value="$PROJECT_DIR$/test.html" />
         <option value="$PROJECT_DIR$/common/1026Tv.json" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/common/1026tv.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/routes/cunzhangbaTv.js" />
-        <option value="$PROJECT_DIR$/common/cunzhangbatv.json" />
         <option value="$PROJECT_DIR$/routes/1026Tv.js" />
+        <option value="$PROJECT_DIR$/common/1026tv.json" />
+        <option value="$PROJECT_DIR$/common/cunzhangbatv.json" />
       </list>
     </option>
   </component>
@@ -171,11 +161,6 @@
               <item name="novel-api" type="b2602c69:ProjectViewProjectNode" />
               <item name="novel-api" type="462c0819:PsiDirectoryNode" />
               <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="novel-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="novel-api" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -294,7 +279,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="208360000" />
+    <option name="totallyTimeSpent" value="208853000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -309,7 +294,7 @@
     <frame x="1440" y="-157" width="1920" height="1057" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19799894" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19799894" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -323,7 +308,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3299435" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.20518135" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.48393783" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -647,13 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/1026tv.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1842" lean-forward="true" selection-start-column="1842" selection-end-column="1842" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="402">
@@ -675,9 +653,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/1026Tv.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="265" column="34" selection-start-line="265" selection-start-column="34" selection-end-line="265" selection-end-column="34" />
+          <folding>
+            <element signature="e#1238#1322#0" />
+            <element signature="e#3307#4431#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/cunzhangbaTv.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
+        <state relative-caret-position="154">
           <caret line="302" column="3" lean-forward="true" selection-start-line="302" selection-start-column="3" selection-end-line="302" selection-end-column="3" />
           <folding>
             <element signature="e#464#546#0" />
@@ -688,21 +677,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/common/1026tv.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/common/cunzhangbatv.json">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="2" selection-start-column="2" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/1026Tv.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="259" column="20" lean-forward="true" selection-start-line="259" selection-start-column="20" selection-end-line="259" selection-end-column="20" />
-          <folding>
-            <element signature="e#1238#1322#0" />
-            <element signature="e#3307#4431#0" />
-          </folding>
         </state>
       </provider>
     </entry>
