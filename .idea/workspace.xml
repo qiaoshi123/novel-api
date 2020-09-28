@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e7b0f3b2-1d76-417f-bef7-2bc7d368de17" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/1026Tv.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/1026Tv.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,8 +19,9 @@
         <entry file="file://$PROJECT_DIR$/routes/1026Tv.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
-              <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+              <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
               <folding>
+                <element signature="e#1670#3212#0" />
                 <element signature="e#3307#10400#0" />
                 <element signature="e#10500#12569#0" />
               </folding>
@@ -33,12 +32,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/cunzhangbaTv.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="33" selection-start-line="33" selection-end-line="65" selection-end-column="11" />
+            <state relative-caret-position="234">
+              <caret line="68" selection-start-line="68" selection-end-line="153" selection-end-column="3" />
               <folding>
                 <element signature="e#669#1994#0" />
                 <element signature="e#2074#5592#0" />
                 <element signature="e#5664#7150#0" />
+                <element signature="e#7154#7189#0" />
+                <element signature="e#7222#11020#0" />
                 <element signature="e#7321#11016#0" />
               </folding>
             </state>
@@ -57,8 +58,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>bodyParser</find>
-      <find>parser</find>
       <find>request</find>
       <find>reques</find>
       <find>da</find>
@@ -87,6 +86,8 @@
       <find>iconv</find>
       <find>resChinese</find>
       <find>common</find>
+      <find>movie_actors</find>
+      <find>cur_nav_index</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/routes</dir>
@@ -296,7 +297,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="214337000" />
+    <option name="totallyTimeSpent" value="219570000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -325,7 +326,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3299435" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.22176166" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.30984455" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -535,13 +536,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/suixingTv.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/ssysvipTv.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
@@ -581,13 +575,6 @@
             <element signature="e#435#1100#0" />
             <element signature="e#1317#1933#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/wechat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="985">
-          <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -683,19 +670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/cunzhangbaTv.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="33" selection-start-line="33" selection-end-line="65" selection-end-column="11" />
-          <folding>
-            <element signature="e#669#1994#0" />
-            <element signature="e#2074#5592#0" />
-            <element signature="e#5664#7150#0" />
-            <element signature="e#7321#11016#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/iconv-lite/lib/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-52">
@@ -706,11 +680,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/suixingTv.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/wechat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="668">
+          <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/cunzhangbaTv.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="68" selection-start-line="68" selection-end-line="153" selection-end-column="3" />
+          <folding>
+            <element signature="e#669#1994#0" />
+            <element signature="e#2074#5592#0" />
+            <element signature="e#5664#7150#0" />
+            <element signature="e#7154#7189#0" />
+            <element signature="e#7222#11020#0" />
+            <element signature="e#7321#11016#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/1026Tv.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
           <folding>
+            <element signature="e#1670#3212#0" />
             <element signature="e#3307#10400#0" />
             <element signature="e#10500#12569#0" />
           </folding>

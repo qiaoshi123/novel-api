@@ -8,7 +8,7 @@ let router = express.Router();
 let cheerio = require('cheerio');
 let superagent = require('superagent');
 const puppeteer = require('puppeteer');
-const TYPE = 'cunzhangbatv';
+const TYPE = '1026tv';
 
 let BASEURL = '';
 if(TYPE == '1026tv'){
@@ -17,6 +17,175 @@ if(TYPE == '1026tv'){
 if(TYPE =='cunzhangbatv'){
     BASEURL ='https://www.cunzhangba.com'
 }
+
+/**
+ * 首页
+ * @type {Router}
+ */
+router.get('/homeIndex',(req,res)=>{
+    if(TYPE == '1026tv'){
+        let url = `${BASEURL}/index.html`;
+        superagent.get(url).end(function (err, sres) {
+            // 常规的错误处理
+            if (err) {
+                return next(err);
+            }
+            var str = sres.text;
+            var $ = cheerio.load(str);
+            //nav导航
+            let navs =[];
+            $('.nav-down-1.sy1.sj-noover').find('li').find('a').each((i,nav)=>{
+                let $nav = $(nav);
+                let obj = {
+                    nav_name:$nav.text(),
+                    cate_h5_url:$nav.attr('href')
+                };
+                if(obj.nav_name !="留言"){
+                    navs.push(obj)
+                }
+            });
+            //首页数据
+            let modules = [];
+            if($('.index-tj-l').length>0){
+                let obj = {
+                    module_name:$($('.index-tj-l').children('h2')[0].childNodes[1]).text(),
+                    module_icon:'',
+                    module_more_url:'',
+                    module_movies:[],
+                };
+                $('.index-tj-l').children('ul').children('li').each((i,li)=>{
+                    let $li = $(li);
+                    let h5Detail = $li.children('a').attr('href');
+                    let reg = /(\d+)\.html$/;
+                    let movie = {
+                        movie_h5_detail_url:h5Detail,
+                        movie_id: reg.exec(h5Detail)[1],
+                        movie_img:$li.children('a').children('.lazy').attr('data-original'),
+                        movie_name:$li.children('a').attr('title'),
+                        movie_actors:'',
+                        movie_pic_text: $li.children('a').children('.other').text(),
+                    };
+                    obj.module_movies.push(movie);
+                });
+                modules.push(obj);
+            }
+            if($('.index-area.clearfix').length>0){
+                $('.index-area.clearfix').each((i,box)=>{
+                    let $box = $(box)
+                    let obj = {
+                        module_name:$($box.children('h2')[0].childNodes[1]).text(),
+                        module_icon:'',
+                        module_more_url:'',
+                        module_movies:[],
+                    };
+                    $box.children('ul').children('li').each((i,li)=>{
+                        let $li = $(li);
+                        let h5Detail = $li.children('a').attr('href');
+                        let reg = /(\d+)\.html$/;
+                        let movie = {
+                            movie_h5_detail_url:h5Detail,
+                            movie_id: reg.exec(h5Detail)[1],
+                            movie_img:hostCheck($li.children('a').children('.lazy').attr('data-original')),
+                            movie_name:$li.children('a').attr('title'),
+                            movie_actors:'',
+                            movie_pic_text: $li.children('a').children('.other').text(),
+                        };
+                        obj.module_movies.push(movie);
+                    })
+                    modules.push(obj);
+                })
+            }
+
+            res.send({code:1,data:{navs,modules,cur_nav_index:0},msg:'success'})
+        })
+    }
+    if(TYPE == 'cunzhangbatv'){
+        let url = `${BASEURL}/index.html`;
+        superagent.get(url).end(function (err, sres) {
+            // 常规的错误处理
+            if (err) {
+                return next(err);
+            }
+            var str = sres.text;
+            var $ = cheerio.load(str);
+            //nav导航
+            let navs =[];
+            $('.type-slide').find('a').each((i,nav)=>{
+                let $nav = $(nav);
+                let obj = {
+                    nav_name:$nav.text(),
+                    nav_h5_url:$nav.attr('href')
+                };
+                if(obj.nav_name !="APP下载" && obj.nav_name !="求片留言" ){
+                    navs.push(obj)
+                }
+            });
+            //首页数据
+            let modules = [];
+            let pannels = [].slice.call($('.stui-pannel'),0).filter((item,i)=>{
+                return $(item).find('.stui-vodlist').length > 0;
+            });
+            pannels.forEach((pannel,i)=>{
+                let obj = {};
+                let $pannel = $(pannel);
+                let $head = $pannel.find('.stui-pannel__head');
+                obj.module_name = $head.children('.title').text();
+                obj.module_icon = $head.children('.title').children('img').attr('src');
+                let $navTabs = $head.find('.nav-tabs');
+                if($navTabs && $navTabs.children('li').length > 0){
+                    obj.module_tabs = [];
+                    $navTabs.children('li').each((i,li)=>{
+                        let tab_name = $(li).text();
+                        let tab_id = $(li).children('a').attr('href');
+                        let tab_movies = [];
+                        $pannel.find('.tab-content').children(tab_id).find('li').each((i,li)=>{
+                            let $li = $(li);
+                            let h5Detail = $li.find('.stui-vodlist__thumb').attr('href');
+                            let reg = /(\d+)\.html$/;
+                            let movie = {
+                                movie_h5_detail_url:h5Detail,
+                                movie_id: reg.exec(h5Detail)[1],
+                                movie_img:$li.find('.stui-vodlist__thumb').attr('data-original'),
+                                movie_name:$li.find('.stui-vodlist__detail').find('.title').text(),
+                                movie_actors:$li.find('.stui-vodlist__detail').find('.text').text(),
+                                movie_pic_text: $li.find('.stui-vodlist__thumb').find('.pic-text').text(),
+                            };
+                            tab_movies.push(movie)
+                        });
+                        let tab = {
+                            tab_name,
+                            tab_movies
+                        };
+                        obj.module_tabs.push(tab)
+                    });
+                    obj.cur_tab_index = 0;
+                }else{
+                    obj.module_more_url=  $head.children('.more').attr('href');
+                    obj.module_movies = [];
+                    $pannel.find('.stui-vodlist').find('li').each((i,li)=>{
+                        let $li = $(li);
+                        let h5Detail = $li.find('.stui-vodlist__thumb').attr('href');
+                        let reg = /(\d+)\.html$/;
+                        let movie = {
+                            movie_h5_detail_url:h5Detail,
+                            movie_id: reg.exec(h5Detail)[1],
+                            movie_img:$li.find('.stui-vodlist__thumb').attr('data-original'),
+                            movie_name:$li.find('.stui-vodlist__detail').find('.title').text(),
+                            movie_actors:$li.find('.stui-vodlist__detail').find('.text').text(),
+                            movie_pic_text: $li.find('.stui-vodlist__thumb').find('.pic-text').text(),
+                        };
+                        obj.module_movies.push(movie)
+                    })
+                }
+                modules.push(obj)
+            });
+            res.send({code:1,data:{navs,modules,cur_nav_index:0},msg:'success'})
+        })
+    }
+
+
+});
+
 /**
  * 搜索
  * 入参:
@@ -333,4 +502,19 @@ router.get('/getPlayerSource', function (req, res, next) {
 function resChinese(text) {
     return unescape(text.replace(/&#x/g, '%u').replace(/;/g, ''));
 }
+
+/**
+ * 补协议和domain
+ * @type {Router}
+ */
+function hostCheck(str){
+   let host = `${BASEURL}`;
+   let reg = /^(?=^.{3,255}$)(http(s)?:\/\/)?(www\.)?[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+(:\d+)*(\/\w+\.\w+)*/
+   if(!reg.test(str)){
+        return `${host}${str}`
+   }else{
+       return  str;
+   }
+}
+
 module.exports = router;
