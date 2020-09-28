@@ -11,7 +11,14 @@ let cheerio = require('cheerio');
 let superagent = require('superagent');
 const puppeteer = require('puppeteer');
 const TYPE = 'cunzhangbatv';
-const BASEURL = 'https://www.1026tv.com';
+
+let BASEURL = '';
+if(TYPE == '1026tv'){
+    BASEURL = 'https://www.1026tv.com'
+}
+if(TYPE =='cunzhangbatv'){
+    BASEURL ='https://www.cunzhangba.com/'
+}
 /**
  * 搜索
  * 入参:
@@ -126,7 +133,7 @@ router.get('/detail', function (req, res, next) {
         })
     }
     if(TYPE == 'cunzhangbatv'){
-        let url = `https://www.cunzhangba.com/v/${id}.html`;
+        let url = `${BASEURL}/v/${id}.html`;
         superagent.get(url).end(function (err, sres) {
 
             // 常规的错误处理
@@ -231,6 +238,9 @@ router.get('/getPlayerSource', function (req, res, next) {
     let url;
     if (TYPE == '1026tv') {
         url = `${BASEURL}/kan/${movie_player_id}.html`;
+    }
+    if(TYPE == 'cunzhangbatv'){
+        url =`${BASEURL}/play/${movie_player_id}.html`
     }
     let config = require(`../common/${TYPE}.json`);
     if(config[movie_player_id]){
