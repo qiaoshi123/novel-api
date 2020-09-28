@@ -297,8 +297,6 @@ router.get('/detail',(req,res)=>{
         };
         res.send({code:1,data:{detail},msg:'success'});
     });
-
-
 });
 /**
  * list查看更多

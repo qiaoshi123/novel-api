@@ -10,8 +10,15 @@ let router = express.Router();
 let cheerio = require('cheerio');
 let superagent = require('superagent');
 const puppeteer = require('puppeteer');
-const TYPE = '1026tv';
-const BASEURL = 'https://www.1026tv.com';
+const TYPE = 'cunzhangbatv';
+
+let BASEURL = '';
+if(TYPE == '1026tv'){
+    BASEURL = 'https://www.1026tv.com'
+}
+if(TYPE =='cunzhangbatv'){
+    BASEURL ='https://www.cunzhangba.com'
+}
 /**
  * 搜索
  * 入参:
@@ -125,6 +132,100 @@ router.get('/detail', function (req, res, next) {
             })
         })
     }
+    if(TYPE == 'cunzhangbatv'){
+        let url = `${BASEURL}/v/${id}.html`;
+        superagent.get(url).end(function (err, sres) {
+
+            // 常规的错误处理
+            if (err) {
+                return next(err);
+            }
+            var str = sres.text;
+            var $ = cheerio.load(str);
+            //影片信息
+            let $div = $('body').children('.container').eq(0).find('.row').eq(0).children('div').eq(0);
+            let $pannels = $div.children('.stui-pannel');
+            let $pannel0 = $pannels.eq(0);
+            let $pannel0Box = $pannel0.find('.stui-pannel-box').children('div').eq(1);
+            let $thumb = $pannel0Box.find('.stui-content__thumb');
+            let movie_img = $thumb.find('img').attr('src');
+            let movie_pic_text =$thumb.find('.pic-text').text();
+            let movie_title = $thumb.find('a').attr('title');
+            let $detail = $pannel0Box.find('.stui-content__detail');
+            let movie_score = $detail.find('.score').text();
+            let movie_actors = $detail.children('p').eq(1).text();
+            let movie_main = $detail.children('p').eq(2).text();
+            let movie_update_time = $detail.children('p').eq(3).text();
+            let movie_desc = $detail.children('.desc').text();
+
+            let detail = {
+                movie_h5_detail_url: url,//h5页面地址
+                movie_id: id,
+                movie_img: movie_img,//头图
+                movie_name: movie_title,//标题
+                movie_type: $detail.children('p').eq(0).find('a').eq(0).text(),//类型 综艺 ..
+                movie_time: $detail.children('p').eq(0).find('a').eq(2).text(),// 2020
+                movie_area: $detail.children('p').eq(0).find('a').eq(1).text(),//大陆
+                movie_pic_text: movie_pic_text,//HC  1集全/已完结
+                movie_actors: movie_actors,
+                movie_main: movie_main,
+                movie_language: '',
+                movie_desc: movie_desc,
+                movie_players: [],
+                guess_you_like: [],
+                movie_score:movie_score,
+                movie_update_time:movie_update_time,
+            };
+
+            //播放信息
+            let $playList = $div.find('.playlist');
+            $playList.each((i,v)=>{
+                let $v = $(v);
+                let obj = {
+                    player_platform:$v.find('.stui-pannel_hd').find('.title').text().replace('村长爸','电影街'),
+                    player_list:[]
+                };
+                $v.find('.stui-pannel_bd').find('li').each((n,li)=>{
+                    let $li = $(li);
+                    let movie_player_url = $li.find('a').attr('href');
+                    let idStr = movie_player_url.split('/')[movie_player_url.split('/').length - 1];
+                    let reg = /([^\s]*)\.html/;
+                    let item = {
+                        title:$li.text(),
+                        movie_player_url,
+                        movie_player_id: reg.test(idStr) ? reg.exec(idStr)[1] : ''
+                    };
+                    obj.player_list.push(item)
+                });
+                detail.movie_players.push(obj);
+            });
+            //猜你喜欢
+            if($("#desc").next().length >0){
+                let $youlike = $("#desc").next().children('.stui-pannel-box');
+                if($youlike.length>0){
+                    let $hd = $youlike.children('.stui-pannel_hd');
+                    let $list =  $youlike.children('.stui-pannel_bd').children('.stui-vodlist__bd').children('li');
+                    $list.each((v,li)=>{
+                        let $li = $(li);
+                        let movie_h5_url = $li.find('.stui-vodlist__thumb').attr('href');
+                        let movie_img = $li.find('.stui-vodlist__thumb').attr('data-original');
+                        let movie_pic_text = $li.find('.stui-vodlist__thumb').find('.pic-text').text();
+                        let movie_title = $li.find('.stui-vodlist__thumb').attr('title');
+                        let movie_actors = $li.find('.stui-vodlist__detail').find('.text').text();
+                        let obj = {
+                            movie_h5_url,
+                            movie_img,
+                            movie_pic_text,
+                            movie_title,
+                            movie_actors
+                        };
+                        detail.guess_you_like.push(obj);
+                    })
+                }
+            }
+            res.send({code:1,data:{detail},msg:'success'});
+        });
+    }
 });
 
 /**
@@ -137,6 +238,9 @@ router.get('/getPlayerSource', function (req, res, next) {
     let url;
     if (TYPE == '1026tv') {
         url = `${BASEURL}/kan/${movie_player_id}.html`;
+    }
+    if(TYPE == 'cunzhangbatv'){
+        url =`${BASEURL}/play/${movie_player_id}.html`
     }
     let config = require(`../common/${TYPE}.json`);
     if(config[movie_player_id]){
