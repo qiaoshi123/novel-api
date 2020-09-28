@@ -4,8 +4,6 @@
 let fs = require('fs');
 let path =require('path');
 let express = require('express');
-let request = require('request');
-let common = require('../common/common.json'); // 引用公共文件
 let router = express.Router();
 let cheerio = require('cheerio');
 let superagent = require('superagent');
@@ -43,6 +41,8 @@ router.get('/search', function (req, res, next) {
             }
             var str = sres.text;
             var $ = cheerio.load(str);
+
+            let text = $('body').children('.main').find('.sy-title.clearfix').children('.type').text().trim();
             let list = [];
             $('.index-area li').each((index, li) => {
                 let $li = $(li);
@@ -60,12 +60,50 @@ router.get('/search', function (req, res, next) {
                 };
                 list.push(obj);
             });
-            let result = {code: 1, data: {list}, msg: ''};
+            let result = {code: 1, data: {text,list}, msg: ''};
             if (list.length == 0) {
                 result.msg = '未搜索到相应视频资源'
             }
             res.send(result)
         })
+    }
+    if(TYPE == 'cunzhangbatv'){
+        let url = `${BASEURL}/vodsearch.html?wd=${encodeURIComponent(wd)}`;
+        superagent.get(url).end(function (err, sres) {
+
+            // 常规的错误处理
+            if (err) {
+                return next(err);
+            }
+            var str = sres.text;
+            var $ = cheerio.load(str);
+
+            let $hd = $('.container').eq(1).find('.stui-pannel-box').eq(0).find('.stui-pannel_hd');
+            let $list = $('.container').eq(1).find('.stui-pannel-box').eq(0).find('.stui-pannel_bd').find('.stui-vodlist__media');
+            let text = $hd.find('.title').text();
+            let list = [];
+            $list.find('li').each((i,v)=>{
+                let $v = $(v);
+                let $thumb = $v.find('.thumb').find('.stui-vodlist__thumb');
+                let $detail = $v.find('.detail');
+                let h5Detail = $thumb.attr('href');
+                let reg = /(\d+)\.html$/;
+                let reg2 =  /&#x7C7B;&#x578B;&#xFF1A;\<\/span\>([^<]*).*&#x5730;&#x533A;&#xFF1A;\<\/span\>([^<]*).*&#x5E74;&#x4EFD;&#xFF1A;\<\/span\>([^<]*)/;
+                let ary = reg2.exec($detail.find('.hidden-mi').html());
+                let obj = {
+                    movie_h5_detail_url: h5Detail,//h5页面地址
+                    movie_id: reg.exec(h5Detail)[1],
+                    movie_img: $thumb.attr('data-original'),//头图
+                    movie_name: $thumb.attr('title'),//标题
+                    movie_type: ary[1] ? resChinese(ary[1]) : "",//类型 综艺 ..
+                    movie_time: ary[3] ? resChinese(ary[3]) : "",// 2020
+                    movie_area: ary[2] ? resChinese(ary[2]) : '',//大陆
+                    movie_pic_text: $thumb.find('.pic-text').text()//HC  1集全/已完结
+                };
+                list.push(obj)
+            });
+            res.send({code:1,data:{text,list},msg:'success'});
+        });
     }
 });
 
@@ -286,4 +324,13 @@ router.get('/getPlayerSource', function (req, res, next) {
     }
 });
 
+/**
+ * utf8还原中文
+ * @param text
+ * @returns {string}
+ * @constructor
+ */
+function resChinese(text) {
+    return unescape(text.replace(/&#x/g, '%u').replace(/;/g, ''));
+}
 module.exports = router;
