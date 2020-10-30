@@ -8,7 +8,7 @@ let router = express.Router();
 let cheerio = require('cheerio');
 let superagent = require('superagent');
 const puppeteer = require('puppeteer');
-const TYPE = '1026tv';
+const TYPE = 'cunzhangbatv';
 
 let BASEURL = '';
 if(TYPE == '1026tv'){
