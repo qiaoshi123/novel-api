@@ -125,8 +125,13 @@ router.get('/homeOtherNavIndex', (req, res) => {
             var $ = cheerio.load(str);
             //首页数据
             let modules = [];
+            let pannels0 = $('.container').eq(1).children('.row').eq(0).children('.stui-pannel');
+            pannels0 = [].slice.call(pannels0, 0);
+
             let pannels = $('.container').eq(1).children('.row').eq(1).children('.stui-pannel');
             pannels = [].slice.call(pannels, 0);
+
+            pannels = pannels0.concat(pannels)
             pannels.forEach((pannel, i) => {
                 let obj = {};
                 let $pannel = $(pannel);
