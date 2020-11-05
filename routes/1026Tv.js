@@ -23,82 +23,6 @@ if(TYPE =='cunzhangbatv'){
  * @type {Router}
  */
 router.get('/homeIndex',(req,res)=>{
-    if(TYPE == '1026tv'){
-        let url = `${BASEURL}/index.html`;
-        superagent.get(url).end(function (err, sres) {
-            // 常规的错误处理
-            if (err) {
-                return next(err);
-            }
-            var str = sres.text;
-            var $ = cheerio.load(str);
-            //nav导航
-            let navs =[];
-            $('.nav-down-1.sy1.sj-noover').find('li').find('a').each((i,nav)=>{
-                let $nav = $(nav);
-                let obj = {
-                    nav_name:$nav.text(),
-                    cate_h5_url:$nav.attr('href')
-                };
-                if(obj.nav_name !="留言"){
-                    navs.push(obj)
-                }
-            });
-            //首页数据
-            let modules = [];
-            if($('.index-tj-l').length>0){
-                let obj = {
-                    module_name:$($('.index-tj-l').children('h2')[0].childNodes[1]).text(),
-                    module_icon:'',
-                    module_more_url:'',
-                    module_movies:[],
-                };
-                $('.index-tj-l').children('ul').children('li').each((i,li)=>{
-                    let $li = $(li);
-                    let h5Detail = $li.children('a').attr('href');
-                    let reg = /(\d+)\.html$/;
-                    let movie = {
-                        movie_h5_detail_url:h5Detail,
-                        movie_id: reg.exec(h5Detail)[1],
-                        movie_img:$li.children('a').children('.lazy').attr('data-original'),
-                        movie_name:$li.children('a').attr('title'),
-                        movie_actors:'',
-                        movie_pic_text: $li.children('a').children('.other').text(),
-                    };
-                    obj.module_movies.push(movie);
-                });
-                modules.push(obj);
-            }
-            if($('.index-area.clearfix').length>0){
-                $('.index-area.clearfix').each((i,box)=>{
-                    let $box = $(box)
-                    let obj = {
-                        module_name:$($box.children('h2')[0].childNodes[1]).text(),
-                        module_icon:'',
-                        module_more_url:'',
-                        module_movies:[],
-                    };
-                    $box.children('ul').children('li').each((i,li)=>{
-                        let $li = $(li);
-                        let h5Detail = $li.children('a').attr('href');
-                        let reg = /(\d+)\.html$/;
-                        let movie = {
-                            movie_h5_detail_url:h5Detail,
-                            movie_id: reg.exec(h5Detail)[1],
-                            movie_img:hostCheck($li.children('a').children('.lazy').attr('data-original')),
-                            movie_name:$li.children('a').attr('title'),
-                            movie_actors:'',
-                            movie_pic_text: $li.children('a').children('.other').text(),
-                        };
-                        obj.module_movies.push(movie);
-                    })
-                    modules.push(obj);
-                })
-            }
-
-            res.send({code:1,data:{navs,modules,cur_nav_index:0},msg:'success'})
-        })
-    }
     if(TYPE == 'cunzhangbatv'){
         let url = `${BASEURL}/index.html`;
         superagent.get(url).end(function (err, sres) {
@@ -114,7 +38,8 @@ router.get('/homeIndex',(req,res)=>{
                 let $nav = $(nav);
                 let obj = {
                     nav_name:$nav.text(),
-                    nav_h5_url:$nav.attr('href')
+                    nav_h5_url:$nav.attr('href'),
+                    nav_modules:[]
                 };
                 if(obj.nav_name !="APP下载" && obj.nav_name !="求片留言" ){
                     navs.push(obj)
@@ -179,7 +104,8 @@ router.get('/homeIndex',(req,res)=>{
                 }
                 modules.push(obj)
             });
-            res.send({code:1,data:{navs,modules,cur_nav_index:0},msg:'success'})
+            navs[0].nav_modules = modules;
+            res.send({code:1,data:{navs,cur_nav_index:0},msg:'success'})
         })
     }
 
