@@ -11,9 +11,6 @@ const puppeteer = require('puppeteer');
 const TYPE = 'cunzhangbatv';
 
 let BASEURL = '';
-if (TYPE == '1026tv') {
-    BASEURL = 'https://www.1026tv.com'
-}
 if (TYPE == 'cunzhangbatv') {
     BASEURL = 'https://www.cunzhangba.com'
 }
@@ -177,41 +174,6 @@ router.get('/search', function (req, res, next) {
             msg: '请输入关键词'
         })
     }
-    if (TYPE == '1026tv') {
-        let url = `${BASEURL}/chazhao.html?wd=${encodeURIComponent(wd)}`;
-        superagent.get(url).end(function (err, sres) {
-            // 常规的错误处理
-            if (err) {
-                return next(err);
-            }
-            var str = sres.text;
-            var $ = cheerio.load(str);
-
-            let text = $('body').children('.main').find('.sy-title.clearfix').children('.type').text().trim();
-            let list = [];
-            $('.index-area li').each((index, li) => {
-                let $li = $(li);
-                let h5Detail = $li.find('.link-hover').attr('href');
-                let reg = /(\d+)\.html$/;
-                let obj = {
-                    movie_h5_detail_url: h5Detail,//h5页面地址
-                    movie_id: reg.exec(h5Detail)[1],
-                    movie_img: $li.find('.lazy').attr('data-original'),//头图
-                    movie_name: $li.find('.lazy').attr('alt'),//标题
-                    movie_type: $li.find('.actor').eq(1).text(),//类型 综艺 ..
-                    movie_time: $li.find('.actor').eq(2).text().split('/')[0],// 2020
-                    movie_area: $li.find('.actor').eq(2).text().split('/')[1],//大陆
-                    movie_pic_text: $li.find('.other').text()//HC  1集全/已完结
-                };
-                list.push(obj);
-            });
-            let result = {code: 1, data: {text, list}, msg: ''};
-            if (list.length == 0) {
-                result.msg = '未搜索到相应视频资源'
-            }
-            res.send(result)
-        })
-    }
     if (TYPE == 'cunzhangbatv') {
         let url = `${BASEURL}/vodsearch.html?wd=${encodeURIComponent(wd)}`;
         superagent.get(url).end(function (err, sres) {
@@ -259,62 +221,6 @@ router.get('/search', function (req, res, next) {
  */
 router.get('/detail', function (req, res, next) {
     let id = req.query.id;
-    if (TYPE == '1026tv') {
-        let url = `${BASEURL}/tv/${id}.html`;
-        superagent.get(url).end(function (err, sres) {
-            // 常规的错误处理
-            if (err) {
-                return next(err);
-            }
-            var str = sres.text;
-            var $ = cheerio.load(str);
-            let $movie = $('.ct.mb');
-            let detail = {
-                movie_h5_detail_url: url,//h5页面地址
-                movie_id: id,
-                movie_img: $movie.find('.lazy').attr('data-original'),//头图
-                movie_name: $movie.find('.lazy').attr('alt'),//标题
-                movie_type: $movie.find('dt').eq(2).find('a').text(),//类型 综艺 ..
-                movie_time: $movie.find('dd').eq(2).find('a').text(),// 2020
-                movie_area: $movie.find('dd').eq(1).find('a').text(),//大陆
-                movie_pic_text: $movie.find('dt').eq(0).find('.bc').text(),//HC  1集全/已完结
-                movie_actors: $movie.find('dt').eq(1).text().replace('主演：', ''),
-                movie_main: $movie.find('dd').eq(0).find('a').text(),
-                movie_language: $movie.find('dd').eq(3).find('a').text(),
-                movie_desc: $("#stab2").text().trim(),
-                movie_players: [],
-                guess_you_like: [],
-            };
-            let $lis = $('#stab1').children('.playfrom').find('li');
-            $lis.each((i, li) => {
-                let obj = {
-                    player_platform: '',
-                    player_list: [],
-                };
-                let $li = $(li);
-                let id = $li.attr('id');
-                obj.player_platform = $li.text().replace('1026', '暴走街');
-                let $ary = $('#s' + id).find('li');
-                $ary.each((index, player) => {
-                    let $player = $(player);
-                    let movie_player_url = $player.children('a').attr('href');
-                    let idStr = movie_player_url.split('/')[movie_player_url.split('/').length - 1];
-                    let reg = /([^\s]*)\.html/;
-                    // console.log(reg.exec(idStr))
-                    let item = {
-                        title: $player.children('a').attr('title'),
-                        movie_player_url,
-                        movie_player_id: reg.test(idStr) ? reg.exec(idStr)[1] : ''
-                    };
-                    obj.player_list.push(item)
-                });
-                detail.movie_players.push(obj)
-            });
-            res.send({
-                code: 1, data: {detail}, msg: ''
-            })
-        })
-    }
     if (TYPE == 'cunzhangbatv') {
         let url = `${BASEURL}/v/${id}.html`;
         superagent.get(url).end(function (err, sres) {
@@ -419,9 +325,6 @@ router.get('/getPlayerSource', function (req, res, next) {
     let movie_player_id = req.query.movie_player_id;
     console.log(movie_player_id);
     let url;
-    if (TYPE == '1026tv') {
-        url = `${BASEURL}/kan/${movie_player_id}.html`;
-    }
     if (TYPE == 'cunzhangbatv') {
         url = `${BASEURL}/play/${movie_player_id}.html`
     }

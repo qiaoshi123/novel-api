@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e7b0f3b2-1d76-417f-bef7-2bc7d368de17" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/common.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/common.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/miniProgramConfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/wx115f02bc0d3862ed.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/wx115f02bc0d3862ed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/wx3043389d5754c7c4.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/wx3043389d5754c7c4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/wxb9473c91e3b00aa0.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/wxb9473c91e3b00aa0.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/quce.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/quce.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/wechat.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wechat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/wxenable.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/wxenable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/movie.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/movie.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/movie.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="112" column="3" lean-forward="true" selection-start-line="112" selection-start-column="3" selection-end-line="112" selection-end-column="3" />
+            <state relative-caret-position="128">
+              <caret line="261" column="19" selection-start-line="261" selection-start-column="19" selection-end-line="261" selection-end-column="19" />
               <folding>
                 <element signature="e#3868#7821#0" />
                 <element signature="e#4576#4656#0" />
@@ -36,63 +27,9 @@
                 <element signature="e#4815#6929#0" />
                 <element signature="e#7876#8704#0" />
                 <element signature="e#8985#12519#0" />
-                <element signature="e#12614#19707#0" />
-                <element signature="e#12669#15192#0" />
+                <element signature="e#15223#19705#0" />
+                <element signature="e#19807#21876#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/routes/quce.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="18" column="58" lean-forward="true" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/wxenable.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/wx115f02bc0d3862ed.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/wx3043389d5754c7c4.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/wxb9473c91e3b00aa0.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/wechat.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-556">
-              <caret line="17" column="49" lean-forward="true" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -109,7 +46,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>type_area</find>
       <find>movie_type_area_year</find>
       <find>container</find>
       <find>qrsearch</find>
@@ -139,6 +75,7 @@
       <find>MOVIEVa</find>
       <find>common/</find>
       <find>common</find>
+      <find>config</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/node_modules/puppeteer</dir>
@@ -175,7 +112,6 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/routes/picProxy.js" />
-        <option value="$PROJECT_DIR$/routes/movie.js" />
         <option value="$PROJECT_DIR$/common/wx115f02bc0d3862ed.json" />
         <option value="$PROJECT_DIR$/middleware/filter.js" />
         <option value="$PROJECT_DIR$/common/wx3043389d5754c7c4.json" />
@@ -203,6 +139,7 @@
         <option value="$PROJECT_DIR$/config/wx3043389d5754c7c4.json" />
         <option value="$PROJECT_DIR$/config/wxb9473c91e3b00aa0.json" />
         <option value="$PROJECT_DIR$/routes/quce.js" />
+        <option value="$PROJECT_DIR$/routes/movie.js" />
       </list>
     </option>
   </component>
@@ -370,12 +307,12 @@
       <workItem from="1603710576863" duration="307000" />
       <workItem from="1603880954161" duration="182000" />
       <workItem from="1604047026241" duration="1475000" />
-      <workItem from="1604567581489" duration="8016000" />
+      <workItem from="1604567581489" duration="8353000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230912000" />
+    <option name="totallyTimeSpent" value="231249000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -789,10 +726,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/quce.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="58" lean-forward="true" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/movie.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="112" column="3" lean-forward="true" selection-start-line="112" selection-start-column="3" selection-end-line="112" selection-end-column="3" />
+        <state relative-caret-position="128">
+          <caret line="261" column="19" selection-start-line="261" selection-start-column="19" selection-end-line="261" selection-end-column="19" />
           <folding>
             <element signature="e#3868#7821#0" />
             <element signature="e#4576#4656#0" />
@@ -800,16 +744,9 @@
             <element signature="e#4815#6929#0" />
             <element signature="e#7876#8704#0" />
             <element signature="e#8985#12519#0" />
-            <element signature="e#12614#19707#0" />
-            <element signature="e#12669#15192#0" />
+            <element signature="e#15223#19705#0" />
+            <element signature="e#19807#21876#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/quce.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="58" lean-forward="true" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
         </state>
       </provider>
     </entry>
