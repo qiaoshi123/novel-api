@@ -8,11 +8,6 @@ var app = require('../app');
 var debug = require('debug')('novel-api:server');
 let fs = require('fs');
 let https = require("https"); // https模块
-
-// const httpsOption = {
-//   key : fs.readFileSync(__dirname + "/2_www.zhuishudaren.com.key"),  // 后面的半段改为自己的证书位置
-//   cert: fs.readFileSync(__dirname + "/1_www.zhuishudaren.com_bundle.crt")
-// };
 const httpsOption = {
   key : fs.readFileSync(__dirname + "/2_api.gaoyongliang.com.key"),  // 后面的半段改为自己的证书位置
   cert: fs.readFileSync(__dirname + "/1_api.gaoyongliang.com_bundle.crt")
