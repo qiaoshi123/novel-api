@@ -221,6 +221,7 @@ router.get('/homeOtherNavIndex', (req, res) => {
  * */
 router.get('/search', function (req, res, next) {
     let wd = req.query.wd;
+    let page = req.query.page || 1;
     if (!wd) {
         res.send({
             code: 0,
@@ -228,7 +229,7 @@ router.get('/search', function (req, res, next) {
         })
     }
     if (TYPE == 'cunzhangbatv') {
-        let url = `${BASEURL}/vodsearch.html?wd=${encodeURIComponent(wd)}`;
+        let url = `${BASEURL}/vodsearch${encodeURIComponent(wd)}/page/${page}.html`;
         superagent.get(url).end(function (err, sres) {
 
             // 常规的错误处理
