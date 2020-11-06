@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let request = require('request');
-let common = require('../common/common.json');
+let common = require('../config/common.json');
 /**
  * 获取小程序全局唯一后台接口调用凭据
  * @type {Router}
@@ -26,7 +26,7 @@ router.post('/getCodeImg',(req,res,next)=>{
     let appId = req.body.appId;
     let page = req.body.page;
     let scene = req.body.scene || "";
-    let config = require(`../common/${appId}.json`);
+    let config = require(`../config/${appId}.json`);
     let appSecret = config.APPSECRET;
 
     let getTokenUrl = `${common.LOCAL}/wxenable/getToken?appId=${appId}&appSecret=${appSecret}`;

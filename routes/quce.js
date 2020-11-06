@@ -1,6 +1,5 @@
 let express = require('express');
 let request = require('request');
-let common = require('../common/common.json'); // 引用公共文件
 let router = express.Router();
 let cheerio = require('cheerio');
 let superagent = require('superagent');

@@ -1,6 +1,6 @@
 let express = require('express');
 let request = require('request');
-let common = require('../common/common.json'); // 引用公共文件
+let common = require('../config/common.json'); // 引用公共文件
 let crypto = require('crypto');
 let router = express.Router();
 const TOKEN = 'wechat123';
