@@ -6,28 +6,11 @@ let logger = require('morgan');
 let fs = require('fs');
 let FileStreamRotator = require('file-stream-rotator'); // 日志按时间分割模块
 
-let times = require('./middleware/times');
-let filter = require('./middleware/filter.js')
-
-let indexRouter = require('./routes/index');
-let searchRouter = require('./routes/search');
-let sourceRouter = require('./routes/source');
-let chapterRouter = require('./routes/chapter');
-let articleRouter = require('./routes/article');
-let rankingRouter = require('./routes/ranking');
-let bookRouter = require('./routes/book');
-let movieRouter = require('./routes/movie.js');
-let movieV2Router = require('./routes/movieV2.js');
 let wxenableRouter = require('./routes/wxenable.js');
-let goodsRouter = require('./routes/goods.js');
 let picProxy = require('./routes/picProxy.js');
 let quce = require('./routes/quce.js');
 let wechat = require('./routes/wechat.js');
-let suixingTv = require('./routes/suixingTv.js');
-let tv1026 = require('./routes/1026Tv.js');
-let cunzhangbaTv = require('./routes/cunzhangbaTv.js');
-let liminTv = require('./routes/liminTv.js');
-let ssysvipTv = require('./routes/ssysvipTv.js');
+let movie = require('./routes/movie.js');
 
 let app = express();
 let logDir = path.join(__dirname, 'log');
@@ -64,50 +47,12 @@ app.all('*', function (req, res, next) {
 app.use('/quce',quce);
 //微信公众号消息服务器
 app.use('/wechat',wechat);
-//随行tv
-app.use('/suixing',suixingTv);
 //1026tv
-app.use('/tv1026',tv1026);
-//村长爸tv
-app.use('/cunzhangbaTv',cunzhangbaTv);
-//利民
-app.use('/liminTv',liminTv);
-//星欣tv
-app.use('/ssysvipTv',ssysvipTv);
-
-
-// app.use(times(22,5));
-app.use(filter());
-
-// 路由中间件
-// 首页
-app.use('/index', indexRouter);
-// 搜索
-app.use('/search', searchRouter);
-// 小说源
-app.use('/source', sourceRouter);
-// 小说文章列表
-app.use('/chapter', chapterRouter);
-// 小说文章内容
-app.use('/article', articleRouter);
-// 排行榜
-app.use('/ranking', rankingRouter);
-// 小说信息
-app.use('/book', bookRouter);
-
-//电影路由
-app.use('/movie',movieRouter);
+app.use('/movie',movie);
 
 //小程序权限路由
 
 app.use('/wxenable',wxenableRouter);
-
-
-//米日淘商品路由
-app.use('/goods',goodsRouter);
-
-//电影v2
-app.use('/v2/movie/',movieV2Router);
 
 //图片
 app.use('/pic',picProxy);
