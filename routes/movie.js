@@ -107,6 +107,59 @@ router.get('/homeIndex', (req, res) => {
     }
 });
 
+
+/**
+ * rank排行榜单
+ */
+router.get('/rank',(req, res) => {
+    if (TYPE == 'cunzhangbatv') {
+        let url = `${BASEURL}/index.html`;
+        superagent.get(url).end(function (err, sres) {
+            // 常规的错误处理
+            if (err) {
+                return next(err);
+            }
+            var str = sres.text;
+            var $ = cheerio.load(str);
+            let rank_list = [];
+            let pannels = $('.container').eq(1).children('.row').children('.stui-pannel');
+            if(pannels.length>0){
+                let $rankPannel = pannels.eq(pannels.length-2);
+                let $rankPannelbox = $rankPannel.children('.stui-pannel-box');
+                let $rankModules = $rankPannelbox.children('.col-lg-4.col-md-3');
+                if($rankModules.length>0){
+                    $rankModules.each((i,el)=>{
+                        let $el = $(el);
+                        let module = {
+                            hot_search_name:$el.children('.stui-pannel_hd').find('.title').text().replace('总排行','热门搜索'),
+                            rank_name:$el.children('.stui-pannel_hd').find('.title').text(),
+                            rank_icon:$el.children('.stui-pannel_hd').find('img').attr('src'),
+                            list:[]
+                        };
+                        let $lis = $el.children('.stui-pannel_bd').find('li');
+                        $lis.each((index,li)=>{
+                            let reg = /(\d+)\.html$/;
+                            let $li = $(li);
+                            let h5Detail =$li.children('a').attr('href');
+                            let obj = {
+                                movie_name:$li.children('a').attr('title'),
+                                movie_h5_detail_url:h5Detail,
+                                movie_id:reg.exec(h5Detail)[1],
+                                movie_pic_text:$li.children('a').find('.text-muted').text(),
+                            };
+                            module.list.push(obj)
+                        })
+                        rank_list.push(module)
+                    })
+                }
+            }
+            res.send({code: 1, data: {rank_list}, msg: 'success'})
+        })
+    }
+})
+
+
+
 /**
  * 首页 其他nav的list
  */
