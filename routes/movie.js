@@ -263,7 +263,11 @@ router.get('/search', function (req, res, next) {
                 };
                 list.push(obj)
             });
-            res.send({code: 1, data: {text, list}, msg: 'success'});
+            let totalPage = 1;
+            if($('.container').eq(1).find('.active.visible-xs').children('.num').length>0){
+                totalPage = $('.container').eq(1).find('.active.visible-xs').children('.num').text().split('/')[1]
+            }
+            res.send({code: 1, data: {text, list,total_page:totalPage}, msg: 'success'});
         });
     }
 });
