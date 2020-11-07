@@ -295,7 +295,7 @@ router.get('/detail', function (req, res, next) {
             let $pannel0 = $pannels.eq(0);
             let $pannel0Box = $pannel0.find('.stui-pannel-box').children('div').eq(1);
             let $thumb = $pannel0Box.find('.stui-content__thumb');
-            let movie_img = $thumb.find('img').attr('src');
+            let movie_img = $thumb.find('img').attr('data-original');
             let movie_pic_text = $thumb.find('.pic-text').text();
             let movie_title = $thumb.find('a').attr('title');
             let $detail = $pannel0Box.find('.stui-content__detail');
