@@ -413,9 +413,13 @@ router.get('/getPlayerSource', function (req, res, next) {
             await page.goto(url, {waitUntil: "networkidle2"});
             await page.waitFor(200);
             let movie_online_player_url = await page.$eval('#playleft > iframe', el => el.src);
+            let source = '';
+            if(movie_online_player_url.indexOf('?')>-1){
+                source = movie_online_player_url.split("?")[1].split('=')[1]
+            }
             let player_info = {
                 movie_online_player_url,
-                source: movie_online_player_url.split("?")[1].split('=')[1]
+                source
             };
             //关闭浏览器
             browser.close();
