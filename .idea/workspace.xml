@@ -18,11 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/movie.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="403" column="20" lean-forward="true" selection-start-line="403" selection-start-column="20" selection-end-line="403" selection-end-column="20" />
-              <folding>
-                <element signature="e#12687#17259#0" />
-              </folding>
+            <state relative-caret-position="561">
+              <caret line="364" column="41" lean-forward="true" selection-start-line="364" selection-start-column="41" selection-end-line="364" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -296,12 +293,12 @@
       <workItem from="1603880954161" duration="182000" />
       <workItem from="1604047026241" duration="1475000" />
       <workItem from="1604567581489" duration="12070000" />
-      <workItem from="1604721456698" duration="1458000" />
+      <workItem from="1604721456698" duration="2147000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="236424000" />
+    <option name="totallyTimeSpent" value="237113000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -314,7 +311,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-157" width="1920" height="1057" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19747235" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -330,7 +326,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3299435" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.20207255" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.12124352" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -628,11 +624,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/movie.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="403" column="20" lean-forward="true" selection-start-line="403" selection-start-column="20" selection-end-line="403" selection-end-column="20" />
-          <folding>
-            <element signature="e#12687#17259#0" />
-          </folding>
+        <state relative-caret-position="561">
+          <caret line="364" column="41" lean-forward="true" selection-start-line="364" selection-start-column="41" selection-end-line="364" selection-end-column="41" />
         </state>
       </provider>
     </entry>

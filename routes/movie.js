@@ -352,6 +352,7 @@ router.get('/detail', function (req, res, next) {
                 if ($youlike.length > 0) {
                     let $hd = $youlike.children('.stui-pannel_hd');
                     let $list = $youlike.children('.stui-pannel_bd').children('.stui-vodlist__bd').children('li');
+                    let reg = /(\d+)\.html$/;
                     $list.each((v, li) => {
                         let $li = $(li);
                         let movie_h5_url = $li.find('.stui-vodlist__thumb').attr('href');
@@ -360,6 +361,7 @@ router.get('/detail', function (req, res, next) {
                         let movie_title = $li.find('.stui-vodlist__thumb').attr('title');
                         let movie_actors = $li.find('.stui-vodlist__detail').find('.text').text();
                         let obj = {
+                            movie_id: reg.exec(movie_h5_url)[1],
                             movie_h5_url,
                             movie_img,
                             movie_pic_text,
