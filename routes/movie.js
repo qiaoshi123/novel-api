@@ -303,8 +303,9 @@ router.get('/detail', function (req, res, next) {
             let movie_actors = $detail.children('p').eq(1).text();
             let movie_main = $detail.children('p').eq(2).text();
             let movie_update_time = $detail.children('p').eq(3).text();
-            let movie_desc = $detail.children('.desc').text();
-
+            // let movie_desc = $detail.children('.desc').text();
+            let movie_desc = $('#desc').find('.col-pd').text();
+            movie_desc = movie_desc.replace(/村长爸电影网/g,'暴走电影街');
             let detail = {
                 movie_h5_detail_url: url,//h5页面地址
                 movie_id: id,
