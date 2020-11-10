@@ -359,14 +359,14 @@ router.get('/detail', function (req, res, next) {
                         let movie_h5_url = $li.find('.stui-vodlist__thumb').attr('href');
                         let movie_img = $li.find('.stui-vodlist__thumb').attr('data-original');
                         let movie_pic_text = $li.find('.stui-vodlist__thumb').find('.pic-text').text();
-                        let movie_title = $li.find('.stui-vodlist__thumb').attr('title');
+                        let movie_name = $li.find('.stui-vodlist__thumb').attr('title');
                         let movie_actors = $li.find('.stui-vodlist__detail').find('.text').text();
                         let obj = {
                             movie_id: reg.exec(movie_h5_url)[1],
                             movie_h5_url,
                             movie_img,
                             movie_pic_text,
-                            movie_title,
+                            movie_name,
                             movie_actors
                         };
                         detail.guess_you_like.push(obj);
