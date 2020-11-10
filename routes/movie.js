@@ -33,13 +33,6 @@ let router = express.Router();
 let cheerio = require('cheerio');
 let superagent = require('superagent');
 const puppeteer = require('puppeteer');
-// const TYPE = 'cunzhangbatv';
-//
-// let BASEURL = '';
-// if (TYPE == 'cunzhangbatv') {
-//     BASEURL = 'https://www.cunzhangba.com'
-// }
-
 /**
  * 首页 navs && 第一个nav的list
  * @type {Router}
@@ -417,7 +410,7 @@ router.get('/detail', function (req, res, next) {
  * 获取播放url地址
  * @type {Router}
  */
-router.get('/getPlayerSource', function (req, res, next) {
+router.get('/getPlayerSource', function (req, res) {
     let movie_player_id = req.query.movie_player_id;
     let appId = req.query.appId;
     let config = miniAppConfig[appId];
@@ -425,7 +418,7 @@ router.get('/getPlayerSource', function (req, res, next) {
     if (config.movie_platform == 'cunzhangbatv') {
       url = `${baseUrls[config.movie_platform]}/play/${movie_player_id}.html`
     }
-    let movieCache = require(`../common/${TYPE}.json`);
+    let movieCache = require(`../common/${config.movie_platform}.json`);
     if (movieCache[movie_player_id]) {
         let player_info = movieCache[movie_player_id];
         res.send({
@@ -461,7 +454,7 @@ router.get('/getPlayerSource', function (req, res, next) {
             browser.close();
             //做缓存
             movieCache[movie_player_id] = player_info;
-            fs.writeFile(path.join(__dirname, `../common/${TYPE}.json`), JSON.stringify(movieCache), 'utf8', function (error) {
+            fs.writeFile(path.join(__dirname, `../common/${config.movie_platform}.json`), JSON.stringify(movieCache), 'utf8', function (error) {
                 res.send({
                     code: 1, data: {player_info,config}, msg: ''
                 });
