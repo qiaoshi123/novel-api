@@ -18,8 +18,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/movie.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="368" column="38" selection-start-line="368" selection-start-column="38" selection-end-line="368" selection-end-column="38" />
+            <state relative-caret-position="249">
+              <caret line="425" column="6" selection-start-line="425" selection-start-column="6" selection-end-line="425" selection-end-column="6" />
+              <folding>
+                <element signature="e#4732#6887#0" />
+                <element signature="e#6964#9107#0" />
+                <element signature="e#12687#17508#0" />
+                <element signature="e#12848#17498#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -36,7 +42,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>qrsearch</find>
       <find>player</find>
       <find>movie_player_url</find>
       <find>player_data</find>
@@ -66,6 +71,7 @@
       <find>hostCheck</find>
       <find>resChinese</find>
       <find>movie_title</find>
+      <find>.config</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/node_modules/puppeteer</dir>
@@ -126,9 +132,9 @@
         <option value="$PROJECT_DIR$/common/common.json" />
         <option value="$PROJECT_DIR$/routes/wxenable.js" />
         <option value="$PROJECT_DIR$/config/wx115f02bc0d3862ed.json" />
-        <option value="$PROJECT_DIR$/config/wx3043389d5754c7c4.json" />
         <option value="$PROJECT_DIR$/config/wxb9473c91e3b00aa0.json" />
         <option value="$PROJECT_DIR$/routes/quce.js" />
+        <option value="$PROJECT_DIR$/config/wx3043389d5754c7c4.json" />
         <option value="$PROJECT_DIR$/routes/movie.js" />
       </list>
     </option>
@@ -151,21 +157,6 @@
             <path>
               <item name="novel-api" type="b2602c69:ProjectViewProjectNode" />
               <item name="novel-api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="novel-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="novel-api" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="novel-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="novel-api" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="novel-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="novel-api" type="462c0819:PsiDirectoryNode" />
-              <item name="middleware" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="novel-api" type="b2602c69:ProjectViewProjectNode" />
@@ -293,12 +284,12 @@
       <workItem from="1603880954161" duration="182000" />
       <workItem from="1604047026241" duration="1475000" />
       <workItem from="1604567581489" duration="12070000" />
-      <workItem from="1604721456698" duration="3655000" />
+      <workItem from="1604721456698" duration="6879000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="238621000" />
+    <option name="totallyTimeSpent" value="241845000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -327,7 +318,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3299435" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.10282486" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.37288135" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -588,28 +579,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/wx115f02bc0d3862ed.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/wx3043389d5754c7c4.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/wxb9473c91e3b00aa0.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/common.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
@@ -623,10 +593,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/wx115f02bc0d3862ed.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/common.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/wx3043389d5754c7c4.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/movie.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="368" column="38" selection-start-line="368" selection-start-column="38" selection-end-line="368" selection-end-column="38" />
+        <state relative-caret-position="249">
+          <caret line="425" column="6" selection-start-line="425" selection-start-column="6" selection-end-line="425" selection-end-column="6" />
+          <folding>
+            <element signature="e#4732#6887#0" />
+            <element signature="e#6964#9107#0" />
+            <element signature="e#12687#17508#0" />
+            <element signature="e#12848#17498#0" />
+          </folding>
         </state>
       </provider>
     </entry>

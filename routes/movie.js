@@ -1,3 +1,28 @@
+let miniAppConfig = {
+    //暴走电影街
+    "wx3043389d5754c7c4":{
+        add_info:{
+            search_banner:"adunit-3c22b6b1e2009d52",
+            home_banner:"adunit-6f0d2d677bc7b08e",
+            search_insert:"adunit-408fd4346ff66d56",
+            player_video_ad:"adunit-d51b2fe4349e32f8",
+            detail_video_view:"adunit-9400d31a028a03d9",
+            before_video:"adunit-064af7f088965771",
+            player_ad_custom_clum_card:"adunit-33923e659fce193b",
+            search_ad_custom_card:'adunit-2bbb641429fec1bb',
+            home_ad_custom_card:'adunit-98d83969db44874a',
+            home_ad_custom_float:'adunit-5044a1a5c690d9ce'
+        },
+        verify_version:'2.0.0',
+        movie_platform:'cunzhangbatv'
+    }
+};
+//爬虫baseurl链接
+let baseUrls = {
+    cunzhangbatv:'https://www.cunzhangba.com'
+};
+
+
 /**
  * 电影 v2
  **/
@@ -8,20 +33,22 @@ let router = express.Router();
 let cheerio = require('cheerio');
 let superagent = require('superagent');
 const puppeteer = require('puppeteer');
-const TYPE = 'cunzhangbatv';
-
-let BASEURL = '';
-if (TYPE == 'cunzhangbatv') {
-    BASEURL = 'https://www.cunzhangba.com'
-}
+// const TYPE = 'cunzhangbatv';
+//
+// let BASEURL = '';
+// if (TYPE == 'cunzhangbatv') {
+//     BASEURL = 'https://www.cunzhangba.com'
+// }
 
 /**
  * 首页 navs && 第一个nav的list
  * @type {Router}
  */
 router.get('/homeIndex', (req, res) => {
-    if (TYPE == 'cunzhangbatv') {
-        let url = `${BASEURL}/index.html`;
+    let appId = req.query.appId;
+    let config = miniAppConfig[appId];
+    if (config.movie_platform == 'cunzhangbatv') {
+        let url = `${baseUrls[config.movie_platform ]}/index.html`;
         superagent.get(url).end(function (err, sres) {
             // 常规的错误处理
             if (err) {
@@ -102,7 +129,7 @@ router.get('/homeIndex', (req, res) => {
                 modules.push(obj)
             });
             navs[0].nav_modules = modules;
-            res.send({code: 1, data: {navs, cur_nav_index: 0}, msg: 'success'})
+            res.send({code: 1, data: {navs, cur_nav_index: 0,config}, msg: 'success'})
         })
     }
 });
@@ -112,8 +139,10 @@ router.get('/homeIndex', (req, res) => {
  * rank排行榜单
  */
 router.get('/rank',(req, res) => {
-    if (TYPE == 'cunzhangbatv') {
-        let url = `${BASEURL}/index.html`;
+    let appId = req.query.appId;
+    let config = miniAppConfig[appId];
+    if (config.movie_platform == 'cunzhangbatv') {
+        let url = `${baseUrls[config.movie_platform]}/index.html`;
         superagent.get(url).end(function (err, sres) {
             // 常规的错误处理
             if (err) {
@@ -153,7 +182,7 @@ router.get('/rank',(req, res) => {
                     })
                 }
             }
-            res.send({code: 1, data: {rank_list}, msg: 'success'})
+            res.send({code: 1, data: {rank_list,config}, msg: 'success'})
         })
     }
 })
@@ -164,7 +193,9 @@ router.get('/rank',(req, res) => {
  * 首页 其他nav的list
  */
 router.get('/homeOtherNavIndex', (req, res) => {
-    if (TYPE == 'cunzhangbatv') {
+    let appId = req.query.appId;
+    let config = miniAppConfig[appId];
+    if (config.movie_platform == 'cunzhangbatv') {
         let url = req.query.nav_h5_url;
         superagent.get(url).end(function (err, sres) {
             // 常规的错误处理
@@ -206,7 +237,7 @@ router.get('/homeOtherNavIndex', (req, res) => {
                 });
                 modules.push(obj)
             });
-            res.send({code: 1, data: {nav_modules: modules}, msg: 'success'})
+            res.send({code: 1, data: {nav_modules: modules,config}, msg: 'success'})
         })
     }
 });
@@ -228,8 +259,10 @@ router.get('/search', function (req, res, next) {
             msg: '请输入关键词'
         })
     }
-    if (TYPE == 'cunzhangbatv') {
-        let url = `${BASEURL}/vodsearch${encodeURIComponent(wd)}/page/${page}.html`;
+    let appId = req.query.appId;
+    let config = miniAppConfig[appId];
+    if (config.movie_platform == 'cunzhangbatv') {
+        let url = `${baseUrls[config.movie_platform]}/vodsearch${encodeURIComponent(wd)}/page/${page}.html`;
         superagent.get(url).end(function (err, sres) {
 
             // 常规的错误处理
@@ -267,7 +300,7 @@ router.get('/search', function (req, res, next) {
             if($('.container').eq(1).find('.active.visible-xs').children('.num').length>0){
                 totalPage = $('.container').eq(1).find('.active.visible-xs').children('.num').text().split('/')[1]
             }
-            res.send({code: 1, data: {text, list,total_page:totalPage}, msg: 'success'});
+            res.send({code: 1, data: {text, list,total_page:totalPage,config}, msg: 'success'});
         });
     }
 });
@@ -279,8 +312,10 @@ router.get('/search', function (req, res, next) {
  */
 router.get('/detail', function (req, res, next) {
     let id = req.query.id;
-    if (TYPE == 'cunzhangbatv') {
-        let url = `${BASEURL}/v/${id}.html`;
+    let appId = req.query.appId;
+    let config = miniAppConfig[appId];
+    if (config.movie_platform == 'cunzhangbatv') {
+        let url = `${baseUrls[config.movie_platform]}/v/${id}.html`;
         superagent.get(url).end(function (err, sres) {
 
             // 常规的错误处理
@@ -373,7 +408,7 @@ router.get('/detail', function (req, res, next) {
                     })
                 }
             }
-            res.send({code: 1, data: {detail}, msg: 'success'});
+            res.send({code: 1, data: {detail,config}, msg: 'success'});
         });
     }
 });
@@ -384,21 +419,19 @@ router.get('/detail', function (req, res, next) {
  */
 router.get('/getPlayerSource', function (req, res, next) {
     let movie_player_id = req.query.movie_player_id;
-    console.log(movie_player_id);
+    let appId = req.query.appId;
+    let config = miniAppConfig[appId];
     let url;
-    if (TYPE == 'cunzhangbatv') {
-        url = `${BASEURL}/play/${movie_player_id}.html`
+    if (config.movie_platform == 'cunzhangbatv') {
+      url = `${baseUrls[config.movie_platform]}/play/${movie_player_id}.html`
     }
-    let config = require(`../common/${TYPE}.json`);
-    if (config[movie_player_id]) {
-        console.log(1)
-        let player_info = config[movie_player_id];
-        console.log(player_info)
+    let movieCache = require(`../common/${TYPE}.json`);
+    if (movieCache[movie_player_id]) {
+        let player_info = movieCache[movie_player_id];
         res.send({
-            code: 1, data: {player_info}, msg: ''
+            code: 1, data: {player_info,config}, msg: ''
         });
     } else {
-        console.log(2)
         puppeteer.launch({
             args: ['--no-sandbox', '--disable-setuid-sandbox'],
             headless: true, //false 不使用无头模式使用本地可视化,//true使用无头模式，无界面模式；默认为有头
@@ -427,10 +460,10 @@ router.get('/getPlayerSource', function (req, res, next) {
             //关闭浏览器
             browser.close();
             //做缓存
-            config[movie_player_id] = player_info;
-            fs.writeFile(path.join(__dirname, `../common/${TYPE}.json`), JSON.stringify(config), 'utf8', function (error) {
+            movieCache[movie_player_id] = player_info;
+            fs.writeFile(path.join(__dirname, `../common/${TYPE}.json`), JSON.stringify(movieCache), 'utf8', function (error) {
                 res.send({
-                    code: 1, data: {player_info}, msg: ''
+                    code: 1, data: {player_info,config}, msg: ''
                 });
             });
         })
