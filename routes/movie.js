@@ -39,6 +39,7 @@ const puppeteer = require('puppeteer');
  */
 router.get('/homeIndex', (req, res) => {
     let appId = req.query.appId;
+    let appV = req.query.app_v;
     let config = miniAppConfig[appId];
     if (config.movie_platform == 'cunzhangbatv') {
         let url = `${baseUrls[config.movie_platform ]}/index.html`;
@@ -122,7 +123,7 @@ router.get('/homeIndex', (req, res) => {
                 modules.push(obj)
             });
             navs[0].nav_modules = modules;
-            res.send({code: 1, data: {navs, cur_nav_index: 0,config}, msg: 'success'})
+            res.send({code: 1, data: {navs, cur_nav_index: 0,config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: 'success'})
         })
     }
 });
@@ -133,6 +134,7 @@ router.get('/homeIndex', (req, res) => {
  */
 router.get('/rank',(req, res) => {
     let appId = req.query.appId;
+    let appV = req.query.app_v;
     let config = miniAppConfig[appId];
     if (config.movie_platform == 'cunzhangbatv') {
         let url = `${baseUrls[config.movie_platform]}/index.html`;
@@ -175,7 +177,7 @@ router.get('/rank',(req, res) => {
                     })
                 }
             }
-            res.send({code: 1, data: {rank_list,config}, msg: 'success'})
+            res.send({code: 1, data: {rank_list,config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: 'success'})
         })
     }
 })
@@ -187,6 +189,7 @@ router.get('/rank',(req, res) => {
  */
 router.get('/homeOtherNavIndex', (req, res) => {
     let appId = req.query.appId;
+    let appV = req.query.app_v;
     let config = miniAppConfig[appId];
     if (config.movie_platform == 'cunzhangbatv') {
         let url = req.query.nav_h5_url;
@@ -230,7 +233,7 @@ router.get('/homeOtherNavIndex', (req, res) => {
                 });
                 modules.push(obj)
             });
-            res.send({code: 1, data: {nav_modules: modules,config}, msg: 'success'})
+            res.send({code: 1, data: {nav_modules: modules,config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: 'success'})
         })
     }
 });
@@ -253,6 +256,7 @@ router.get('/search', function (req, res, next) {
         })
     }
     let appId = req.query.appId;
+    let appV = req.query.app_v;
     let config = miniAppConfig[appId];
     if (config.movie_platform == 'cunzhangbatv') {
         let url = `${baseUrls[config.movie_platform]}/vodsearch${encodeURIComponent(wd)}/page/${page}.html`;
@@ -293,7 +297,7 @@ router.get('/search', function (req, res, next) {
             if($('.container').eq(1).find('.active.visible-xs').children('.num').length>0){
                 totalPage = $('.container').eq(1).find('.active.visible-xs').children('.num').text().split('/')[1]
             }
-            res.send({code: 1, data: {text, list,total_page:totalPage,config}, msg: 'success'});
+            res.send({code: 1, data: {text, list,total_page:totalPage,config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: 'success'});
         });
     }
 });
@@ -306,6 +310,7 @@ router.get('/search', function (req, res, next) {
 router.get('/detail', function (req, res, next) {
     let id = req.query.id;
     let appId = req.query.appId;
+    let appV = req.query.app_v;
     let config = miniAppConfig[appId];
     if (config.movie_platform == 'cunzhangbatv') {
         let url = `${baseUrls[config.movie_platform]}/v/${id}.html`;
@@ -401,7 +406,7 @@ router.get('/detail', function (req, res, next) {
                     })
                 }
             }
-            res.send({code: 1, data: {detail,config}, msg: 'success'});
+            res.send({code: 1, data: {detail,config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: 'success'});
         });
     }
 });
@@ -413,6 +418,7 @@ router.get('/detail', function (req, res, next) {
 router.get('/getPlayerSource', function (req, res) {
     let movie_player_id = req.query.movie_player_id;
     let appId = req.query.appId;
+    let appV = req.query.app_v;
     let config = miniAppConfig[appId];
     let url;
     if (config.movie_platform == 'cunzhangbatv') {
@@ -422,7 +428,7 @@ router.get('/getPlayerSource', function (req, res) {
     if (movieCache[movie_player_id]) {
         let player_info = movieCache[movie_player_id];
         res.send({
-            code: 1, data: {player_info,config}, msg: ''
+            code: 1, data: {player_info,config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: ''
         });
     } else {
         puppeteer.launch({
@@ -456,7 +462,7 @@ router.get('/getPlayerSource', function (req, res) {
             movieCache[movie_player_id] = player_info;
             fs.writeFile(path.join(__dirname, `../common/${config.movie_platform}.json`), JSON.stringify(movieCache), 'utf8', function (error) {
                 res.send({
-                    code: 1, data: {player_info,config}, msg: ''
+                    code: 1, data: {player_info,config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: ''
                 });
             });
         })
