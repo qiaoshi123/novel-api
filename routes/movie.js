@@ -2,16 +2,17 @@ let miniAppConfig = {
     //暴走电影街
     "wx3043389d5754c7c4":{
         add_info:{
-            search_banner:"adunit-3c22b6b1e2009d52",
-            home_banner:"adunit-6f0d2d677bc7b08e",
-            search_insert:"adunit-408fd4346ff66d56",
-            player_video_ad:"adunit-d51b2fe4349e32f8",
-            detail_video_view:"adunit-9400d31a028a03d9",
-            before_video:"adunit-064af7f088965771",
-            player_ad_custom_clum_card:"adunit-33923e659fce193b",
-            search_ad_custom_card:'adunit-2bbb641429fec1bb',
-            home_ad_custom_card:'adunit-98d83969db44874a',
-            home_ad_custom_float:'adunit-5044a1a5c690d9ce'
+            search_banner:"adunit-3c22b6b1e2009d52",//搜索banner
+            home_banner:"adunit-6f0d2d677bc7b08e",//首页banner
+            search_insert:"adunit-408fd4346ff66d56",//搜索结果页插屏
+            player_video_ad:"adunit-d51b2fe4349e32f8",//播放页视频
+            detail_video_view:"adunit-9400d31a028a03d9",//详情页视频
+            before_video:"adunit-064af7f088965771",//视频前贴
+            player_ad_custom_clum_card:"adunit-33923e659fce193b",//播放页原生
+            search_ad_custom_card:'adunit-2bbb641429fec1bb',//搜索原生卡片
+            home_ad_custom_card:'adunit-98d83969db44874a',//首页原生卡片
+            home_ad_custom_float:'adunit-5044a1a5c690d9ce',//首页浮标
+            user_ad_custom_card:'adunit-0883927f700e211a'//个人中心原生卡片
         },
         verify_version:'2.0.0',
         movie_platform:'cunzhangbatv'
@@ -27,6 +28,36 @@ let baseUrls = {
 //跳转webview页面：webview@https://www.baidu.com@标题@#e98f36背景色@#000000字体颜色
 //跳转三方小程序：thirdMp@wxb9473c91e3b00aa0@pages/detail/detail?id=7428@encodeComponent(JSON.stringify({a:111}))
 let operateJson = {
+    //首页预埋
+    home_page_operate:[
+        {
+            title:'你欠周星驰多少电影票',
+            sub_title:'曾经...',
+            pic:'http://uploads-admin.cdn.woquhudong.cn/quce/1441178501784.jpeg',
+            extend:'thirdMp@wxb9473c91e3b00aa0@pages/detail/detail?id=521',
+            id:"1"
+        }
+    ],
+    //搜索结果预埋
+    search_page_operate:[
+        {
+            title:'你欠周星驰多少电影票',
+            sub_title:'曾经...',
+            pic:'http://uploads-admin.cdn.woquhudong.cn/quce/1441178501784.jpeg',
+            extend:'thirdMp@wxb9473c91e3b00aa0@pages/detail/detail?id=521',
+            id:"1"
+        }
+    ],
+    //rank主搜预埋
+    rank_page_operate:[
+        {
+            title:'你欠周星驰多少电影票',
+            sub_title:'曾经...',
+            pic:'http://uploads-admin.cdn.woquhudong.cn/quce/1441178501784.jpeg',
+            extend:'thirdMp@wxb9473c91e3b00aa0@pages/detail/detail?id=521',
+            id:"1"
+        }
+    ],
     //推荐列表
     suggest_page_list:[
         {
@@ -57,8 +88,17 @@ let operateJson = {
             extend:'thirdMp@wxb9473c91e3b00aa0@pages/detail/detail?id=521',
             id:"1"
         },
+    ],
+    //个人中心预埋
+    user_page_operate:[
+        {
+            title:'你欠周星驰多少电影票',
+            sub_title:'曾经...',
+            pic:'http://uploads-admin.cdn.woquhudong.cn/quce/1441178501784.jpeg',
+            extend:'thirdMp@wxb9473c91e3b00aa0@pages/detail/detail?id=521',
+            id:"1"
+        }
     ]
-
 };
 
 /**
@@ -161,7 +201,8 @@ router.get('/homeIndex', (req, res) => {
                 modules.push(obj)
             });
             navs[0].nav_modules = modules;
-            res.send({code: 1, data: {navs, cur_nav_index: 0,config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: 'success'})
+            let elements = operateJson.home_page_operate  || [];
+            res.send({code: 1, data: {navs, cur_nav_index: 0,elements,config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: 'success'})
         })
     }
 });
@@ -215,13 +256,11 @@ router.get('/rank',(req, res) => {
                     })
                 }
             }
-            res.send({code: 1, data: {rank_list,config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: 'success'})
+            let elements = operateJson.rank_page_operate || [];
+            res.send({code: 1, data: {rank_list,elements,config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: 'success'})
         })
     }
-})
-
-
-
+});
 /**
  * 首页 其他nav的list
  */
@@ -335,7 +374,8 @@ router.get('/search', function (req, res, next) {
             if($('.container').eq(1).find('.active.visible-xs').children('.num').length>0){
                 totalPage = $('.container').eq(1).find('.active.visible-xs').children('.num').text().split('/')[1]
             }
-            res.send({code: 1, data: {text, list,total_page:totalPage,config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: 'success'});
+            let elements = operateJson.search_page_operate || [];
+            res.send({code: 1, data: {text, list,elements,total_page:totalPage,config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: 'success'});
         });
     }
 });
@@ -532,8 +572,6 @@ router.get('/operate', function (req, res) {
        }
    }
 });
-
-
 
 
 
