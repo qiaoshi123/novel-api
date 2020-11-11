@@ -22,6 +22,27 @@ let baseUrls = {
     cunzhangbatv:'https://www.cunzhangba.com'
 };
 
+//type:1 文章 2:普通运营位
+let operateJson = {
+    //推荐列表
+    suggest_page_list:[
+        {
+            type:1,
+            title:'大师大师答',
+            sub_title:'你多久啊哭',
+            pic:'https://mmbiz.qpic.cn/sz_mmbiz_png/ibiaKTHOasLWPXbfECuwfntkQ8Uy1dJZpWwrIMY1dSrlnR1jbRSpVh6OTafiamM20HymGRLYhlvOYLJnnU8moFN1g/640?wx_fmt=png',
+            extend:'',
+        },
+        {
+            type:2,
+            title:'',
+            sub_title:'',
+            pic:'https://mmbiz.qpic.cn/sz_mmbiz_png/ibiaKTHOasLWPXbfECuwfntkQ8Uy1dJZpWwrIMY1dSrlnR1jbRSpVh6OTafiamM20HymGRLYhlvOYLJnnU8moFN1g/640?wx_fmt=png',
+            extend:'',
+        }
+    ]
+
+};
 
 /**
  * 电影 v2
@@ -468,6 +489,36 @@ router.get('/getPlayerSource', function (req, res) {
         })
     }
 });
+
+/**
+ * 运营位
+ */
+router.get('/operate', function (req, res) {
+   let appId = req.query.appId;
+   let appV = req.query.app_v;
+   let config = miniAppConfig[appId];
+   let key = req.query.key;
+   let operateList = operateJson[key] || [];
+   if(operateList.length > 0){
+       if(req.query.page){
+            let pageSize = req.query.page_size || 10;
+            let endIndex = (pageSize * req.query.page);
+            let startIndex = pageSize *(req.query.page-1);
+           res.send({
+               code: 1, data: {key:operateList.slice(startIndex,endIndex),config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: ''
+           })
+
+       }else{
+            res.send({
+                code: 1, data: {key:operateList,config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: ''
+            })
+       }
+   }
+});
+
+
+
+
 
 /**
  * utf8还原中文
