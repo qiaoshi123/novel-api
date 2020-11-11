@@ -572,7 +572,7 @@ router.get('/user', function (req, res) {
     let config = miniAppConfig[appId];
     let elements = operateJson.user_page_operate || [];
     res.send({
-        code: 1, data: {elements,gzh:'https://www.baidu.com',config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: ''
+        code: 1, data: {elements,gzh_url:'https://www.baidu.com',config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: ''
     })
 });
 
