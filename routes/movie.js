@@ -22,24 +22,31 @@ let baseUrls = {
     cunzhangbatv:'https://www.cunzhangba.com'
 };
 
-//type:1 文章 2:普通运营位
+//type
 let operateJson = {
     //推荐列表
     suggest_page_list:[
         {
-            type:1,
-            title:'大师大师答',
-            sub_title:'你多久啊哭',
+            title:'打火机克拉进口量大',
+            sub_title:'从那时你打',
             pic:'https://mmbiz.qpic.cn/sz_mmbiz_png/ibiaKTHOasLWPXbfECuwfntkQ8Uy1dJZpWwrIMY1dSrlnR1jbRSpVh6OTafiamM20HymGRLYhlvOYLJnnU8moFN1g/640?wx_fmt=png',
-            extend:'',
+            extend:'mp@/pages/movie_packages/detail/detail?movie_id=47931',
+            id:1
         },
         {
-            type:2,
             title:'',
             sub_title:'',
             pic:'https://mmbiz.qpic.cn/sz_mmbiz_png/ibiaKTHOasLWPXbfECuwfntkQ8Uy1dJZpWwrIMY1dSrlnR1jbRSpVh6OTafiamM20HymGRLYhlvOYLJnnU8moFN1g/640?wx_fmt=png',
-            extend:'',
-        }
+            extend:'webview@https://www.baidu.com@title@#000000@#ffffff',
+            id:2
+        },
+        {
+            title:'打火机克拉进口量大',
+            sub_title:'从那时你打',
+            pic:'https://mmbiz.qpic.cn/sz_mmbiz_png/ibiaKTHOasLWPXbfECuwfntkQ8Uy1dJZpWwrIMY1dSrlnR1jbRSpVh6OTafiamM20HymGRLYhlvOYLJnnU8moFN1g/640?wx_fmt=png',
+            extend:'thirdMp@wxb9473c91e3b00aa0@pages/home/index',
+            id:1
+        },
     ]
 
 };
