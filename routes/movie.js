@@ -2,7 +2,7 @@ let miniAppConfig = {
     //暴走电影街
     "wx3043389d5754c7c4":{
         add_info:{
-            search_banner:"adunit-3c22b6b1e2009d52",//搜索banner
+            search_banner:"",//搜索banner adunit-3c22b6b1e2009d52
             home_banner:"adunit-6f0d2d677bc7b08e",//首页banner
             search_insert:"adunit-408fd4346ff66d56",//搜索结果页插屏
             player_video_ad:"adunit-d51b2fe4349e32f8",//播放页视频
