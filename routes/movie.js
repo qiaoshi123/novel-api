@@ -172,7 +172,9 @@ router.get('/homeIndex', (req, res) => {
                     });
                     obj.cur_tab_index = 0;
                 } else {
-                    obj.module_more_url = $head.children('.more').attr('href');
+                    obj.module_more ={
+                        extend:$head.children('.more').attr('href')
+                    };
                     obj.module_movies = [];
                     $pannel.find('.stui-vodlist').find('li').each((i, li) => {
                         let $li = $(li);
@@ -283,7 +285,9 @@ router.get('/homeOtherNavIndex', (req, res) => {
                 let $head = $pannel.find('.stui-pannel__head');
                 obj.module_name = $head.children('.title').text();
                 obj.module_icon = $head.children('.title').children('img').attr('src');
-                obj.module_more_url = $head.children('.more').attr('href');
+                obj.module_more = {
+                  extend: $head.children('.more').attr('href')
+                };
                 obj.module_movies = [];
                 $pannel.find('.stui-vodlist').find('li').each((i, li) => {
                     let $li = $(li);
