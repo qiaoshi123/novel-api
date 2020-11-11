@@ -44,7 +44,7 @@ let operateJson = {
             title:'',
             sub_title:'',
             pic:'https://mmbiz.qpic.cn/sz_mmbiz_png/ibiaKTHOasLWPXbfECuwfntkQ8Uy1dJZpWwrIMY1dSrlnR1jbRSpVh6OTafiamM20HymGRLYhlvOYLJnnU8moFN1g/640?wx_fmt=png',
-            extend:'webview@https://www.baidu.com@title@#000000@#ffffff',
+            extend:'webview@https://www.baidu.com@好名字@#e98f36@#000000',
             id:"2"
         },
         {
