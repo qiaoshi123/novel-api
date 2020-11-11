@@ -27,11 +27,18 @@ let operateJson = {
     //推荐列表
     suggest_page_list:[
         {
-            title:'打火机克拉进口量大',
+            title:'哈哈哈！岛国沙雕剧笑到喷饭',
             sub_title:'从那时你打',
             pic:'https://mmbiz.qpic.cn/sz_mmbiz_png/ibiaKTHOasLWPXbfECuwfntkQ8Uy1dJZpWwrIMY1dSrlnR1jbRSpVh6OTafiamM20HymGRLYhlvOYLJnnU8moFN1g/640?wx_fmt=png',
             extend:'mp@/pages/movie_packages/detail/detail?movie_id=47931',
-            id:"1"
+            id:"4"
+        },
+        {
+            title:'趁被和谐前，这部15禁你一定要看！',
+            sub_title:'流量，真的变成了一个贬义词',
+            pic:'https://mmbiz.qlogo.cn/mmbiz_gif/Zx3Ut8hNEHKMdZicuUDn6De9GBdBQibaJHDiaqHUGLAkFoQtqiafX1RAKLjPMicIBPkOkXNtQupuictYXJFQ6a2giciagw/0?wx_fmt=gif',
+            extend:'mp@/pages/movie_packages/detail/detail?movie_id=16487',
+            id:"3"
         },
         {
             title:'',
@@ -41,11 +48,11 @@ let operateJson = {
             id:"2"
         },
         {
-            title:'打火机克拉进口量大',
-            sub_title:'从那时你打',
+            title:'',
+            sub_title:'',
             pic:'https://mmbiz.qpic.cn/sz_mmbiz_png/ibiaKTHOasLWPXbfECuwfntkQ8Uy1dJZpWwrIMY1dSrlnR1jbRSpVh6OTafiamM20HymGRLYhlvOYLJnnU8moFN1g/640?wx_fmt=png',
             extend:'thirdMp@wxb9473c91e3b00aa0@pages/detail/detail?id=7428',
-            id:"3"
+            id:"1"
         },
     ]
 
