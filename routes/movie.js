@@ -28,7 +28,7 @@ let baseUrls = {
 //跳转webview页面：webview@https://www.baidu.com@标题@#e98f36背景色@#000000字体颜色
 //跳转三方小程序：thirdMp@wxb9473c91e3b00aa0@pages/detail/detail?id=7428@encodeComponent(JSON.stringify({a:111}))
 let operateJson = {
-    //首页预埋
+    //首页预埋广告位，配置的话，会顶替 banner广告
     home_page_operate:[
         {
             title:'你欠周星驰多少电影票',
@@ -38,7 +38,7 @@ let operateJson = {
             id:"1"
         }
     ],
-    //主搜和搜索结果预埋
+    //主搜和搜索结果预埋，配置的话会顶替搜索banner和搜索自定义原生卡片广告
     search_page_operate:[
         {
             title:'你欠周星驰多少电影票',
@@ -79,7 +79,7 @@ let operateJson = {
             id:"1"
         },
     ],
-    //个人中心预埋
+    //个人中心预埋，配置的话会顶替 个人中心底部视频广告
     user_page_operate:[
         {
             title:'你欠周星驰多少电影票',
