@@ -22,13 +22,16 @@ let baseUrls = {
     cunzhangbatv:'https://www.cunzhangba.com'
 };
 
-//type
+//运营位配置规则：
+//跳转小程序原生页面：mp@/pages/movie_packages/detail/detail?movie_id=16487
+//跳转webview页面：webview@https://www.baidu.com@标题@#e98f36背景色@#000000字体颜色
+//跳转三方小程序：thirdMp@wxb9473c91e3b00aa0@pages/detail/detail?id=7428@encodeComponent(JSON.stringify({a:111}))
 let operateJson = {
     //推荐列表
     suggest_page_list:[
         {
-            title:'趁被和谐前，这部15禁你一定要看！',
-            sub_title:'流量，真的变成了一个贬义词',
+            title:'流量，真的变成了一个贬义词',
+            sub_title:'',
             pic:'https://mmbiz.qpic.cn/mmbiz_png/Zx3Ut8hNEHL31MicmxB31XUMeNdvZD4DCNibcStTibY57Q2rvIHCKJxpRGcgHuiaiaJk653C1Wm1eIySRyHrics6Em6g/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1',
             extend:'mp@/pages/movie_packages/detail/detail?movie_id=16487',
             id:"4"
@@ -41,16 +44,16 @@ let operateJson = {
             id:"3"
         },
         {
-            title:'',
-            sub_title:'',
-            pic:'https://mmbiz.qpic.cn/sz_mmbiz_png/ibiaKTHOasLWPXbfECuwfntkQ8Uy1dJZpWwrIMY1dSrlnR1jbRSpVh6OTafiamM20HymGRLYhlvOYLJnnU8moFN1g/640?wx_fmt=png',
-            extend:'webview@https://www.baidu.com@好名字@#e98f36@#000000',
+            title:'你是电影大师吗?',
+            sub_title:'一瞬间足以唤起全部记忆，召唤电影达人',
+            pic:'http://uploads-admin.cdn.woquhudong.cn/quce/1441178502974.jpg',
+            extend:'thirdMp@wxb9473c91e3b00aa0@pages/detail/detail?id=1258',
             id:"2"
         },
         {
-            title:'',
-            sub_title:'',
-            pic:'https://mmbiz.qpic.cn/sz_mmbiz_png/ibiaKTHOasLWPXbfECuwfntkQ8Uy1dJZpWwrIMY1dSrlnR1jbRSpVh6OTafiamM20HymGRLYhlvOYLJnnU8moFN1g/640?wx_fmt=png',
+            title:'你欠周星驰多少电影票',
+            sub_title:'曾经...',
+            pic:'http://uploads-admin.cdn.woquhudong.cn/quce/1441178501784.jpeg',
             extend:'thirdMp@wxb9473c91e3b00aa0@pages/detail/detail?id=7428',
             id:"1"
         },
