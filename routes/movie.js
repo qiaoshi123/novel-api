@@ -505,7 +505,7 @@ router.get('/operate', function (req, res) {
             let endIndex = (pageSize * req.query.page);
             let startIndex = pageSize *(req.query.page-1);
            res.send({
-               code: 1, data: {key:operateList.slice(startIndex,endIndex),config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: ''
+               code: 1, data: {[key]:operateList.slice(startIndex,endIndex),config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: ''
            })
 
        }else{
