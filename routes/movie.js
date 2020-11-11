@@ -31,21 +31,21 @@ let operateJson = {
             sub_title:'从那时你打',
             pic:'https://mmbiz.qpic.cn/sz_mmbiz_png/ibiaKTHOasLWPXbfECuwfntkQ8Uy1dJZpWwrIMY1dSrlnR1jbRSpVh6OTafiamM20HymGRLYhlvOYLJnnU8moFN1g/640?wx_fmt=png',
             extend:'mp@/pages/movie_packages/detail/detail?movie_id=47931',
-            id:1
+            id:"1"
         },
         {
             title:'',
             sub_title:'',
             pic:'https://mmbiz.qpic.cn/sz_mmbiz_png/ibiaKTHOasLWPXbfECuwfntkQ8Uy1dJZpWwrIMY1dSrlnR1jbRSpVh6OTafiamM20HymGRLYhlvOYLJnnU8moFN1g/640?wx_fmt=png',
             extend:'webview@https://www.baidu.com@title@#000000@#ffffff',
-            id:2
+            id:"2"
         },
         {
             title:'打火机克拉进口量大',
             sub_title:'从那时你打',
             pic:'https://mmbiz.qpic.cn/sz_mmbiz_png/ibiaKTHOasLWPXbfECuwfntkQ8Uy1dJZpWwrIMY1dSrlnR1jbRSpVh6OTafiamM20HymGRLYhlvOYLJnnU8moFN1g/640?wx_fmt=png',
             extend:'thirdMp@wxb9473c91e3b00aa0@pages/detail/detail?id=7428',
-            id:1
+            id:"3"
         },
     ]
 
