@@ -29,7 +29,7 @@ let operateJson = {
         {
             title:'哈哈哈！岛国沙雕剧笑到喷饭',
             sub_title:'从那时你打',
-            pic:'https://mmbiz.qpic.cn/sz_mmbiz_png/ibiaKTHOasLWPXbfECuwfntkQ8Uy1dJZpWwrIMY1dSrlnR1jbRSpVh6OTafiamM20HymGRLYhlvOYLJnnU8moFN1g/640?wx_fmt=png',
+            pic:'https://mmbiz.qpic.cn/mmbiz_png/Zx3Ut8hNEHL31MicmxB31XUMeNdvZD4DCNibcStTibY57Q2rvIHCKJxpRGcgHuiaiaJk653C1Wm1eIySRyHrics6Em6g/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1',
             extend:'mp@/pages/movie_packages/detail/detail?movie_id=47931',
             id:"4"
         },
