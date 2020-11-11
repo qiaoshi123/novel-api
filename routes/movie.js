@@ -38,18 +38,8 @@ let operateJson = {
             id:"1"
         }
     ],
-    //搜索结果预埋
+    //主搜和搜索结果预埋
     search_page_operate:[
-        {
-            title:'你欠周星驰多少电影票',
-            sub_title:'曾经...',
-            pic:'http://uploads-admin.cdn.woquhudong.cn/quce/1441178501784.jpeg',
-            extend:'thirdMp@wxb9473c91e3b00aa0@pages/detail/detail?id=521',
-            id:"1"
-        }
-    ],
-    //rank主搜预埋
-    rank_page_operate:[
         {
             title:'你欠周星驰多少电影票',
             sub_title:'曾经...',
@@ -256,7 +246,7 @@ router.get('/rank',(req, res) => {
                     })
                 }
             }
-            let elements = operateJson.rank_page_operate || [];
+            let elements = operateJson.search_page_operate || [];
             res.send({code: 1, data: {rank_list,elements,config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: 'success'})
         })
     }
@@ -573,6 +563,18 @@ router.get('/operate', function (req, res) {
    }
 });
 
+/**
+ * user
+ */
+router.get('/user', function (req, res) {
+    let appId = req.query.appId;
+    let appV = req.query.app_v;
+    let config = miniAppConfig[appId];
+    let elements = operateJson.user_page_operate || [];
+    res.send({
+        code: 1, data: {elements,gzh:'https://www.baidu.com',config:{...config,is_verify:appV == config.verify_version?1:0}}, msg: ''
+    })
+});
 
 
 /**
