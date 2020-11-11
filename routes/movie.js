@@ -12,7 +12,8 @@ let miniAppConfig = {
             search_ad_custom_card:'adunit-2bbb641429fec1bb',//搜索原生卡片
             home_ad_custom_card:'adunit-98d83969db44874a',//首页原生卡片
             home_ad_custom_float:'adunit-5044a1a5c690d9ce',//首页浮标
-            user_ad_custom_card:'adunit-0883927f700e211a'//个人中心原生卡片
+            user_ad_custom_card:'adunit-0883927f700e211a',//个人中心原生卡片
+            suggest_ad_custom_card:'adunit-58011e5bb9468edd'//推荐页面自定义原生卡片广告
         },
         verify_version:'2.0.0',
         movie_platform:'cunzhangbatv'
