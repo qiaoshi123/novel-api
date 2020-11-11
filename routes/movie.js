@@ -54,7 +54,7 @@ let operateJson = {
             title:'你欠周星驰多少电影票',
             sub_title:'曾经...',
             pic:'http://uploads-admin.cdn.woquhudong.cn/quce/1441178501784.jpeg',
-            extend:'thirdMp@wxb9473c91e3b00aa0@pages/detail/detail?id=7428',
+            extend:'thirdMp@wxb9473c91e3b00aa0@pages/detail/detail?id=521',
             id:"1"
         },
     ]
