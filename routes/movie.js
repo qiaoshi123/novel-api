@@ -18,7 +18,7 @@ let miniAppConfig = {
         gzh_url:'',
         logo:'http://file.17gwx.com/sqkb/image/2020/11/12/993585facb1e7d7802.png',
         name:'暴走电影街',
-        verify_version:'2.0.1',
+        verify_version:'2.0.2',
         movie_platform:'cunzhangbatv'
     }
 };
