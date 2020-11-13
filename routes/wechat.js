@@ -58,9 +58,8 @@ router.post('/imService', function (req, res, next) {
                     return console.error('upload failed:', err);
                 }
                 body = JSON.parse(body);
-                let list = body.data.list;
+                let list = body.data.list.slice(0,3);
                 let result = '皇上,您要的片子，奴才找不到了，请陛下开恩。';
-                console.log(list)
                 if (list.length > 0) {
                     result = `皇上，您要的片子来了，点击下方链接：
 `;
@@ -69,16 +68,6 @@ router.post('/imService', function (req, res, next) {
 `;
                     })
                 }
-
-
-//                 if (list.length > 0) {
-//                     result = `皇上，您要的片子来了，点击下方链接：
-// `;
-//                     list.forEach((item, index) => {
-//                         result += `${index + 1}. <a href="${item.movie_h5_detail_url}">${item.movie_name}|${item.movie_pic_text}</a>
-// `;
-//                     })
-//                 }
                 let xml = `<xml>
             <ToUserName><![CDATA[${fromusername}]]></ToUserName>'
             <FromUserName><![CDATA[${tousername}]]></FromUserName>'
