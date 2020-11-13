@@ -60,6 +60,7 @@ router.post('/imService', function (req, res, next) {
                 body = JSON.parse(body);
                 let list = body.data.list;
                 let result = '皇上,您要的片子，奴才找不到了，请陛下开恩。';
+                console.log(list)
                 if (list.length > 0) {
                     result = `皇上，您要的片子来了，点击下方链接：
 `;
@@ -68,7 +69,7 @@ router.post('/imService', function (req, res, next) {
 `;
                     })
                 }
-                console.log(result)
+
 
 //                 if (list.length > 0) {
 //                     result = `皇上，您要的片子来了，点击下方链接：
