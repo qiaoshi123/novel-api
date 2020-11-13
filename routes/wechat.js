@@ -64,10 +64,19 @@ router.post('/imService', function (req, res, next) {
                     result = `皇上，您要的片子来了，点击下方链接：
 `;
                     list.forEach((item, index) => {
-                        result += `${index + 1}. <a href="${item.movie_h5_detail_url}">${item.movie_name}|${item.movie_pic_text}</a>
+                        result += `${index + 1}. <a href="${item.movie_h5_detail_url}" data-miniprogram-appid="wx3043389d5754c7c4" data-miniprogram-path="pages/movie_packages/detail/detail?movie_id=${item.movie_id}">${item.movie_name}|${item.movie_pic_text}</a>
 `;
                     })
                 }
+
+//                 if (list.length > 0) {
+//                     result = `皇上，您要的片子来了，点击下方链接：
+// `;
+//                     list.forEach((item, index) => {
+//                         result += `${index + 1}. <a href="${item.movie_h5_detail_url}">${item.movie_name}|${item.movie_pic_text}</a>
+// `;
+//                     })
+//                 }
                 let xml = `<xml>
             <ToUserName><![CDATA[${fromusername}]]></ToUserName>'
             <FromUserName><![CDATA[${tousername}]]></FromUserName>'
