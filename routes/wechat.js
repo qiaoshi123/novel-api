@@ -80,6 +80,7 @@ router.post('/imService', function (req, res, next) {
             <MsgType><![CDATA[${msgtype}]]></MsgType>'
             <Content><![CDATA[${result}]]></Content>'
             </xml>`;
+                console.log(fromusername,tousername,createtime,msgtype,result);
                 res.end(xml);
             });
         } else if(msgtype[0]=='event'){
