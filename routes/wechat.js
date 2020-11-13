@@ -83,6 +83,7 @@ router.post('/imService', function (req, res, next) {
                 res.end(xml);
             });
         } else if(msgtype[0]=='event'){
+            console.log(msgtype,event[0])
             if(event[0] =='subscribe'){
 
                 let result = `皇上驾到～～～～
