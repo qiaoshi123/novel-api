@@ -94,7 +94,7 @@ router.post('/imService', function (req, res, next) {
 `;
                 result+=`每天上架最新视频，请皇上预览一定不负圣望！
 `;
-                result+=`✨️<a data-miniprogram-appid="wx3043389d5754c7c4" data-miniprogram-path="pages/index/index">点击这里老司机不迷路</a>✨;
+                result+=`✨️<a data-miniprogram-appid="wx3043389d5754c7c4" data-miniprogram-path="pages/index/index">点击这里老司机不迷路✨</a>;
 `;
                 result+=`/坏笑 偷偷告诉陛下一个最快捷的办法:回复电影名/导演/演员，您要的片子马上来！`;
 
