@@ -52,6 +52,7 @@ router.post('/imService', function (req, res, next) {
             res.send('error')
         }
         if (msgtype[0] == 'text') {
+            //文本消息
             let searchUrl = `${common.LOCAL}/movie/search?wd=${encodeURIComponent(content[0])}&appId=wx3043389d5754c7c4&app_v=2.0.2`;
             request.get(searchUrl, (err, response, body) => {
                 if (err) {
@@ -66,12 +67,12 @@ router.post('/imService', function (req, res, next) {
                     list.forEach((item, index) => {
                         result += `${index + 1}. <a href="${item.movie_h5_detail_url}" data-miniprogram-appid="wx3043389d5754c7c4" data-miniprogram-path="pages/movie_packages/detail/detail?movie_id=${item.movie_id}">${item.movie_name}|${item.movie_pic_text}</a>
 `;
-                    })
+                    });
+                    result+=`...
+`;
+                    result +=`<a data-miniprogram-appid="wx3043389d5754c7c4" data-miniprogram-path="pages/search/search?value=${encodeURIComponent(content[0])}">查看更多</a>
+`;
                 }
-                result+=`...
-`;
-                result +=`<a data-miniprogram-appid="wx3043389d5754c7c4" data-miniprogram-path="pages/search/search?value=${encodeURIComponent(content[0])}">查看更多</a>
-`;
 
                 let xml = `<xml>
             <ToUserName><![CDATA[${fromusername}]]></ToUserName>'
@@ -80,18 +81,19 @@ router.post('/imService', function (req, res, next) {
             <MsgType><![CDATA[${msgtype}]]></MsgType>'
             <Content><![CDATA[${result}]]></Content>'
             </xml>`;
-                console.log(fromusername,tousername,createtime,msgtype,result);
                 res.end(xml);
             });
         } else if(msgtype[0]=='event'){
+            //事件
             if(event[0] =='subscribe'){
+                //被关注事件
                 msgtype = ['text'];
                 let result = `皇上驾到～～～～
-                `;
+`;
                 result+=`吾皇万岁万岁万万岁。恭请圣驾光临小号～
-                `;
+`;
                 result+=`每天上架最新视频，请皇上预览一定不负圣望！
-                `;
+`;
                 result+=`❤️<a data-miniprogram-appid="wx3043389d5754c7c4" data-miniprogram-path="pages/index/index">✨点击这里老司机不迷路✨</a>❤️;
 `;
                 result+=`/坏笑 偷偷告诉陛下一个最快捷的办法:回复电影名/导演/演员，您要的片子马上来！`;
@@ -103,7 +105,6 @@ router.post('/imService', function (req, res, next) {
             <MsgType><![CDATA[${msgtype}]]></MsgType>'
             <Content><![CDATA[${result}]]></Content>'
             </xml>`;
-                console.log(fromusername,tousername,createtime,msgtype,result);
                 res.end(xml);
             }else{
                 res.end('')

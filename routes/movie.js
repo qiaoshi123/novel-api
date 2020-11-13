@@ -8,17 +8,17 @@ let miniAppConfig = {
             player_video_ad:"adunit-d51b2fe4349e32f8",//播放页视频
             detail_video_view:"adunit-9400d31a028a03d9",//详情页视频
             before_video:"adunit-064af7f088965771",//视频前贴
-            player_ad_custom_clum_card:"",//播放页原生 adunit-33923e659fce193b
+            player_ad_custom_clum_card:"adunit-33923e659fce193b",//播放页原生 adunit-33923e659fce193b
             search_ad_custom_card:'adunit-2bbb641429fec1bb',//搜索原生卡片
             home_ad_custom_card:'adunit-98d83969db44874a',//首页原生卡片
-            home_ad_custom_float:'',//首页浮标adunit-5044a1a5c690d9ce
+            home_ad_custom_float:'adunit-5044a1a5c690d9ce',//首页浮标adunit-5044a1a5c690d9ce
             user_ad_custom_card:'adunit-0883927f700e211a',//个人中心原生卡片
             suggest_ad_custom_card:'adunit-58011e5bb9468edd'//推荐页面自定义原生卡片广告
         },
         gzh_url:'',
         logo:'http://file.17gwx.com/sqkb/image/2020/11/12/993585facb1e7d7802.png',
         name:'暴走电影街',
-        verify_version:'2.0.2',
+        verify_version:'2.0.3',
         movie_platform:'cunzhangbatv'
     }
 };
