@@ -68,6 +68,7 @@ router.post('/imService', function (req, res, next) {
 `;
                     })
                 }
+                console.log(result)
 
 //                 if (list.length > 0) {
 //                     result = `皇上，您要的片子来了，点击下方链接：
