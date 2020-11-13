@@ -15,7 +15,7 @@ let miniAppConfig = {
             user_ad_custom_card:'adunit-0883927f700e211a',//个人中心原生卡片
             suggest_ad_custom_card:'adunit-58011e5bb9468edd'//推荐页面自定义原生卡片广告
         },
-        gzh_url:'',
+        gzh_url:'https://mp.weixin.qq.com/s?__biz=MzA5MDkxODU5OA==&mid=2247483721&idx=1&sn=abf75d9911d8870c165ef788270ec3b1&chksm=90051ae0a77293f65c6de222064614565dd080792b118341fdc777409509943b9f9568ea4e97&token=838781523&lang=zh_CN#rd',
         logo:'http://file.17gwx.com/sqkb/image/2020/11/12/993585facb1e7d7802.png',
         name:'暴走电影街',
         verify_version:'2.0.3',
