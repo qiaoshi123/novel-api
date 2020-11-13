@@ -85,7 +85,7 @@ router.post('/imService', function (req, res, next) {
             });
         } else if(msgtype[0]=='event'){
             if(event[0] =='subscribe'){
-
+                msgtype = ['text'];
                 let result = `皇上驾到～～～～
                 `;
                 result+=`吾皇万岁万岁万万岁。恭请圣驾光临小号～
