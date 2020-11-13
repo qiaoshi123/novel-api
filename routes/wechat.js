@@ -52,7 +52,7 @@ router.post('/imService', function (req, res, next) {
             res.send('error')
         }
         if (msgtype[0] == 'text') {
-            let searchUrl = `${common.LOCAL}/tv1026/search?wd=${encodeURIComponent(content[0])}&type=1026tv`;
+            let searchUrl = `${common.LOCAL}/movie/search?wd=${encodeURIComponent(content[0])}&appId=wx3043389d5754c7c4&app_v=2.0.2`;
             request.get(searchUrl, (err, response, body) => {
                 if (err) {
                     return console.error('upload failed:', err);
