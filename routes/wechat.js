@@ -47,7 +47,7 @@ router.post('/imService', function (req, res, next) {
     if (code.trim() == signature.trim()) {
 
         let xmlObj = req.body.xml || {};
-        let {tousername, fromusername, createtime, msgtype, content} = xmlObj;
+        let {tousername, fromusername, createtime, msgtype, content,event} = xmlObj;
         if (!msgtype) {
             res.send('error')
         }
@@ -82,8 +82,32 @@ router.post('/imService', function (req, res, next) {
             </xml>`;
                 res.end(xml);
             });
-        } else {
-            res.end('error')
+        } else if(msgtype[0]=='event'){
+            if(event[0] =='subscribe'){
+
+                let result = `皇上驾到～～～～
+                `;
+                result+=`吾皇万岁万岁万万岁。恭请圣驾光临小号～
+                `;
+                result+=`每天上架最新视频，请皇上预览一定不负圣望！
+                `;
+                result+=`/阴险<a data-miniprogram-appid="wx3043389d5754c7c4" data-miniprogram-path="pages/index/index">点击这里老司机不迷路</a>/阴险
+`;
+                result+=`/坏笑 偷偷告诉陛下一个最快捷的办法:回复电影名/导演/演员，您要的片子马上来！`;
+
+                let xml = `<xml>
+            <ToUserName><![CDATA[${fromusername}]]></ToUserName>'
+            <FromUserName><![CDATA[${tousername}]]></FromUserName>'
+            <CreateTime><![CDATA[${createtime}]]></CreateTime>'
+            <MsgType><![CDATA[${msgtype}]]></MsgType>'
+            <Content><![CDATA[${result}]]></Content>'
+            </xml>`;
+                res.end(xml);
+            }else{
+                res.end('')
+            }
+        }else{
+            res.end('')
         }
 
     } else {
