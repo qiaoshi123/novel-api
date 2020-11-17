@@ -57,7 +57,7 @@ let operateJson = {
         {
             title:'5年了，只有这19部电影闯进了豆瓣TOP250',
             sub_title:'',
-            extend:'webview@https://mp.weixin.qq.com/s/Pa8Lokh2At2uKcTHdiLIng@5年了，只有这19部电影闯进了豆瓣TOP250@#000000@#ffffff',
+            extend:'webview@https://mp.weixin.qq.com/s/0EMf3XBorQyPNXnkqI5iUQ@5年了，只有这19部电影闯进了豆瓣TOP250@#000000@#ffffff',
             id:"5",
             pic:"https://mmbiz.qpic.cn/mmbiz_gif/ZNte7Vam6YfwcUyWqsSN9qkdpLXavn7WVkezkYkx59O13q1ImmTmD8mLPvBzddHMN8fJ96f5uAwBQRoZAAuCVg/640?wx_fmt=gif",
         },
