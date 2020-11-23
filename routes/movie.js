@@ -34,13 +34,13 @@ let baseUrls = {
 let operateJson = {
     //首页预埋广告位，配置的话，会顶替 banner广告
     home_page_operate:[
-        // {
-        //     title:'你欠周星驰多少电影票',
-        //     sub_title:'曾经...',
-        //     pic:'http://uploads-admin.cdn.woquhudong.cn/quce/1441178501784.jpeg',
-        //     extend:'thirdMp@wxb9473c91e3b00aa0@pages/detail/detail?id=521',
-        //     id:"1"
-        // }
+        {
+            title:'生活账单',
+            sub_title:'生活账单',
+            pic: 'http://file.17gwx.com/sqkb/image/2020/11/23/666535fbb6c53a4268.png',
+            extend:'thirdMp@wxf588bcc2cea80618@pages/cost/cost',
+            id:"1"
+        }
     ],
     //主搜和搜索结果预埋，配置的话会顶替搜索banner和搜索自定义原生卡片广告
     search_page_operate:[
