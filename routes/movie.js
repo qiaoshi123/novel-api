@@ -35,8 +35,8 @@ let operateJson = {
     //首页预埋广告位，配置的话，会顶替 banner广告
     home_page_operate:[
         {
-            title:'生活账单',
-            sub_title:'生活账单',
+            title:'',
+            sub_title:'',
             pic: 'http://file.17gwx.com/sqkb/image/2020/11/23/666535fbb6c53a4268.png',
             extend:'thirdMp@wxf588bcc2cea80618@pages/cost/cost',
             id:"1"
